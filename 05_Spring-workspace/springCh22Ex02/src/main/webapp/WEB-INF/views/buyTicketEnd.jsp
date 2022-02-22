@@ -25,35 +25,17 @@
 <body>
 
 <div class="container bg-light border p-3">
-	<h3>buyTicket 카드 결제</h3>
+	<h3>buyTicket 카드 완료</h3>
 	<hr />
-	<form action="buyTicketCard" method="post" id="frm">
-		<div class="form-group">
-		<label for="id">고객 아이디 : </label> 
-		<input type="text" name="consumerId" id="id" class="form-control" />
-		</div>
-		<div class="form-group">
-		<label for="amount">티켓 수 &nbsp; 량 : </label> 
-		<input type="text" name="amount" id="amount" class="form-control"/>
-		</div>
-		<input type="button" value="구  매" class="btn btn-sm btn-primary"/>
-		<input type="reset" value="재선택" class="btn btn-sm btn-danger"/>
-	</form>
+	<div class="form-group">
+	<label for="id">고객 아이디 : </label> 
+	<input type="text" name="consumerId" id="id" class="form-control" value="${ticketInfo.consumerId}" readonly="readonly" />
+	</div>
+	<div class="form-group">
+	<label for="amount">티켓 수량 : </label> 
+	<input type="text" name="amount" id="amount" class="form-control" value="${ticketInfo.amount}" readonly="readonly" />
+	</div>
+	<a href="/ch22ex02"><button type="button" class="btn btn-sm btn-success">구매페이지로</button></a>
 </div>
-
-<script>
-$(document).ready(function() {
-	$(".btn-primary").click(function(e) {
-		e.preventDefault();
-		
-		if (confirm("티켓을 구매하시겠습니까?")) {
-			$("#frm").submit();
-		} else {
-			return;
-		}
-	});
-});
-</script>
-
 </body>
 </html>

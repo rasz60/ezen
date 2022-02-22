@@ -33,11 +33,11 @@
 		<input type="text" name="consumerId" id="id" class="form-control" />
 		</div>
 		<div class="form-group">
-		<label for="amount">티켓 수 &nbsp; 량 : </label> 
+		<label for="amount">티켓 수량 : </label> 
 		<input type="text" name="amount" id="amount" class="form-control"/>
 		</div>
-		<input type="button" value="구  매" class="btn btn-sm btn-primary"/>
-		<input type="reset" value="재선택" class="btn btn-sm btn-danger"/>
+		<input type="submit" value="구  매" class="btn btn-sm btn-primary"/>
+		<input type="reset" value="초기화" class="btn btn-sm btn-danger"/>
 	</form>
 </div>
 
@@ -46,11 +46,24 @@ $(document).ready(function() {
 	$(".btn-primary").click(function(e) {
 		e.preventDefault();
 		
+		let amount = $("#amount").val();
+		
+		if ( amount > 2 ) {
+			alert("2장 이상 구매할 수 없습니다.");
+			$("#amount").focus();
+			return;
+		} else if ( isNaN(amount) ) {
+			alert("수량을 숫자로 입력해주세요.");
+			$("#amount").focus();
+			return;
+		}
+			
 		if (confirm("티켓을 구매하시겠습니까?")) {
 			$("#frm").submit();
 		} else {
 			return;
 		}
+
 	});
 });
 </script>
