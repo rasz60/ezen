@@ -1,5 +1,9 @@
 package com.wvwv.ch21ex01.util;
 
-public class Constant {
+import org.springframework.jdbc.core.JdbcTemplate;
 
+public class Constant {
+	
+	public static JdbcTemplate template;
+	
 }
