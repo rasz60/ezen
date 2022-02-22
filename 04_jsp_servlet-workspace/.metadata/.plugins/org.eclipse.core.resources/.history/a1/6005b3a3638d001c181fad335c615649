@@ -1,0 +1,23 @@
+package com.wvwv.jspMVC.DAO;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class BDao {
+	//DBCP 사용  : DAO를 통해 DB 접속량과 제어권을 정의
+	DataSource dataSource;
+	
+	
+	public BDao() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource)context.lookup("java:comp/env/jdbc/Oracle11g");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 게시판 처리에 필요한 게시판 내용 만들기(insert), 게시판 내용보기(select) 수정, 삭제 등
+	
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>For/of 문</title>
+</head>
+
+<body>
+
+<h3>for/of문 사용법</h3>
+<hr />
+
+<p id="demo"></p>
+
+<script>
+const cars = ["BMW", "Volvo", "Mini"];
+let text = "";
+for(let x of cars) { // JAVA 향상된 for문
+	text += x + "<br />";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+</body>
+</html>

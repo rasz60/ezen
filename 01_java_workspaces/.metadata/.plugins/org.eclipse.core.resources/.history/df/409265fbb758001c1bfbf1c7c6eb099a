@@ -1,0 +1,16 @@
+
+import java.io.*;
+
+public class StandardIOEx01 {
+	public static void main(String[] args) {
+		try {
+			int input = 0;
+			
+			while( (input = System.in.read()) != -1 ) {
+				System.out.printf("input : %3d, (char)input : %c%n", input, (char)input);
+			}
+		} catch(IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+}

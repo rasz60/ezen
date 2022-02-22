@@ -1,0 +1,54 @@
+
+2월 08, 2022 14:43:49.257 NEW SESSION
+2월 08, 2022 14:43:49.257 [7292:12476:0208/144349.222:ERROR:data_pack.cc(126)] Could not open pak file for writing: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다. (0x20)
+2월 08, 2022 14:43:51.278 [7292:6228:0208/144351.278:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+2월 08, 2022 14:43:51.279 [7292:6228:0208/144351.278:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+2월 08, 2022 14:43:51.279 [7292:6228:0208/144351.278:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+2월 08, 2022 14:43:51.280 [7292:6228:0208/144351.279:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+2월 08, 2022 14:43:51.304 [7292:13232:0208/144351.303:ERROR:device_event_log_impl.cc(214)] [14:43:51.303] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+2월 08, 2022 14:55:39.687 [5960:8060:0208/145539.686:ERROR:data_pack.cc(126)] Could not open pak file for writing: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다. (0x20)
+2월 08, 2022 14:55:41.718 [5960:13152:0208/145541.718:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+2월 08, 2022 14:55:41.718 [5960:13152:0208/145541.718:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+2월 08, 2022 14:55:41.719 [5960:13152:0208/145541.718:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+2월 08, 2022 14:55:41.719 [5960:13152:0208/145541.718:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+2월 08, 2022 14:55:41.734 [5960:13072:0208/145541.734:ERROR:device_event_log_impl.cc(214)] [14:55:41.734] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+2월 08, 2022 16:03:36.388 [5960:13072:0208/160336.388:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:03:36.389 [5960:13072:0208/160336.388:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'sourceURL')", source:  (0)
+2월 08, 2022 16:03:46.497 [5960:13072:0208/160346.497:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:03:46.497 [5960:13072:0208/160346.497:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'sourceURL')", source:  (0)
+2월 08, 2022 16:03:47.225 [5960:13072:0208/160347.225:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:03:47.226 [5960:13072:0208/160347.225:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:04:09.80 [5960:13072:0208/160409.079:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:04:09.80 [5960:13072:0208/160409.079:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'sourceURL')", source:  (0)
+2월 08, 2022 16:04:51.185 [5960:13072:0208/160451.185:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:04:51.186 [5960:13072:0208/160451.185:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:06:08.46 [5960:13072:0208/160608.045:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:06:08.46 [5960:13072:0208/160608.045:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'sourceURL')", source:  (0)
+2월 08, 2022 16:06:09.160 [5960:13072:0208/160609.160:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:06:09.161 [5960:13072:0208/160609.160:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:06:39.679 [5960:13072:0208/160639.678:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:06:39.679 [5960:13072:0208/160639.678:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'sourceURL')", source:  (0)
+2월 08, 2022 16:09:40.887 [5960:13072:0208/160940.887:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:09:40.887 [5960:13072:0208/160940.887:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:27:58.925 [5960:13072:0208/162758.925:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:27:58.926 [5960:13072:0208/162758.925:ERROR:CONSOLE(0)] "TypeError: Cannot read properties of null (reading 'sourceURL')", source:  (0)
+2월 08, 2022 16:28:16.226 [5960:13072:0208/162816.226:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:28:16.227 [5960:13072:0208/162816.226:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:28:16.227 [5960:13072:0208/162816.226:ERROR:CONSOLE(1)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+2월 08, 2022 16:41:17.391 [5960:13072:0208/164117.391:ERROR:interface_endpoint_client.cc(658)] Message 5 rejected by interface blink.mojom.WidgetHost
+
+2월 09, 2022 09:28:18.625 NEW SESSION
+2월 09, 2022 09:28:18.625 [6988:1824:0209/092818.623:ERROR:data_pack.cc(126)] Could not open pak file for writing: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다. (0x20)
+2월 09, 2022 09:28:20.745 [6988:14268:0209/092820.745:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+2월 09, 2022 09:28:20.746 [6988:14268:0209/092820.745:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+2월 09, 2022 09:28:20.746 [6988:14268:0209/092820.745:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+2월 09, 2022 09:28:20.746 [6988:14268:0209/092820.746:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+2월 09, 2022 09:28:20.762 [6988:7676:0209/092820.762:ERROR:device_event_log_impl.cc(214)] [09:28:20.762] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+2월 09, 2022 09:37:20.117 [1532:12880:0209/093720.116:ERROR:data_pack.cc(126)] Could not open pak file for writing: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다. (0x20)
+2월 09, 2022 09:37:22.244 [1532:10232:0209/093722.244:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+2월 09, 2022 09:37:22.244 [1532:10232:0209/093722.244:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+2월 09, 2022 09:37:22.245 [1532:10232:0209/093722.244:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+2월 09, 2022 09:37:22.245 [1532:10232:0209/093722.245:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+2월 09, 2022 09:37:22.257 [1532:10844:0209/093722.256:ERROR:device_event_log_impl.cc(214)] [09:37:22.256] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+2월 09, 2022 10:14:35.446 [1532:10844:0209/101435.446:ERROR:interface_endpoint_client.cc(658)] Message 1 rejected by interface blink.mojom.WidgetHost
+2월 09, 2022 10:23:07.219 [1532:10844:0209/102307.219:ERROR:interface_endpoint_client.cc(658)] Message 1 rejected by interface blink.mojom.WidgetHost

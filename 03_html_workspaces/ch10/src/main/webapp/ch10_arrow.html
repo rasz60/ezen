@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	
+<h3>Arrow 함수</h3>
+<hr />
+
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<script>
+var hello;
+hello = () => { //hello는 화살표 함수 변수 ()는 파라메타 =>{} 실행 함수 구현 (람다)
+	document.getElementById("demo").innerHTML += this;
+}
+window.addEventListener("load", hello);
+
+document.getElementById("btn").addEventListener("click", hello);
+</script>
+</body>
+</html>

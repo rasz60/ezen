@@ -1,0 +1,69 @@
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+public class LamdaEx08 {
+
+	public static void main(String[] args) {
+		
+		Function<String, Integer> f = (s) -> Integer.parseInt(s);
+		System.out.println(f.apply("10") + 20);
+		
+		Function<String, Integer> f1 = Integer::parseInt;
+		System.out.println(f1.apply("10") + 20);
+		
+		Supplier<MyClass> 		  s1 = () -> new MyClass();
+		Supplier<MyClass> 		  s2 = MyClass::new;
+		
+		Function<String, MyClass> s3 = s -> new MyClass(s);
+		Function<String, MyClass> s4 = MyClass::new;
+		
+		MyClass mc1 = s1.get();
+		MyClass mc2 = s2.get();		
+		System.out.println(mc1);
+		System.out.println(mc2);
+		
+		MyClass mc3 = s3.apply("LamdaMethodReference1.");
+		MyClass mc4 = s4.apply("LamdaMethodReference2.");
+		System.out.println(mc3);
+		System.out.println(mc4);
+		
+		MyClass mc5 = s4.apply("Hello.");
+		
+		String check = "Hello.";
+		
+		System.out.println(mc5.equals(check));
+		
+	}
+
+}
+
+class MyClass {
+	String iv;
+	
+	public MyClass() {
+		this("DefaultConstructor.");
+	}
+	
+	public MyClass(String s) {
+		iv = s;
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	public boolean equals(String string) {
+		if ( iv == string ) {
+			return true;
+		}
+		return false;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "MyClass [iv = " + iv + "]";
+	}
+
+}

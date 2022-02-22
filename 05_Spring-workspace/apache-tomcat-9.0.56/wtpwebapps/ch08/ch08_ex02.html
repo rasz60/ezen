@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>CSS style 변경</title>
+<script>
+var count = 0;
+function change() {
+	count++;
+	let span = document.getElementById("mySpan");
+	let inp = document.getElementById("inp");
+	if( (count % 2) == 1 ) {
+		inp.value = "되돌리기";
+		span.style.fontSize = "30px";
+		span.style.display = "block";
+		span.style.width = "6em";
+		span.style.border = "3px dotted magenta";
+		span.style.margin = "20px";
+		span.style.color = "green";
+	} else {
+		inp.value = "스타일변경";
+		span.style.fontSize = "16px";
+		span.style.display = "inline";
+		span.style.width = "1em";
+		span.style.border = "none";
+		span.style.margin = "auto auto";
+		span.style.color = "red";
+	}
+}
+</script>
+</head>
+
+<body>
+
+<h3>CSS 스타일 동적 변경</h3>
+<hr />
+<p style="color:blue">
+	이것은 <span id="mySpan" style="color:red">문장입니다.</span>
+</p>
+<input id="inp" type="button" value="스타일변경" onclick="change()" />
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+	  crossorigin="anonymous"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>bs media</title>
+</head>
+
+<body>
+
+<div class="container mt-3">
+	<h3>media class 사용</h3>
+	<!-- .media : 이미지/비디오가 포함된 미디어 박스에 지정, card처럼 배치 -->
+	<div class="media border p-3">
+		<img src="media/img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px" />
+		<!-- media-body : media 박스 내용 부분 -->
+		<div class="media-body">
+			<h4>John Doe <small><i>Posted on February 19, 26</i></small></h4>
+			<p>Create a media object with the .media and .media-body classes:</p>
+		</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>media class 중첩사용</h3>
+	<div class="media border p-3">
+		<img src="media/img_avatar3.png" alt="John Doe" class="mr-3 rounded-circle" style="width:60px" />
+		<div class="media-body">
+			<h4>Jinwoong Kim <small><i>Posted on February 22, 07</i></small></h4>
+			<p>PLZ FOLLOW MA GIT.</p>
+			<!-- media-body에 media 박스를 추가하여 중첩하여 사용할 수 있다. -->
+			<div class="media border p-3 bg-light">
+				<i class="fab fa-github-square d-block mr-3" style="font-size: 40px;"></i>
+				<div class="media-body">
+					<h5>GITHUB <small><a href="https://github.com/rasz60" target="_blank">@rasz60</a></small></h5>
+					<p>4 public repositories and 1 private repository.</p>
+					<p>JAVA, HTML, CSS, JAVASCRIPT, SERVLET, BOOTSTRAP, JQRUEY, SQL . . .</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

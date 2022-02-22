@@ -1,0 +1,13 @@
+
+import java.util.function.*;
+import java.util.*;
+
+public class LamdaEx06 {
+	public static void main(String[] args) {
+		IntSupplier s = () -> (int)(Math.random() * 100) + 1;
+		IntConsumer c = i -> System.out.println(i + ", ");
+		IntPredicate p = i -> i % 2 == 0;
+		IntUnaryOperator op = i -> i / 10 * 10;
+	}
+
+}

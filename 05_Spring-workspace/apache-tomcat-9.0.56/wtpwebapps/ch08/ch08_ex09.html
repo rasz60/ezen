@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>document.open()/close() 메서드</title>
+</head>
+
+<body>
+
+<h3>HTML 문서 작성기 만들기</h3>
+<hr />
+
+<p>아래에 HTML 문서를 작성하고 버튼을 클릭해보세요. 새 윈도우에 HTML 문서가 출력됩니다.</p>
+<textarea id="srcText" cols="40" rows="10"></textarea>
+<br /><br />
+<button onclick="showHTML()">HTML 문서 출력하기</button>
+
+<script>
+let win = null;
+function showHTML() {
+	if(win == null || win.closed) {
+		win = window.open("", "outWin", "width=250, height=150");
+		//open("URL", "창이름", "창크기"); 팝업창을 띄워준다.
+		let text = document.getElementById("srcText");
+		win.document.open();
+		win.document.write(text.value);
+	}
+}
+</script>
+</body>
+</html>

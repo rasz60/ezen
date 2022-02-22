@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>let 키워드 사용</title>
+</head>
+
+<body>
+
+<h3>let 키워드를 사용한 변수 선언</h3>
+<hr />
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+let x = 10; // 전역변수 x 선언
+{
+	let x = 2; //블럭안에 로컬변수 x 선언
+	document.getElementById("demo1").innerHTML = x;
+}
+// 블럭 밖에서 x를 출력하면 전역변수의 값이 나옴.
+document.getElementById("demo2").innerHTML = x;
+
+/*
+*같은 영역에서 var 처럼 쓸 수 있으나, 값을 재정의 할 수는 없고 변형만 할 수 있다.
+*ex>
+*let x = 2;
+*x += 6; 가능.
+*
+*let x = 2;
+*let x = 8; 불가능.
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>문자열 연산</title>
+</head>
+
+<body>
+	
+	<h3>문자열 연산</h3>
+	<hr />
+	
+	<script>
+		// char + digit = char;
+		document.write("abc" + 23 + "<br />"); // "abc23"
+		document.write(23 + "abc" + "<br />"); // "23abc"
+		
+		// digit + char(digit) = char; 
+		document.write(23 + "32" + "<br />"); // "2332"
+		
+		// digit1 + digit2 = digit;
+		document.write(23 + 32 + "<br />") // 58
+				
+		// digit1 + digit2 + char = char(digit(digit1+digit2)+char);
+		document.write(23 + 32 + "abc" + "<br />"); // "58abc"
+		
+		// char + digit1 + digit2 = char(char(char+digit1)+digit2);
+		document.write("abc" + 23 + 32 + "<br />"); // "abc2332"
+		
+		var name = "kitae";
+		document.write(name=="kitae");
+		document.write("<br />");
+		document.write(name > "park"); // 사전 순으로 char 비교 가능		
+	</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;jsp_servlet_21_ex01&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     jstl.jar&#x0D;&#x0A;     standard.jar" description="Copy files" element1="src/main/webapp/WEB-INF/lib/jstl.jar" element2="src/main/webapp/WEB-INF/lib/standard.jar" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1644806523970" target="/jsp_servlet_22_ex01/src/main/webapp/WEB-INF/lib" units="0" version="1.0"/>
+</session>

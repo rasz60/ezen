@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>입력요소에 캡션달기</title>
+</head>
+
+<body>
+	<h3>&lt;label&gt; 태그로 로그인 폼 만들기</h3>
+	<hr />
+	
+	<form action="#" name="fo" method="get">
+		<label>
+			사용자 ID : <input type="text" size="15" value="" autocomplete="off" placeholder="email address"/>
+		</label><br />
+		<!-- label-input #1 : label 안에 input을 만들어 사용 -->
+		
+		<label for="pass">비밀 번호 : </label>
+		<input id="pass" type="password" size="15" value="" autocomplete="off" placeholder="password(8-15)" />
+		<!-- label-input #2 : input id와 label for를 매칭시켜서 연결하여 사용 -->	
+	</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>switch</title>
+</head>
+
+<body>
+	
+	<h3>switch문으로 커피 주문</h3>
+	<hr />
+	
+	<script>
+		var price = 0;
+		var coffee = prompt("주문하실 커피를 입력해주세요.(영어/한글)", "");
+		
+		switch(coffee) {
+			case "espresso" :
+			case "에스프레소"  :
+				price = 2000;
+				break;
+				
+			case "cappucino" :
+			case "카푸치노"    :
+				price = 3000;
+				break;
+			
+			case "cafelatte" :
+			case "카페라떼"    :
+			case "카페라테"    :
+				price = 3500;
+				break;
+				
+			default :
+				price = 0;
+				alert("주문하신 메뉴는 준비되어 있지 않습니다.(에스프레소, 카푸치노, 카페라떼)");
+				document.write(coffee + "는 없는 메뉴입니다.")
+				break;
+		}
+		
+		if( price != 0 ) {
+			document.write(coffee + "는 " + price + "원 입니다.");
+		}
+		
+	</script>
+</body>
+</html>

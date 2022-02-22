@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:c="http://www.springframework.org/schema/c"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config />
+	<bean id="student" class="com.wvwv.ch07ex02.Student" scope="singleton" c:name="홍길순" c:age="30" />
+	<!-- scope=
+				"singleton" [default] : 유일한 bean으로 생성되어 해당 bean을 사용하여 생성한 객체의 값은 static
+				"prototype"           : 지정한 bean의 값을 초기값으로 갖는 bean을 생성하여 각각의 객체로 생성
+				
+				[Web-aware Spring ApplicationContext 안에서 유효]
+				"request"             : HTTP request life-cycle 안에서 singletone으로 생성
+				"session"             : HTTP session life-cycle 안에서 singletone으로 생성
+				"global session"      : HTTP global session life-cycle 안에서 singletone으로 생성
+	 -->
+</beans>

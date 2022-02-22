@@ -1,0 +1,301 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('http://fonts.googleapis.com/earlyaccess/lato.css');
+@import url('http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+* {
+    padding: 0 ;
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', 'Lato', 'Spoqa Han Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap ;
+    min-width: 1200px ;
+    max-width: 2000px ;
+    /* min-height: 3200px ; */
+    max-height: 4000px ;
+    width: 100% ;
+    height: 100% ;
+}
+
+/*================================= header START =================================*/
+header {
+    display: flex ;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: fixed ; top: 0;
+    background-color: rgb(12, 12, 12);
+    width: 100% ;
+    height: 3% ;
+    min-width: 1200px ;
+    max-width: 2000px ;
+    min-height: 100px ;
+    z-index: 3;
+    opacity: 0.9;
+}
+
+
+/*------ header_logo ------*/
+header > #logo {
+    display: flex ;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+/*------ header_logo ------*/
+
+/*------ header_search ------*/
+header > #search {
+    display: flex;
+    color: white ; 
+    width: 50% ;
+}
+
+header > #search > input {
+    margin-right: 0;
+    margin-left: 30%;
+    text-align: left;
+    font-size: 15px ;
+    width: 50% ;
+    min-height: 40px ;
+    border: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(228, 225, 225);
+    
+}
+
+header > #search > input:focus {
+    outline-style: none;
+}
+
+header > #search > input::placeholder {
+    color: rgba(223, 215, 215, 0.932) ;
+    font-style: italic;
+    font-weight: 100;
+}
+header > #search > a {
+    margin: 0 0;
+}
+
+header > #search > a > img {
+    cursor: pointer;
+    transition: transform 2s;
+}
+
+header > #search > a> img:hover {
+    transform: rotate(360deg);
+}
+/*------ header_search ------*/
+
+/*------ header_menu ------*/
+header > #menu {
+    width: 40% ;
+    font-size: 1.7em ;
+}
+
+header > #menu > ul {
+    display: flex;
+    width: 70% ;
+}
+
+header > #menu > ul > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.897);
+    width: 25% ;
+    height: 100% ;
+    min-height: 100px ;
+    border: 0 0.1 0 0.1 solid rgb(219, 215, 215) ;
+    transition: font-size 1s;
+    cursor: pointer;
+
+}
+
+header > #menu > ul > li:hover {
+    font-size : 35px;
+}
+
+header > #menu > ul > li > a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Shadows Into Light', cursive; font-weight: 700;
+}
+
+/*------ header_menu ------*/
+/*================================= header END =================================*/
+
+/*================================= #products start =================================*/
+#products {
+    width: 100%;
+    height:100%;
+    position:relative;
+    max-width: 2000px;
+    min-height: 1600px;
+    margin-top: 6%;
+    /* border: 3px solid black; */
+    /* box-sizing: border-box; */
+}
+
+#products > .p_box {
+    width : 70%;
+    height:100%;
+    max-width: 1200px;
+    margin-left:0%;
+    /* border: 3px solid black; */
+    /* box-sizing: border-box; */
+}
+
+#products > .p_box > span{
+    display: inline-block;
+    /* box-sizing: border-box; */
+    /* border: 3px solid black; */
+}
+
+#products > .p_box > span > img{
+    width:500px;
+    height:500px;
+}
+
+#products > .p_detail {
+    width:28%;
+    /* max-width:800px; */
+    position:absolute;
+    top: 200px;
+    right: 1%;
+    /* box-sizing: border-box; */
+    /* border: 3px solid black; */
+}
+
+#products > .p_detail > ul > li:nth-of-type(2) {
+    color: #a5a5a5;
+}
+
+#products > .p_detail > ul > li:nth-of-type(3) > span{
+    font-size: 22px;
+    color: #99001b;
+}
+
+#products > .p_detail > ul > li:nth-of-type(4) > span , li:nth-of-type(5) > span {
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+#products > .p_detail > ul > li:nth-of-type(6) ,li:nth-of-type(7){
+    text-align: left;
+}
+
+#products > .p_detail > ul > li:nth-of-type(6) > span {
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+#products > .p_detail > ul > li:nth-of-type(7) {
+    font-size: 14px;
+    color: rgb(255, 0, 0);
+}
+
+#products > .p_select {
+    width:28%;
+    right:1%;
+    position:absolute;
+    top:850px;
+    /* border: 3px solid black; */
+}
+
+#products > .p_select > form > label > input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+#products > .p_select > form > label{
+    padding :5px 10px;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+    margin:0 5px;
+    box-sizing: border-box;
+}
+
+#products > .p_select > form > label:focus-within{
+    font-weight: bold;
+    border : 1px solid black;
+    box-sizing: border-box;
+    margin:0 4px;
+}
+/*================================= #products END =================================*/
+
+/*================================= footer START =================================*/
+footer {
+    width: 100% ;
+    height: 100% ;
+    /* border: 1px solid red; */
+    flex-wrap: nowrap;
+    width: 100% ;
+    height: 18.875% ;
+}
+
+footer > .top{
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+footer > .top > .footer_menu > h1{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.897);
+    text-align: left;
+}
+
+footer > .top > .footer_menu > ul{
+    margin-top: 5px;
+    /* border: solid red 1px; */
+    width: 100%;
+}
+
+footer > .top > .footer_menu > ul > li{
+    /* border: solid yellow 1px; */
+    text-align: left;
+    margin-top: 1px;
+}
+
+footer > .top > .footer_menu > ul > li > a{
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 16px;
+    /* border: solid red 1px; */
+}
+
+footer > .mid{
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    padding: 20px;
+    border-top: 3px solid gray;
+}
+
+footer > .mid > .des > h1{
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 16px;
+    margin: 3px 0 ;
+    font-weight: 400;
+}
+
+footer > .bottom{
+    background-color: rgb(12, 12, 12);
+    border-top: 3px solid gray;
+
+}
+/*================================= footer END =================================*/

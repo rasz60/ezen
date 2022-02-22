@@ -1,0 +1,44 @@
+<%	
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String brand = request.getParameter("brand");
+	String gender = request.getParameter("gender");
+	String filter = request.getParameter("filter");
+	String sql = "SELECT * FROM product3";
+	
+	if( brand != null || gender != null ) {
+		sql += " WHERE";
+	}
+	
+	if ( brand != null && gender != null ) {
+		sql += " p_brand = " + brand + " AND p_gender = " + gender;
+	} else if ( brand == null && gender != null ) {
+		sql += " p_gender = " + gender;
+	} else if ( brand != null && gender == null ) {
+		sql += " p_brand = " + brand;
+	} 
+	
+	if( filter != null) {
+		sql += " ORDER BY " + filter;
+	}
+	
+	pstmt = conn.prepareStatement(sql); 
+	rs = pstmt.executeQuery();
+	while(rs.next()){
+%>
+<div class="product">	        
+    <div class="wrap">      
+        <a href="product.jsp?p_id=<%=rs.getString("p_id")%>"><img src="resources/img/p_img/<%=rs.getString("p_image")%>" alt="no"></a>
+    </div>
+    <div class="product_info">
+      	<p class="brand"><a href="products.jsp?brand='<%=rs.getString("p_brand")%>'"><%=rs.getString("p_brand")%></a></p>
+        <p class="ename"><a href="#"><%=rs.getString("p_ename")%></a></p>
+        <p class="kname"><%=rs.getString("p_kname")%></p>
+        <h3><a href="#"><%=rs.getString("p_price").replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",")%>¿ø</a></h3>
+    </div>
+</div>
+<% }
+	rs.close();
+	pstmt.close();
+	conn.close();
+%>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>BS 메뉴바</title>
+<style>
+h4 {
+	margin: 10px;
+}
+
+
+
+#mainMenu {
+	width: 100%;
+	border: none;
+	margin: 0;
+}
+
+.navbar {
+	margin: 10px;
+	border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+<h4>반응형 메뉴바 (RWD NAVBAR)</h4>
+<!-- 시멘틱 태그 nav로 .navbar 생성 -->
+<!-- .navbar-expand-"크기" : 크기(xl > lg > md > sm)에 따른 RWD(반응형)형태로 생성 [기기 화면 width에 따라 수평/수직 정렬] -->
+<nav class="navbar navbar-expand-lg bg-light" id="ex01">
+	<!-- .navbar-nav : 실제 메뉴 항목을 담을 리스트에 지정 -->
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link4</a>		
+		</li>
+	</ul>
+</nav>
+
+<h4>수직 배열 기본 메뉴바</h4>
+<!-- navbar-expand-크기를 지정하지 않으면 수직배치 메뉴 생성 -->
+<nav class="navbar bg-light" id="ex02">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link4</a>		
+		</li>
+	</ul>
+</nav>
+
+<h4>navbar 수평 정렬</h4>
+<!-- justify-content-위치 : 위치(start[default] / center / end)로 수평 정렬 -->
+<nav class="navbar navbar-expand-lg bg-light justify-content-end" id="ex03">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link4</a>		
+		</li>
+	</ul>
+</nav>
+
+<h4>navbar 글씨색 지정</h4>
+<!-- navbar-색상 : 입력한 색상 값이 배경색일 때 알맞는 글씨 색으로 변경 -->
+<nav class="navbar navbar-expand-lg bg-dark justify-content-center navbar-dark"  id="ex04">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link4</a>		
+		</li>
+	</ul>
+</nav>
+
+<h4>navbar-brand 사용</h4>
+<nav class="navbar navbar-expand-lg bg-warning justify-content-center navbar-warning"  id="ex06">
+	<!-- .navbar-brand : navbar 안에 로고 부분에 지정, a태그 주로 사용 -->
+	<a href="##" class="navbar-brand">LOGO</a>
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link4</a>		
+		</li>
+	</ul>
+</nav>
+
+<h4>navbar-brand 이미지 사용</h4>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark"  id="ex05">
+	<!-- .navbar-brand : navbar 안에 로고 부분에 지정, a태그 주로 사용 -->
+	<a href="##" class="navbar-brand">
+		<img src="media/bird.jpg" alt="LOGO" style="width: 40px; height: 40px;"/>
+	</a>
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link4</a>		
+		</li>
+	</ul>
+</nav>
+
+<h4>width에 반응하여 숨겨지는 메뉴(collapse) & 상위 고정</h4>
+<!-- fixed-top : 페이지 최상위 메뉴 고정 -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="mainMenu">
+
+	<a href="#" class="navbar-brand">Navbar</a>
+	<!-- .navbar-toggler : collapse 됐을 때 생성될 버튼에 지정, data-target은 collapse될 엘리먼트를 지정 -->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<!-- navbar-toggler-icon : 버튼으로 생성되는 bs 제공 아이콘 (삼선) -->
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- .collapse : collapse될 메뉴에 지정 (특정 width보다 작아지면 button을 생성하고 숨겨지는 메뉴) -->
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="#ex01" class="nav-link">ex01</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="#ex02" class="nav-link">ex02</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="#ex03" class="nav-link">ex03</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="#ex04" class="nav-link">ex04</a>		
+			</li>
+
+			<li class="nav-item">
+				<a href="#ex05" class="nav-link">ex05</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="#ex06" class="nav-link">ex06</a>		
+			</li>
+
+			<li class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Dropdown Link</a>
+				<div class="dropdown-menu">
+					<a href="#" class="dropdown-item">Link1</a>
+					<a href="#" class="dropdown-item">Link2</a>
+					<a href="#" class="dropdown-item">Link3</a>
+				</div>
+			</li>
+		</ul>
+
+		<!-- form을 활용하여 메뉴바에 검색창을 만들 수 있다. -->
+		<!-- form-inline : form 내부 엘리먼트 일렬 배치 /// ml-auto : 오른쪽 정렬 -->
+		<form action="#" class="form-inline ml-auto">
+			<input type="text" class="form-control mr-sm-2" placeholder="Search" />
+			<button class="btn btn-primary" type="submit">Search</button>
+		</form>
+	</div>
+</nav>
+</body>
+</html>

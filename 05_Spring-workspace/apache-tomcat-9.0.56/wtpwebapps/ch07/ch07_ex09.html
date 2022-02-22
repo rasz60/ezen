@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Object</title>
+<script>
+function inquiry() {
+	return this.balance;
+}
+
+function deposit(money) {
+	this.balance += money;
+}
+
+function withdraw(money) {
+	this.balance -= money;
+	return money;
+}
+//객체(사용자) 생성
+let account = new Object();
+
+//객체(사용자)의 속성
+account.owner = "황기태";
+account.code = "111";
+account.balance = 35000;
+
+//객체(사용자)의 속성을 메서드로 입력
+account.inquiry = inquiry;
+account.deposit = deposit;
+account.withdraw = withdraw;
+</script>
+</head>
+
+<body>
+
+<h3>new Object()로 사용자 객체 만들기</h3>
+<hr />
+
+<script>
+document.write("account : ");
+document.write(account.owner + ", ");
+document.write(account.code + ", ");
+document.write(account.balance + "<br />");
+
+account.deposit(10000);
+document.write("10000원 deposit한 후 잔액 : " + account.inquiry() + "원 입니다.<br />");
+account.withdraw(5000);
+document.write("5000원 withdraw한 후 잔액 : " + account.inquiry() + "원 입니다.<br />");
+</script>
+</body>
+</html>

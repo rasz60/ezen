@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>배열 [ ]</title>
+</head>
+
+<body>
+	
+<h3>[]로 배열 만들기</h3>
+<hr />
+
+<script>
+var plots = [20, 5, 8, 15, 20];
+document.write("var plots = [20, 5, 8, 15, 20]<br />");
+
+for (var i = 0; i < 5; i++) {
+	var size = plots[i];
+	document.write("plots[" + i + "] : ");
+	while(size > 0) {
+		document.write("*");
+		size--;
+	};
+	document.write(plots[i] + "<br />");
+};
+
+</script>
+</body>
+</html>

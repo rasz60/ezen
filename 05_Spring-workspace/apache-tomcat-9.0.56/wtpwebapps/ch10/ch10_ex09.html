@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>location 객체</title>
+</head>
+
+<body>
+
+<h3>window.location으로 웹 사이트 접속</h3>
+<hr />
+
+사이트 선택 : <br />
+<select id="site">
+	<option value="http://www.naver.com" selected>네이버</option>
+	<option value="http://www.google.com">구글</option>
+	<option value="http://www.microsoft.com">마이크로소프트</option>
+</select>
+<p>
+	<button onclick="load()">웹 사이트 접속</button>
+</p>
+
+<script>
+function load() {
+	let select = document.getElementById("site");
+	window.location = select.options[select.selectedIndex].value;
+}
+</script>
+</body>
+</html>

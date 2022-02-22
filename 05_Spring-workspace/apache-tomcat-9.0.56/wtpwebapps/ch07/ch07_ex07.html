@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>String 객체</title>
+</head>
+
+<body>
+
+<h3>String 객체의 메소드 활용</h3>
+<hr />
+
+<script>
+var a = new String("Boys and Girls");
+var b = "!!";
+document.write("a : " + a + "<br />");
+document.write("b : " + b + "<br />");
+
+document.write(a.charAt(0) + "<br />"); // a를 char[]로 만들어서 index 0 값을 불러옴
+document.write(a.concat(b, " 입니다.") + "<br />");
+document.write(a.indexOf("s") + "<br />"); // String.indexOf("txt") : 매개변수 txt가 String에 있는지 확인하여 첫 번째로 찾은 인덱스 반환 (txt가 없으면 -1 반환)
+document.write(a.slice(5, 8) + "<br />"); // String.slice(s_idx, e_idx)
+document.write(a.substr(5, 3) + "<br />");
+document.write(a.toUpperCase() + "<br />"); // String.toUpperCase() : String을 전부 대문자로 변경
+document.write(a.replace("and", "or") + "<br />"); // String.replace("str1", "str2") : String에서 str1을 찾아서 str2로 변경
+document.write("   k  itae  ".trim() + "<br />"); // 불필요한 공백 제거(string 제일 앞, 뒤, 두번 이상 띄어쓰기)
+
+var sub = a.split(" "); // String.split("txt") : String을 매개변수를 기준으로 분할하여 배열로 반환
+for(var i = 0; i < sub.length; i++) {
+	document.write("sub" + i + " = " + sub[i]  + "<br />");
+}
+
+</script>
+</body>
+</html>

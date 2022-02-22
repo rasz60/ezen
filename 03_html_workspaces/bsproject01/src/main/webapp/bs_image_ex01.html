@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>Image</title>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Rounded Corners</h2> <!-- .rounded : 이미지 테두리 둥굴게 -->
+<img src="media/cinqueterre.jpg" class="rounded" alt="Cinque Terre" width="304" height="236" />
+</div>
+
+<div class="container">
+<h2>Rounded-circle</h2> <!-- .rounded-circle : 이미지 원모양으로 -->
+<img src="media/cinqueterre.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236" />
+</div>
+
+<div class="container">
+<h2>Thumbnail</h2> <!-- .img-thumbnail : 두께있는 테두리 생성 -->
+<img src="media/cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236" />
+</div>
+
+<div class="container">
+<h2>Float</h2> <!-- .float-위치 : 왼쪽 / 오른쪽 정렬 -->
+<img src="media/paris.jpg" class="float-left" alt="paris" width="304" height="236" />
+<img src="media/paris.jpg" class="float-right" alt="paris" width="304" height="236" />
+</div>
+
+<div class="container">
+<h2>이미지를 중앙에 정렬</h2> <!-- .mx-auto : 가로 중앙 정렬, 가로로 정렬하기 위해서는 img태그를 block레벨로 바꿔주는 .d-block 클래스를 주어야한다. -->
+<img src="media/paris.jpg" class="mx-auto d-block" alt="paris" style="width:40%" />
+</div>
+
+<div class="container">
+<h2>응답형 이미지</h2> <!-- .img-fluid : 이미지를 지정한 크기 이상으로 늘어나지 않게 함. -->
+<img src="media/img_china.jpg" class="img-fluid" alt="china" width="460" height="400" />
+</div>
+</body>
+</html>

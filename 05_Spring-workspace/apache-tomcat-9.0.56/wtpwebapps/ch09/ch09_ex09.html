@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>mouse 이벤트의 click 이벤트</title>
+</head>
+
+<body>
+
+<h3> onclick, 계산기 만들기</h3>
+<hr />
+계산하고자 하는 수식을 입력하고 계산 버튼을 눌러주세요.
+<br />
+<br />
+<form>
+<label for="exp">식 : <input type="text" id="exp" value=""/></label><br />
+<label for="result">답 : <input type="text" id="result"/></label><br />
+<input type="button" value=" 계산 " onclick="calculate()" />
+</form>
+
+<script>
+function calculate() {
+	var exp = document.getElementById("exp");
+	var ret = document.getElementById("result");
+	ret.value = eval(exp.value); //input.value : 입력/출력 값 속성
+	// eval("text") : 연산식 형태로 되어있는 text를 실제 계산하여 문자열 형태의 값을 반환
+}
+</script>
+</body>
+</html>

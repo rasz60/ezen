@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>number와 range 사용</title>
+</head>
+
+<body>
+	
+	<h3>홈 제어 시스템 - 온도조절</h3>
+	<hr />
+	<form>
+		지속 시간 (0.0 ~ 10.0시간) : <input type="number" min="0" max="10" step="0.5" value="2.5" /><br /><br />
+		온도 설정 : 10&deg;
+		<input type="range" min="10" max="30" list="temperatures" /> 30&deg;
+		<datalist id="temperatures">
+			<option value="12" label="Low">
+			<option value="20" label="Medium">
+			<option value="28" label="High">
+		</datalist>
+	</form>
+	
+</body>
+</html>

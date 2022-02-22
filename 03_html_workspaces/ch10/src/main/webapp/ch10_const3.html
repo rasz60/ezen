@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>const 객체 변수3</title>
+</head>
+
+<body>
+
+<h3>const 객체 변수</h3>
+<hr />
+
+<p id="demo"></p>
+
+<script>
+const car = {type: "Fiat", model: "500", color: "white"};
+// car = {type: "Volvo", model: "EX60", color: "red"}; // 재할당 -> 불가능
+
+car.color = "red"; //속성 변경 -> 가능
+car.owner = "Johnson"; //속성 추가 -> 가능
+
+document.getElementById("demo").innerHTML = car.owner;
+</script>
+</body>
+</html>

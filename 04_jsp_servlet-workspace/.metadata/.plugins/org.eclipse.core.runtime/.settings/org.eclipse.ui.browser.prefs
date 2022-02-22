@@ -1,0 +1,4 @@
+browser-choice=1
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="3">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" name\="Microsoft Edge"/>\r\n<external location\="C\:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=file\:/D\:/\uD559\uC0DD\uBC29/JAVA \uD504\uB85C\uADF8\uB798\uBA38 \uC591\uC131 A_kjw(10.25~/eclipse-jee-2021-03-R-win32-x86_64/eclipse/plugins/org.springsource.ide.eclipse.commons.gettingstarted_3.9.21.202202040941-RELEASE/resources/welcome/index.html|*|http\://localhost\:8181/jsp_servlet_01/hello.jsp|*|

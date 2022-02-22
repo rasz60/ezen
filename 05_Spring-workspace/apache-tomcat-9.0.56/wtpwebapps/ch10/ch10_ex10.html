@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>screen 객체</title>
+</head>
+
+<body onload="printScreen()">
+	
+<h3>스크린 장치에 관한 정보</h3>
+<hr />
+<div id="div"></div>
+
+<script>
+function printScreen() {
+	let text = "availHeight : " + screen.availHeight + "<br />"; 	
+	text += "availwidth : " + screen.availWidth + "<br />";
+	text += "colorDepth : " + screen.colorDepth + "<br />";
+	text += "pixelDepth : " + screen.pixelDepth + "<br />";
+	text += "height : " + screen.height + "<br />";
+	text += "width : " + screen.width + "<br />";
+	document.getElementById("div").innerHTML = text;
+}
+</script>
+</body>
+</html>

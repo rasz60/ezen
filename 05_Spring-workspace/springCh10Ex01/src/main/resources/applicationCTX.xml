@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:c="http://www.springframework.org/schema/c"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+   	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<!-- java class annotation으로 aop 사용시 설정 -->
+	<aop:aspectj-autoproxy />
+	<bean id="logAop" class="com.wvwv.ch10ex01.LogAop" />
+	<bean id="student" class="com.wvwv.ch10ex01.Student" c:name="스프링" c:age="10" c:gradeNum="3" c:classNum="2" />
+	<bean id="worker" class="com.wvwv.ch10ex01.Worker" c:name="스프링부트" c:age="30" c:job="manager" />	
+</beans>

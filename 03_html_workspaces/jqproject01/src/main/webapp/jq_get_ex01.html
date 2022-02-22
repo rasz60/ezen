@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>get 메서드</title>
+</head>
+
+<body>
+
+<p class="mx-2 test1">This is some <b>bold</b> text in a paragraph.</p>
+<p class="mx-2">NAME : <input type="text" class="test2" value="Micky Mouse" /></p>
+<p><a href="http://www.w3schools.com" target="_blank" class="mx-2 w3s">w3schools</a></p>
+
+<button class="btn btn-sm btn-outline-info mx-2 btn1">Show text</button>
+<button class="btn btn-sm btn-outline-danger mx-2 btn2">Show html</button>
+<button class="btn btn-sm btn-outline-dark mx-2 btn3">Show input value</button>
+<button class="btn btn-sm btn-outline-secondary mx-2 btn4">Show attribute value</button>
+
+<script>
+$(document).ready(function() {
+	$(".btn1").click(function(){
+		alert("Text : " + $(".test1").text());
+	});
+	
+	$(".btn2").click(function(){
+		alert("HTML : " + $(".test1").html()); //tag를 포함한 문장을 가져온다.
+	});
+	
+	$(".btn3").click(function(){
+		alert("VALUE : " + $(".test2").val()); //tag를 포함한 문장을 가져온다.
+	});
+	
+	$(".btn4").click(function(){
+		alert("ATTR : " + $(".w3s").attr('href')); //tag를 포함한 문장을 가져온다.
+	});
+});
+</script>
+</body>
+</html>

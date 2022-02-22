@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>flex</title>
+</head>
+
+<body>
+
+<div class="container mt-3">
+	<h3>flex</h3>
+	<!-- .d-flex : display:flex로 지정, 자기 자신은 block이며, 내부는 inline-block이 됨 -->
+	<!-- .flex-row/reverse : 내부 inline-block 요소를 왼쪽부터 정렬(flex-row) / 오른쪽부터 정렬(flex-row-reverse) -->
+	<div class="d-flex flex-row-reverse p-3 bg-secondary text-white">
+		<div class="p-2 bg-info">Flex item 1</div>
+		<div class="p-2 bg-warning">Flex item 2</div>
+		<div class="p-2 bg-primary">Flex item 3</div>
+		<div class="p-2 bg-danger">Flex item 4</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>inline flex</h3>
+		<!-- .d-inline-flex : 자기 자신이 inline-block인 d-flex -->
+	<div class="d-inline-flex p-3 bg-secondary text-white">
+		<div class="p-2 bg-info">Flex item 1</div>
+		<div class="p-2 bg-warning">Flex item 2</div>
+		<div class="p-2 bg-primary">Flex item 3</div>
+		<div class="p-2 bg-danger">Flex item 4</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>flex-row / flex-row-reverse</h3>
+	<!-- .flex-row/row-reverse : 내부 inline-block 요소를 왼쪽부터 정렬(flex-row) / 오른쪽부터 정렬(flex-row-reverse) -->
+	<div class="d-flex flex-row-reverse mb-3 bg-secondary text-white">
+		<div class="p-2 bg-info">Flex item 1</div>
+		<div class="p-2 bg-warning">Flex item 2</div>
+		<div class="p-2 bg-primary">Flex item 3</div>
+		<div class="p-2 bg-danger">Flex item 4</div>
+	</div>
+	
+	<div class="d-flex flex-row mb-3 bg-secondary text-white">
+		<div class="p-2 bg-info">Flex item 1</div>
+		<div class="p-2 bg-warning">Flex item 2</div>
+		<div class="p-2 bg-primary">Flex item 3</div>
+		<div class="p-2 bg-danger">Flex item 4</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>flex-column / flex-column-reverse</h3>
+	<!-- .flex-column/column-reverse : 내부 요소가 block 레벨이 되고 위쪽부터 정렬(flex-column) / 아래쪽부터 정렬(flex-column-reverse) -->
+	<div class="d-flex flex-column-reverse mb-3 bg-secondary text-white">
+		<div class="p-2 bg-info">Flex item 1</div>
+		<div class="p-2 bg-warning">Flex item 2</div>
+		<div class="p-2 bg-primary">Flex item 3</div>
+		<div class="p-2 bg-danger">Flex item 4</div>
+	</div>
+	
+	<div class="d-flex flex-column mb-3 bg-secondary text-white">
+		<div class="p-2 bg-info">Flex item 1</div>
+		<div class="p-2 bg-warning">Flex item 2</div>
+		<div class="p-2 bg-primary">Flex item 3</div>
+		<div class="p-2 bg-danger">Flex item 4</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>d-flex 내부 엘리먼트 배치 방법</h3>
+	<!-- .justify-content-방향 : .d-flex박스에 지정하여, 내부 엘리먼트를 지정한 방향(start, end, center, between, around)로 배치 -->
+	<div class="d-flex justify-content-start bg-secondary mb-3 text-white">
+		<div class="p-2 bg-info">justify</div>
+		<div class="p-2 bg-warning">content</div>
+		<div class="p-2 bg-primary">start</div>
+		<div class="p-2 bg-danger">왼쪽 정렬</div>
+	</div>
+	
+	<div class="d-flex justify-content-end bg-secondary mb-3 text-white">
+		<div class="p-2 bg-info">justify</div>
+		<div class="p-2 bg-warning">content</div>
+		<div class="p-2 bg-primary">end</div>
+		<div class="p-2 bg-danger">오른쪽 정렬</div>
+	</div>
+	
+	<div class="d-flex justify-content-center bg-secondary mb-3 text-white">
+		<div class="p-2 bg-info">justify</div>
+		<div class="p-2 bg-warning">content</div>
+		<div class="p-2 bg-primary">center</div>
+		<div class="p-2 bg-danger">중앙 정렬</div>
+	</div>
+	
+	<div class="d-flex justify-content-between bg-secondary mb-3 text-white">
+		<div class="p-2 bg-info">justify</div>
+		<div class="p-2 bg-warning">content</div>
+		<div class="p-2 bg-primary">between</div>
+		<div class="p-2 bg-danger">first&last 양쪽 끝, 나머지는 사이에 균등</div>
+	</div>
+	
+	<div class="d-flex justify-content-around bg-secondary mb-3 text-white">
+		<div class="p-2 bg-info">justify</div>
+		<div class="p-2 bg-warning">content</div>
+		<div class="p-2 bg-primary">around</div>
+		<div class="p-2 bg-danger">중앙을 기준으로 양쪽 중앙 배치</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>d-flex 내부 원소 균등하게 가득 채우기</h3>
+	<div class="d-flex mt-3 text-white">
+		<!-- flex-fill : d-flex 박스를 균등하게 분배해서 가득 채울 item에 지정 -->
+		<div class="p-2 flex-fill bg-info">flex-fill</div>
+		<div class="p-2 flex-fill bg-warning">flex-fill</div>
+		<div class="p-2 flex-fill bg-primary">flex-fill</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>d-flex 내부 엘리먼트를 배치하고 남은 공간 가득 채우기</h3>
+	<div class="d-flex mt-3 text-white">
+		<!-- flex-grow-1 : d-flex 내부 엘리먼트들이 채우고 남은 공간을 모두 차지하는 item에 지정 -->
+		<div class="p-2 bg-info">flex-fill</div>
+		<div class="p-2 flex-grow-1 bg-warning">flex-fill</div>
+		<div class="p-2 bg-primary">flex-fill</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>d-flex 내부 엘리먼트를 배치하고 남은 공간 잘라내기</h3>
+	<div class="d-flex mt-3 text-white">
+		<!-- flex-shrink-1 : d-flex 내부 엘리먼트들이 채우고 남은 공간을 잘라냄 -->
+		<div class="p-2 bg-info">flex-fill</div>
+		<div class="p-2 bg-warning">flex-fill</div>
+		<div class="p-2 bg-primary flex-shrink-1">flex-fill</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>flex-item 순서 지정</h3>
+	<div class="d-flex mb-3 text-white">
+		<!-- order-$ : 지정한 순서대로 item을 배치 -->
+		<div class="p-2 order-2 bg-info">Flex-item 1</div>
+		<div class="p-2 order-3 bg-warning">Flex-item 2</div>
+		<div class="p-2 order-1 bg-primary">Flex-item 3</div>
+	</div>
+</div>
+
+<div class="container mt-3">
+	<h3>auto margin 사용</h3>
+	<div class="d-flex mb-3 text-white">
+		<!-- m(방향)-auto : 특정 방향(t,r,b,l)으로 auto-margin 지정 -->
+		<div class="p-2 bg-info">Flex-item 1</div>
+		<div class="p-2 ml-auto bg-warning">Flex-item 2</div>
+		<div class="p-2 bg-primary">Flex-item 3</div>
+	</div>
+	
+	<div class="d-flex mb-3 text-white">
+		<div class="p-2 bg-info">Flex-item 1</div>
+		<div class="p-2 mr-auto bg-warning">Flex-item 2</div>
+		<div class="p-2 bg-primary">Flex-item 3</div>
+	</div>
+</div>
+</body>
+</html>

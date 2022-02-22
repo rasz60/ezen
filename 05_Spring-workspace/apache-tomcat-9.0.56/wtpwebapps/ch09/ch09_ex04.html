@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>익명의 함수로 리스너 등록</title>
+</head>
+
+<body onload="init()">
+
+<h3>익명 함수로 이벤트 리스너 작성</h3>
+<hr />
+<p id="p">마우스 올리면 orchid색으로 변경</p>
+
+<script>
+let p;
+function init() {
+	p = document.getElementById("p");
+	//익명의 함수로 이벤트 리스너 등록
+	p.onmouseover = function() { this.style.backgroundColor = "orchid"; };
+	p.addEventListener("mouseout", function() { this.style.backgroundColor = "transparent"; });
+}
+</script>
+</body>
+</html>

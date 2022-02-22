@@ -1,0 +1,554 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('http://fonts.googleapis.com/earlyaccess/lato.css');
+@import url('http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+* {
+    padding: 0 ;
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', 'Lato', 'Spoqa Han Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap ;
+    min-width: 1300px ;
+    max-width: 2000px ;
+    min-height: 3200px ;
+    max-height: 4000px ;
+    width: 100% ;
+    height: 100% ;
+    margin-top: 100px;
+}
+
+/*================================= header START =================================*/
+header {
+    display: flex ;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: fixed ; top: 0;
+    background-color: rgb(12, 12, 12);
+    width: 100% ;
+    height: 3% ;
+    min-width: 1200px ;
+    max-width: 2000px ;
+    min-height: 100px ;
+    z-index: 3;
+    opacity: 0.9;
+}
+
+
+/*------ header_logo ------*/
+header > #logo {
+    display: flex ;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+/*------ header_logo ------*/
+
+/*------ header_search ------*/
+header > #search {
+    display: flex;
+    color: white ; 
+    width: 50% ;
+}
+
+header > #search > input {
+    margin-right: 0;
+    margin-left: 30%;
+    text-align: left;
+    font-size: 15px ;
+    width: 50% ;
+    min-height: 40px ;
+    border: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(228, 225, 225);
+    
+}
+
+header > #search > input:focus {
+    outline-style: none;
+}
+
+header > #search > input::placeholder {
+    color: rgba(223, 215, 215, 0.932) ;
+    font-style: italic;
+    font-weight: 100;
+}
+header > #search > a {
+    margin: 0 0;
+}
+
+header > #search > a > img {
+    cursor: pointer;
+    transition: transform 2s;
+}
+
+header > #search > a> img:hover {
+    transform: rotate(360deg);
+}
+/*------ header_search ------*/
+
+/*------ header_menu ------*/
+header > #menu {
+    width: 40% ;
+    font-size: 1.7em ;
+}
+
+header > #menu > ul {
+    display: flex;
+    width: 70% ;
+}
+
+header > #menu > ul > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.897);
+    width: 25% ;
+    height: 100% ;
+    min-height: 100px ;
+    border: 0 0.1 0 0.1 solid rgb(219, 215, 215) ;
+    transition: font-size 1s;
+    cursor: pointer;
+
+}
+
+header > #menu > ul > li:hover {
+    font-size : 35px;
+}
+
+header > #menu > ul > li > a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Shadows Into Light', cursive; font-weight: 700;
+}
+
+/*------ header_menu ------*/
+/*================================= header END =================================*/
+
+
+/*================================= Detail START =================================*/
+/*------ Detail ------*/
+section {
+    display: flex;
+    width: 80% ;
+    height: 48.875% ;
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+/*------ Detail ------*/
+
+/*------ productImg ------*/
+#detail > #productImg {
+    display: flex;
+    width: 50%;
+    height: 80%;
+}
+
+#detail > #productImg > #img {
+    width: 80%;
+    height: 100%;
+    border-radius: 10%;
+    background-color: rgb(239, 242, 248);
+    padding-bottom: 15%;
+}
+
+#detail > #productImg > #img > img {
+    width: 80%;
+}
+/*------ productImg ------*/
+
+/*------ productDesc ------*/
+#detail > #productDesc {
+    width: 50%;
+    height: 80%;
+    border-left: 1px solid rgb(212, 212, 212);
+    padding-left: 5% ;
+}
+
+#detail > #productDesc h3, p {
+    text-align: left;
+}
+
+#detail > #productDesc > a:hover h3{
+    text-decoration-line: underline;
+    width: 50%;
+    justify-content: left;
+    margin: 0 0 ;
+}
+
+#detail .grayTxt {
+    font-size: 15px;
+    font-weight: 300;
+    color: gray;
+}
+/*------ productDesc ------*/
+
+/*------ p_name ------*/
+#detail > #productDesc > #p_name {
+    margin-bottom: 4%;
+}
+/*------ p_name ------*/
+
+/*------ p_size & p_selected ------*/
+#detail > #productDesc > #p_size,#p_selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+#detail > #productDesc > #p_size > div:nth-child(2) {
+    text-align: left;
+}
+
+#detail > #productDesc > #p_size > div:nth-child(2) p {
+    display: inline;
+    margin-right: 5%;
+}
+
+
+#detail > #productDesc > #p_size div {
+    display: inline;
+    margin: 0 0;
+    width: 20%;
+}
+
+#detail > #productDesc > #p_size span {
+    display: inline-block;
+    width: 26px;
+    height: 27px;
+    border: 1px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+#detail > #productDesc > #size_detail {
+    position: absolute;
+    display: none;
+    right: 0;
+    margin-right: 13%;
+    background-color: white;
+    border: 1px solid rgb(212, 212, 212);
+    box-shadow: 10px 10px 2px rgba(70, 70, 71, 0.2);
+}
+
+#detail > #productDesc > #size_detail > #size_table {
+    padding: 10px;
+}
+
+#detail > #productDesc > #size_detail > #size_table td{
+    padding: 6px;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15%;
+    cursor: pointer;
+    box-shadow: 0.5px 0.5px 2px rgba(70, 70, 71, 0.2);
+}
+
+#detail > #productDesc > #size_detail > #size_table #size_btn td {
+    padding: 4px;
+    border: 1px solid rgb(212, 212, 212);;
+    border-radius: 10%;
+    color:rgb(12, 12, 12);
+}
+
+
+#detail > #productDesc > #size_detail > #size_table #size_btn > #submit:hover {
+    background-color: rgb(105, 148, 197);
+    border: none;
+    color: white;
+}
+
+#detail > #productDesc > #size_detail > #size_table #size_btn > #cancel:hover {
+    background-color: rgb(230, 132, 132);
+    border: none;
+    color: white;
+}
+
+#detail > #productDesc > #size_detail > #size_table #choose_size td {
+    padding: 2px;
+    border-radius: 0;
+    background-color: rgb(241, 241, 241);
+    border: none;
+}
+
+#detail > #productDesc > #size_detail > #size_table #choose_size span {
+    color: rgb(212, 63, 63);
+    font-weight: 700;
+}
+
+#detail > #productDesc > #p_selected div {
+    margin: 0 0;
+    width: 20%;
+}
+/*------ p_size & p_selected ------*/
+
+/*------ button ------*/
+#detail > #productDesc > #button {
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#detail > #productDesc > #button a{
+    width: 31.5%;
+    height: 40px;
+    line-height: 40px;
+}
+
+#detail > #productDesc > #button a > div {
+    color: white;
+    font-weight: 500;
+    border-radius: 5%;
+}
+
+#detail > #productDesc > #button > a > #purchase {
+    background-color: #35C479;
+}
+
+#detail > #productDesc > #button > a > #purchase:hover {
+    background-color: #50b17f;
+}
+
+#detail > #productDesc > #button > a > #hit {
+    background-color: #ED853F;
+}
+
+#detail > #productDesc > #button > a > #hit span {
+    color: white;
+    font-weight: 700;
+}
+
+#detail > #productDesc > #button > a > #hit small {
+    color: white;
+    font-weight: 300;
+}
+
+#detail > #productDesc > #button > a > #hit:hover {
+    background-color: #ec6810;
+}
+
+#detail > #productDesc > #button > a > #cart {
+    background-color: #E75757;
+}
+
+#detail > #productDesc > #button > a > #cart:hover {
+    background-color: #e63b3b;
+}
+/*------ button ------*/
+
+/*------ p_info ------*/
+#detail > #productDesc h4 {
+    margin-top: 5%;
+    text-align: left;
+}
+
+#detail > #productDesc > #p_info {
+    border-top: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212, 212);
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+    height: 80px;
+}
+
+#detail > #productDesc > #p_info div {
+    width: 25%;
+    height: 60%;
+    padding-left: 2%;
+    border-right: 1px solid rgb(212, 212, 212);
+}
+
+#detail > #productDesc > #p_info div:last-child {
+    border-right: 0;
+}
+/*------ p_info ------*/
+
+/*------ edt_rules ------*/
+#detail > #productDesc > #edt_rules {
+    margin-top : 10%;
+    border-top: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+#detail > #productDesc > #edt_rules h3 {
+    padding: 3% 0;
+}
+
+#detail > #productDesc > #edt_rules .rule {
+    border-top: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212,v 212);
+}
+
+#detail > #productDesc > #edt_rules .rule li {
+    display: flex;
+    padding: 3% 0;
+    border-top: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212,v 212);
+}
+
+#detail > #productDesc > #edt_rules .rule > .default p {
+    width: 95%;
+}
+
+#detail > #productDesc > #edt_rules .rule > .default span {
+    border: 1px solid rgb(212, 212, 212);
+    color: rgb(177, 174, 174);
+    width: 5%;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+#detail > #productDesc > #edt_rules .rule > .dropDown {
+    display: none;
+}
+/*------ edt_rules ------*/
+/*================================= Detail END =================================*/
+
+
+/*================================= recommand Start =================================*/
+section[id*="recommand"] > .container {
+    width: 100%;
+    height: 500px;
+    border-top: 1px solid rgb(212, 212, 212);
+    padding-top: 1%;
+}
+
+section[id*="recommand"] > .container > .recTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+section[id*="recommand"] > .container > .recTitle h3 {
+    text-align: left;
+    width: 92%;
+}
+
+section[id*="recommand"] > .container > .recTitle span {
+    text-align: left;
+    font-size: 14px;
+    color:rgb(138, 138, 138);
+}
+
+section[id*="recommand"] > .container > .productBox {
+    width: 100%;
+    height: 90%;
+}
+
+section[id*="recommand"] > .container > .productBox > ul {
+    display: flex;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li {
+    width: 18%;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li > a > .p_img {
+    border-radius: 10%;
+    background-color: rgb(239, 242, 248);
+    padding-bottom: 15%;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li > a > .p_img > img {
+    width: 100%;
+    height: 100%;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li > .p_info {
+    width: 90%;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li > .p_info > a > p {
+    padding: 1%;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li > .p_info > a > .p_kname {
+    font-size: 15px;
+    font-weight: 300;
+    color: gray;
+}
+
+section[id*="recommand"] > .container > .productBox > ul li > .p_info:hover > a>.p_ename{
+    text-decoration-line: underline;
+}
+
+/*================================= recommand END =================================*/
+
+
+/*================================= footer START =================================*/
+footer {
+    width: 100% ;
+    height: 100% ;
+    /* border: 1px solid red; */
+    flex-wrap: nowrap;
+    width: 100% ;
+    height: 18.875% ;
+}
+
+footer > .top{
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+footer > .top > .footer_menu > h1{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.897);
+    text-align: left;
+}
+
+footer > .top > .footer_menu > ul{
+    margin-top: 5px;
+    /* border: solid red 1px; */
+    width: 100%;
+}
+
+footer > .top > .footer_menu > ul > li{
+    /* border: solid yellow 1px; */
+    text-align: left;
+    margin-top: 1px;
+}
+
+footer > .top > .footer_menu > ul > li > a{
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 16px;
+    /* border: solid red 1px; */
+}
+
+footer > .mid{
+    width: 100%;
+    background-color: rgb(12, 12, 12);
+    padding: 20px;
+    border-top: 3px solid gray;
+}
+
+footer > .mid > .des > h1{
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 16px;
+    margin: 3px 0 ;
+    font-weight: 400;
+}
+
+footer > .bottom{
+    background-color: rgb(12, 12, 12);
+    border-top: 3px solid gray;
+
+}
+/*================================= footer END =================================*/

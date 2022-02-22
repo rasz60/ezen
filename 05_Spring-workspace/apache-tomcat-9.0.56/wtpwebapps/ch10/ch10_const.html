@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>const 키워드</title>
+</head>
+
+<body>
+
+<h3>const 키워드로 변수 선언</h3>
+<hr />
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script>
+var x = 10;
+{
+	const x = 2; //블럭 안에서만 값을 갖는 로컬 변수
+	document.getElementById("demo1").innerHTML = x;
+}
+
+document.getElementById("demo2").innerHTML = x;
+/*
+*const는 상수로 변수를 선언하며, 전역/함수 범위 모두 선언할 수 있다.
+*변수 선언시 초기값을 무조건 넣어주어야 한다.
+*재정의, 변경이 불가능하다.
+*/
+
+
+
+
+</script>
+</body>
+</html>

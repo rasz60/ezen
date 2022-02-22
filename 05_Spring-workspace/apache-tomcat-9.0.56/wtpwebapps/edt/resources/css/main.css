@@ -1,0 +1,638 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
+@import url("http://fonts.googleapis.com/earlyaccess/lato.css");
+@import url("http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+* {
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", "Lato", "Spoqa Han Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  min-width: 1200px;
+  max-width: 2000px;
+  min-height: 3200px;
+  width: 100%;
+  height: 100%;
+}
+
+/*================================= header START =================================*/
+header {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: fixed;
+  top: 0;
+  background-color: rgb(12, 12, 12);
+  width: 100%;
+  height: 3%;
+  min-width: 1200px;
+  max-width: 2000px;
+  min-height: 100px;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/*------ header_logo ------*/
+header > #logo {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+/*------ header_logo ------*/
+
+/*------ header_search ------*/
+header > #search {
+  display: flex;
+  color: white;
+  width: 50%;
+}
+
+header > #search > input {
+  margin-right: 0;
+  margin-left: 30%;
+  text-align: left;
+  font-size: 15px;
+  width: 50%;
+  min-height: 40px;
+  border: none;
+  color: white;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(228, 225, 225);
+}
+
+header > #search > input:focus {
+  outline-style: none;
+}
+
+header > #search > input::placeholder {
+  color: rgba(223, 215, 215, 0.932);
+  font-style: italic;
+  font-weight: 100;
+}
+header > #search > a {
+  margin: 0 0;
+}
+
+header > #search > a > img {
+  cursor: pointer;
+  transition: transform 2s;
+}
+
+header > #search > a > img:hover {
+  transform: rotate(360deg);
+}
+/*------ header_search ------*/
+
+/*------ header_menu ------*/
+header > #menu {
+  width: 40%;
+  font-size: 1.7em;
+}
+
+header > #menu > ul {
+  display: flex;
+  width: 70%;
+}
+
+header > #menu > ul > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.897);
+  width: 25%;
+  height: 100%;
+  min-height: 100px;
+  border: 0 0.1 0 0.1 solid rgb(219, 215, 215);
+  transition: font-size 1s;
+  cursor: pointer;
+}
+
+header > #menu > ul > li:hover {
+  font-size: 35px;
+}
+
+header > #menu > ul > li > a {
+  text-decoration: none;
+  color: white;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 700;
+}
+
+/*------ header_menu ------*/
+/*================================= header END =================================*/
+
+/*================================= .box SETTING =================================*/
+.box {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+}
+
+.box:nth-of-type(1) {
+  margin-top: 100px;
+  height: 625px;
+}
+
+/*================================= .box SETTING =================================*/
+
+/*================================= img_slide START =================================*/
+
+
+/*------ slide_container ------*/
+.box > #container {
+  background-color: transparent;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+/*------ slide_container ------*/
+
+/*------ slideBox ------*/
+.box > #container > #img_slide {
+  display: flex;
+  position: absolute;
+  width: 400%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.box > #container > #img_slide > li > a > img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+/*------ slideBox ------*/
+
+/*------ slideButton ------*/
+.box:nth-child(2) > span {
+  position: absolute;
+  top: 8%;
+  margin: 0 1.5%;
+  color: white;
+  font-size: 7em;
+  opacity: 0.4;
+  transition: transform 300;
+}
+
+.box:nth-child(2) > span:nth-child(3) {
+  right: 0;
+}
+
+.box:nth-child(2) > span:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.box:nth-child(2) > .btn2 {
+  display: inline-block;
+  position: absolute;
+  top: 3%;
+  width: 1.5%;
+  height: 8px;
+  opacity: 0.6;
+  transition: transform 300;
+  cursor: pointer;
+}
+
+.box:nth-child(2) > button:nth-of-type(1) {
+  left: 90%;
+}
+
+.box:nth-child(2) > button:nth-of-type(2) {
+  left: 92%;
+}
+
+.box:nth-child(2) > button:nth-of-type(3) {
+  left: 94%;
+}
+
+.box:nth-child(2) > button:nth-of-type(4) {
+  left: 96%;
+}
+
+.box:nth-child(2) > button:hover {
+  opacity: 0.9;
+}
+/*------ slideButton ------*/
+/*================================= img_slide END =================================*/
+
+/*================================= .tabmenu START =================================*/
+.tabmenu {
+  width: 100%;
+  height: 3%;
+  min-width: 1200px;
+  max-width: 2000px;
+  min-height: 100px;
+  /* position: relative; */
+}
+
+.tabmenu > ul > li {
+  width: 25%; /* 각 메뉴 별 사이즈 */
+  float: left; /* 메뉴 왼쪽 정렬 */
+  text-align: center;
+}
+
+.tabmenu input {
+  display: none; /* radio 버튼 숨기기 */
+}
+
+.tabmenu input:checked ~ label {
+  /* checked 된 tabmenu만 적용 */
+  color: black;
+  border-bottom: black solid 1px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input:checked ~ .tabCon {
+  /* checked 된 tabCon만 적용 */
+  display: block;
+  background: white;
+}
+
+.tabmenu label {
+  display: block;
+  width: 100%;
+  line-height: 250%;
+  cursor: pointer;
+  border-top: black solid 1px;
+  color: rgb(151, 150, 150);
+  font-weight: bold;
+}
+
+.tabCon {
+  width: 100%;
+  height: 550px;
+  min-width: 1200px;
+  max-width: 2000px;
+  display: none;
+  position: absolute;
+  /* border: solid black 3px; */
+  left: 0;
+}
+
+.tabmenu .tabCon .productbox {
+  width: 100%;
+  height: 420px;
+  margin-top: 40px;
+  position: absolute;
+  display: flex;
+  /* border: solid black 3px; */
+}
+
+.tabmenu .tabCon .product {
+  width: 22%;
+  height: 450px;
+  /* border: solid black 3px; */
+}
+
+.tabmenu .tabCon .product a {
+  width: 100%;
+}
+
+.tabmenu .tabCon .product a img {
+  width: 100%;
+  height: 400px;
+  /* border: 1px solid black; */
+  border-radius: 25px;
+  /* background-color: #afd1d1; */
+}
+/*
+.tabmenu .tabCon .product .product_info {
+  border: black 1px solid; 
+}
+*/
+.tabmenu .tabCon .product .product_info p {
+  text-align: left;
+}
+
+.tabmenu .tabCon .product .product_info .brand {
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.tabmenu .tabCon .product .product_info .ename {
+  font-size: 13px;
+  /* border: solid 1px black; */
+}
+
+.tabmenu .tabCon .product .product_info .kname {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.tabmenu .tabCon .product .product_info h3 {
+  text-align: left;
+}
+
+.tabmenu .tabCon .product .product_info h3 a {
+  font-size: 14px;
+}
+/*================================= #event END =================================*/
+
+/*================================= #img_box START =================================*/
+.box > #video_box {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+#video_box > iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+/*================================= #img_box END =================================*/
+
+/*================================= draw START =================================*/
+.box2 {
+  width: 100%;
+  height: 500px;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.box2 > .drawbox {
+  width: 100%;
+  height: 600px;
+  display: flex;
+}
+
+.box2 > .drawbox > h3 {
+  display: flex;
+  writing-mode: vertical-rl;
+  font-size: 80px;
+  border-left: black solid 5px;
+}
+
+.box2 > .drawbox > .d_box {
+  width: 20%;
+  height: 600px;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.box2 > .drawbox > .d_box > a > img {
+  width: 100%;
+  height: 400px;
+  /* border: 1px solid black; */
+  border-radius: 25px;
+}
+
+/* -------- draw에 마우스 대면 D-Day 나오게 하기 */
+
+.timer {
+  position: absolute;
+  visibility: hidden;
+  top: 55%;
+  left: 28%;
+  font-size: 20px;
+}
+
+.timer h3{
+  color: rgb(134, 134, 243);
+}
+
+.d_box:hover .timer {
+  visibility: visible;
+}
+
+/* -------- draw에 마우스 대면 D-Day 나오게 하기 END*/
+
+/* -------- draw에 마우스 대면 text 나오게 하기 */
+
+.box2 > .drawbox > .d_box:hover {
+  opacity: 0.7;
+}
+
+.box2 > .drawbox > .d_box > .draw_info {
+  margin-top: 30px;
+}
+
+.d_box:hover .text {
+  visibility: visible;
+}
+
+.text { /* D-day 날짜 */
+  position: absolute;
+  visibility: hidden;
+  top: 10%;
+  left: 38%;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.text span { /* D-day 시간 */
+  color: red;
+}
+
+.d_box:hover .text2 {
+  visibility: visible;
+}
+
+.text2 { /* coming soon */
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  visibility: hidden;
+  top: 73%;
+  background-color: white;
+  padding-left: 30%; /* comming soon 위치 조정 */
+  font-size: 20px;
+  font-weight: 900;
+}
+
+/* -------- draw에 마우스 대면 text 나오게 하기 END*/
+
+.box2 > .drawbox > .d_box > .draw_info > p {
+  text-align: left;
+}
+
+.box2 > .drawbox > .d_box > .draw_info > .brand {
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.box2 > .drawbox > .d_box > .draw_info > .ename {
+  font-size: 13px;
+}
+
+.box2 > .drawbox > .d_box > .draw_info > .kname {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/*================================= draw END =================================*/
+
+/* =============================== slae START ====================================== */
+.box2 > .salebox {
+  width: 100%;
+  height: 600px;
+  display: flex;
+}
+
+.box2 > .salebox > .s_box {
+  width: 20%;
+  height: 600px;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.box2 > .salebox > .s_box > a > img {
+  width: 100%;
+  height: 400px;
+  /* border: 1px solid black; */
+  border-radius: 25px;
+}
+
+.box2 > .salebox > .s_box > .sale_info {
+  /* border: black 1px solid; */
+  margin-top: 30px;
+}
+
+.box2 > .salebox > .s_box > .sale_info > p {
+  text-align: left;
+}
+
+.box2 > .salebox > .s_box > .sale_info > a> p {
+  text-align: left;
+}
+
+.box2 > .salebox > .s_box > .sale_info > a> .brand {
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.box2 > .salebox > .s_box > .sale_info > a>.ename {
+  font-size: 13px;
+  /* border: solid 1px black; */
+}
+
+.box2 > .salebox > .s_box > .sale_info > .kname {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.box2 > .salebox > .s_box > .sale_info > .bef_price {
+  text-align: left;
+  font-size: 20px;
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.box2 > .salebox > .s_box > .sale_info > .aft_price{
+  text-align: right;
+}
+
+.box2 > .salebox > .s_box > .sale_info > .aft_price> a {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(228, 150, 5);
+  margin-top: 10px;
+}
+
+.box2 > .salebox > .s_box > .sale_info > .aft_price > span {
+  color: red;
+  padding-left: 50px;
+  font-size: 30px;
+}
+
+.box2 > .salebox > h3 {
+  display: flex;
+  writing-mode: vertical-rl;
+  font-size: 80px;
+  border-right: black solid 5px;
+}
+
+/* =============================== slae END ====================================== */
+
+/*================================= box > img_box START =================================*/
+.box > #img_box {
+  width: 100%;
+  height: 100%;
+}
+
+.box > #img_box > a > img{
+  width: 100%;
+  height: 100%;
+}
+/*================================= box > img_box END =================================*/
+
+/*================================= footer START =================================*/
+footer {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 18.875%;
+}
+
+footer > .top {
+  width: 100%;
+  background-color: rgb(12, 12, 12);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+footer > .top > .footer_menu > h1 {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.897);
+  text-align: left;
+}
+
+footer > .top > .footer_menu > ul {
+  margin-top: 5px;
+  /* border: solid red 1px; */
+  width: 100%;
+}
+
+footer > .top > .footer_menu > ul > li {
+  /* border: solid yellow 1px; */
+  text-align: left;
+  margin-top: 1px;
+}
+
+footer > .top > .footer_menu > ul > li > a {
+  color: rgba(255, 255, 255, 0.897);
+  font-size: 16px;
+  /* border: solid red 1px; */
+}
+
+footer > .mid {
+  width: 100%;
+  background-color: rgb(12, 12, 12);
+  padding: 20px;
+  border-top: 3px solid gray;
+}
+
+footer > .mid > .des > h1 {
+  color: rgba(255, 255, 255, 0.897);
+  font-size: 16px;
+  margin: 3px 0;
+  font-weight: 400;
+}
+
+footer > .bottom {
+  background-color: rgb(12, 12, 12);
+  border-top: 3px solid gray;
+}
+/*================================= footer END =================================*/

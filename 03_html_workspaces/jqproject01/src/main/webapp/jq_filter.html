@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>jQuery Filter기능 메서드</title>
+<style>
+
+div {
+	width: 50%;
+	margin: 10px;
+}
+
+h1, p {
+	padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Welcome to My Homepage</h1>
+<p>This is a paragraph.</p>
+
+<div style="border : 1px solid black">
+	<p class="intro">A paragraph in a div.</p>
+	<p>Another paragraph in a div.</p>
+</div>
+<div style="border : 1px solid black">
+	<p class="intro">A paragraph in a div.</p>
+	<p>Another paragraph in a div.</p>
+</div>
+<div style="border : 1px solid black">
+	<p class="intro">A paragraph in a div.</p>
+	<p>Another paragraph in a div.</p>
+</div>
+
+<script>
+$(document).ready(function() {
+	$("div").first().css("background-color", "#F9F32F");
+	$("div").last().css("background-color", "coral");
+	// first / last () : 선택된 엘리먼트 중 제일 처음 / 마지막에 나오는 것 선택
+	
+	$("p").filter(".intro").css({"color":"#F9F32F", "background-color":"#303030"});
+	// filter() : 선택된 엘리먼트 중 filter에 지정한 값과 일치하는 엘리먼트 선택
+	
+	$("p").eq(1).css("color", "red");
+	// eq(idx) : 선택된 엘리먼트 중 idx번째 엘리먼트 선택
+	
+	$("p").not(".intro").css("font-style", "italic");
+	// not("element") : 선택된 엘리먼트 중 "element"가 아닌 것만 선택
+	
+});
+</script>
+</body>
+</html>

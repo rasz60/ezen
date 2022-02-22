@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>Form의 입력 요소들</title>
+<style>
+textarea {
+	resize: none;
+}
+
+.container {
+	border: 1px dotted black;
+	margin: 10px;
+	padding: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+	<h3>textarea</h3>
+	<form>
+		<div class="form-group">
+			<label for="comment">Comment:</label>
+			<textarea name="text" id="comment" rows="3" class="form-control" translate="no" ></textarea>
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<h3>checkbox 수직배치</h3>
+	<form>
+		<div class="form-check form-group">
+			<label for="check-y1" class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="check-y1" name="option-y1" value-="something-y1" checked />OPTION1
+			</label>
+		</div>
+		
+		<div class="form-check form-group">
+			<label for="check-y2" class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="check-y2" name="option-y2" value-="something-y2" />OPTION2
+			</label>		
+		</div>
+		
+		<div class="form-check form-group">
+			<label for="check-y3" class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="check-y3" name="option-y3" value-="something-y3" />OPTION3
+			</label>	
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<h3>checkbox 수평배치</h3>
+	<form>
+		<div class="form-check-inline">
+			<label for="check-x1" class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="check-x1" name="option-x1" value-="something-x1" checked />OPTION1
+			</label>
+		</div>
+		
+		<div class="form-check-inline">
+			<label for="check-x2" class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="check-x2" name="option-x2" value-="something-x2" />OPTION2
+			</label>		
+		</div>
+		
+		<div class="form-check-inline">
+			<label for="check-x3" class="form-check-label">
+				<input type="checkbox" class="form-check-input" id="check-x3" name="option-x3" value-="something-x3" />OPTION3
+			</label>	
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<h3>radioButton 수직배치</h3>
+	<form>
+		<div class="form-check form-group">
+			<label for="radio-y1" class="form-check-label">
+				<input type="radio" class="form-check-input" id="radio-y1" name="rOption-y" value-="something-y1" checked />OPTION1
+			</label>
+		</div>
+		
+		<div class="form-check form-group">
+			<label for="radio-y2" class="form-check-label">
+				<input type="radio" class="form-check-input" id="radio-y2" name="rOption-y" value-="something-y2" />OPTION2
+			</label>		
+		</div>
+		
+		<div class="form-check form-group">
+			<label for="radio-y3" class="form-check-label">
+				<input type="radio" class="form-check-input" id="radio-y3" name="rOption-y" value-="something-y3" />OPTION3
+			</label>	
+		</div>
+	</form>
+	
+	<h3>radioButton 수평배치</h3>
+	<form>
+		<div class="form-check-inline">
+			<input type="radio" class="form-check-input" id="radio-x1" name="rOption-x" value-="something-x1" checked />			
+			<label for="radio-x1" class="form-check-label">OPTION1</label>
+		</div>
+		
+		<div class="form-check-inline">
+			<input type="radio" class="form-check-input" id="radio-x2" name="rOption-x" value-="something-x2" />
+			<label for="radio-x2" class="form-check-label">OPTION2</label>
+			
+		</div>
+		
+		<div class="form-check-inline">
+			<input type="radio" class="form-check-input" id="radio-x3" name="rOption-x" value-="something-x3" />
+			<label for="radio-x3" class="form-check-label">OPTION3</label>
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<h3>select</h3>
+	<form action="#">
+		<div class="form-group">
+			<label for="select">Select list(select one):</label>
+			<select name="sellist1" id="select" class="form-control">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<h3>multiple select</h3>
+	<form action="#">
+		<div class="form-group">
+			<label for="select">Select list(multi-select):</label>
+			<select name="sellist1" id="select" class="form-control" multiple>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<h3>문자 정보창(plaintext)</h3>
+	<form action="#">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Default form control" name="text1" />
+		</div>
+		<div class="form-group">
+			<!-- form-control-plaintext : 입력창이 아닌 순수 문자 정보창 -->
+			<input type="text" class="form-control-plaintext" placeholder="insert ( o ) submit ( x )" name="text2" />
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+<div class="container">
+	<h3>range와 file type 사용</h3>
+	<form action="#">
+		<div class="form-group">
+			<!-- .form-control-range : range input에 지정 -->
+			<input type="range" class="form-control-range" name="range" />
+		</div>
+		
+		<div class="form-group">
+			<!-- .form-control-file : file input에 지정 -->
+			<input type="file" class="form-control-file border" name="file" />		
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+</body>
+</html>

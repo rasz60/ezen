@@ -1,0 +1,14 @@
+package com.wvwv.jspMVC.DTO;
+
+import java.sql.Timestamp;
+
+public class BDto {
+	// DB column과 동일한 이름의 변수 생성
+	private int bHit,  bStep, bIndent;
+	private String bId, bName, bTitle, bGroup, bContent;
+	private Timestamp bDate;
+	
+
+
+	
+}

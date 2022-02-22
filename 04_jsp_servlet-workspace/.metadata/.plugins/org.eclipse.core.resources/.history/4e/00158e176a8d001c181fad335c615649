@@ -1,0 +1,28 @@
+package com.wvwv.jspMVC.DTO;
+
+import java.sql.Timestamp;
+
+public class BDto {
+	// DB column과 동일한 이름의 변수 생성
+	private int bId, bHit, bGroup, bStep, bIndent;
+	private String bName, bTitle, bContent;
+	private Timestamp bDate;
+	
+	public BDto() {
+		super();
+	}
+
+	public BDto(int bId, int bHit, int bGroup, int bStep, int bIndent, String bName, String bTitle, String bContent, Timestamp bDate) {
+		this.bId = bId;
+		this.bHit = bHit;
+		this.bGroup = bGroup;
+		this.bStep = bStep;
+		this.bIndent = bIndent;
+		this.bName = bName;
+		this.bTitle = bTitle;
+		this.bContent = bContent;
+		this.bDate = bDate;
+	}
+
+	
+}

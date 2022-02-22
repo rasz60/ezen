@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>event 객체</title>
+</head>
+
+<body>
+
+<p id="p">마우스를 올려 보세요</p>
+<button onclick="f(event)">클릭하세요</button> <!-- event는 이벤트 -->
+
+<script>
+function f(e) {
+	alert(e.type); // 발생한 이벤트의 이름을 알림창에 출력
+}
+document.getElementById("p").onmouseover = f; /* p 엘리먼트에 이벤트가 발생하면 f 함수 호출 */
+</script> 
+</body>
+</html>

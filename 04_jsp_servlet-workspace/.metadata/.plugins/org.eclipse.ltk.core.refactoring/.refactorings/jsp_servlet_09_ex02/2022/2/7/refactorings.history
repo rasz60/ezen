@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;jsp_servlet_09_ex02/src/main/webapp/request_send.jsp&apos; to &apos;requestSend.jsp&apos;" description="Rename resource &apos;request_send.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/request_send.jsp" name="requestSend.jsp" stamp="1644389349195" updateReferences="true"/>
+</session>

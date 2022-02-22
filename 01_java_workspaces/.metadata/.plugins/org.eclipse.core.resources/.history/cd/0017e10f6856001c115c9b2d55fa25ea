@@ -1,0 +1,58 @@
+import java.util.Comparator;
+import java.util.stream.Stream;
+
+public class StreamEx01 {
+
+	public static void main(String[] args) {
+		Stream<Student> studentStream = Stream.of(
+													new Student ( "이자바", 3, 300 ),
+													new Student ( "김자바", 1, 200 ),
+													new Student ( "안자바", 2, 100 ),
+													new Student ( "박자바", 2, 150 ),
+													new Student ( "소자바", 1, 200 ),
+													new Student ( "나자바", 3, 290 ),
+													new Student ( "감자바", 3, 180 ) 
+												);
+		
+							
+		studentStream.sorted(Comparator.comparing(Student::getBan)						// 각 Student 객체의 Ban을 가져와서 순서대로 정렬한 다음
+							.thenComparing(Comparator.naturalOrder()))					// natureOrder() -> Comparable로 정의한 순서(총점 순) 로 정렬
+							.forEach(System.out::println);
+	}
+
+}
+
+class Student implements Comparable<Student> {
+
+	String name;
+	int ban;
+	int totalScore;
+	
+	Student( String name, int ban, int totalScore ) {
+		this.name = name;
+		this.ban = ban;
+		this.totalScore = totalScore;
+	}
+	
+	public String toString() {
+		return String.format("[%s, %d, %d]", name, ban, totalScore);
+	}
+		
+	public String getName() {
+		return name;
+	}
+
+	public int getBan() {
+		return ban;
+	}
+
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	@Override
+	public int compareTo(Student s) {
+		return s.totalScore - this.totalScore;
+	}
+	
+}

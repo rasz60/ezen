@@ -1,0 +1,27 @@
+function checkWrite() {
+	if(document.form.bName.value.length == 0 || document.form.bName.value.length > 20) {
+		alert("작성자명을 20자내로 입력하세요.");
+		document.form.bName.focus();
+		return false;
+	} 
+
+	if(document.form.bTitle.value.length == 0 || document.form.bTitle.value.length > 100) {
+		alert("제목을 100자내로 입력하세요.");
+		document.form.bTitle.focus();
+		return false;
+	}
+	
+	if(document.form.bContent.value.length == 0 || document.form.bContent.value.length > 300) {
+		alert("내용을 300자내로 입력하세요.");
+		document.form.bContent.focus();
+		return false;
+	}
+	
+	return true;
+};
+
+$(document).ready(function() {
+	let count = $('#boardTable tr:nth-child(2) td:nth-child(1)').text();
+	alert("총"  + count + "개");
+});
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>JS class</title>
+</head>
+
+<body>
+
+<h3>JS class 사용법</h3>
+<hr />
+
+<p id="demo"></p>
+
+<script>
+//Car class 선언
+class Car {
+	constructor(name, year){ //생성자 함수는 파라메터로 Car클래스 객체의 속성을 사용 (=JAVA)
+		this.name = name;
+		this.year = year;
+	}
+	
+	age() { //Car 클래스로 만들 객체의 메서드 : function 없이 정의
+		let date = new Date();
+		return date.getFullYear() - this.year;
+	}
+}
+
+let myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML = "myCar is " + myCar.age() + "years old.";
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>기본 기능 차단</title>
+</head>
+
+<body>
+	
+<h3>이벤트의 디폴트 행동 취소</h3>
+<hr />
+<a href="https://www.google.com" target="_blank" onclick="return query()">
+	구글로 이동할지 물어보는 링크
+</a>
+<hr />
+<form action="">
+	<input type="checkbox" />빵(체크가능)<br />
+	<input type="checkbox" onclick="noAction(event)" />술(체크안됨)
+</form>
+
+<script>
+function query() {
+	let ret = confirm("네이버로 이동하시겠습니까?"); // confirm 창의 return값은 true of false
+	return ret;
+}
+
+function noAction(e) {
+	e.preventDefault(); // 원래의 기능을 차단
+}
+</script>
+</body>
+</html>

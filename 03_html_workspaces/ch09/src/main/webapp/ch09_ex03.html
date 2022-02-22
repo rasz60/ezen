@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>addEventListener 사용</title>
+<script>
+let p;
+function init() {
+	p = document.getElementById("p");
+	//addEventListener("이벤트이름", 함수 혹은 함수명, capture type(생략가능)[capture=true or bubling=false(default)])
+	p.addEventListener("mouseover", over); // HTML, DOM 태그에 사용하는 것보다 권고되는 방법
+	p.addEventListener("mouseout", out);
+}
+
+function over() {
+	this.style.backgroundColor = "orchid";
+}
+
+function out() {
+	this.style.backgroundColor = "transparent";
+}
+</script>
+</head>
+
+<body onload="init()"> <!-- 문서 로딩 완료시 init() 호출 -->
+
+<h3>addEventListener()로 이벤트 리스너 작성</h3>
+<hr />
+
+<p id="p">마우스 올리면 orchid 색으로 변경</p>
+</body>
+</html>

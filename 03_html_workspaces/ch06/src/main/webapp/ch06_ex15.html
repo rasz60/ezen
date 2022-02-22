@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>if문</title>
+</head>
+
+<body>
+	
+<h3>if-else를 이용한 학점 매기기</h3>
+<hr />
+
+<div id="result">
+</div>
+
+<script>
+	var grade;
+	var score = parseInt(prompt("점수를 입력해주세요.", 100));
+	/* prompt 반환 값은 문자열이고, 문자열은 첫 자리수 부터 비교한다.
+	   정확한 숫자 비교를 할 때는 반환 값을 숫자로 변환해주어야 한다.   */
+	
+	if( score >= 90 ) {	grade = "A"; }
+	else if ( score >= 80 ) { grade = "B"; }
+	else if ( score >= 70 ) { grade = "C"; }
+	else if ( score >= 60 ) { grade = "D"; }
+	else { grade = "F"; }
+	
+	var result = document.getElementById("result");
+	result.innerHTML = "점수 : " + score + "점 / 학점 : " + grade;
+</script>
+</body>
+</html>

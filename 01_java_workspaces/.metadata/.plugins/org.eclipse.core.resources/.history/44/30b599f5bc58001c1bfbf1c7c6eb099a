@@ -1,0 +1,15 @@
+
+import java.io.*;
+
+public class RandomAccessFileEx03 {
+
+	public static void main(String[] args) {
+		int sum = 0;
+		
+		try {
+			RandomAccessFile raf = new RandomAccessFile("score2.dat", "r");
+			
+		}
+	}
+
+}

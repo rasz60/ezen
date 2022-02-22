@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;errorHappen500.jsp&apos; to &apos;webapp&apos;&#x0D;&#x0A;- Original project: &apos;jsp_servlet_13_ex01&apos;&#x0D;&#x0A;- Destination element: &apos;webapp&apos;&#x0D;&#x0A;- Original element: &apos;errorHappen500.jsp&apos;" description="Copy file" element1="src/main/webapp/errorHappen500.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1644458912082" target="/jsp_servlet_13_ex01/src/main/webapp" units="0" version="1.0"/>
+</session>

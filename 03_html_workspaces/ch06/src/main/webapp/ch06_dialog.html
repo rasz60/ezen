@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>dialog(대화창)</title>
+</head>
+
+<body>
+	
+	<h3>자바스크립트로 사용자 입력 및 대화</h3>
+	<hr />
+	
+	<div id="result">
+		<!-- js의 실행 결과를 표시해 줄 빈 div 생성 -->
+	</div>
+	
+	<script>
+		var result = document.getElementById("result");
+		
+		function promptEX() {
+			var ret = prompt("이름을 입력하세요.", "황기태");
+			
+			if ( ret == null ) {
+				result.innerHTML = "cancel or closed.";
+			}
+			
+			else {
+				result.innerHTML = ret;
+			}
+		}
+
+		function confirmEX() {
+			var ret = confirm("전송할까요?"); //confirm은 리턴 값이 true or false
+			
+			if ( ret == true ) {
+				result.innerHTML = "전송 완료.";				
+			}
+			
+			else {
+				result.innerHTML = "전송 취소.";
+			}
+		}
+		
+		function alertEX() {
+			alert("경고창."); 
+		}
+		
+	</script>
+	<button type="button" onclick="promptEX()">프롬포트 다이얼로그</button>
+	<button type="button" onclick="confirmEX()">확인 다이얼로그</button>
+	<button type="button" onclick="alertEX()">경고 다이얼로그</button>
+</body>
+</html>

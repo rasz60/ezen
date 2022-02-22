@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>BS form</title>
+<style>
+h3 {
+	margin-top: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+	<h3>수직배치 form</h3>
+	<form action="#" method="post">
+		<!-- .form-group : form 요소(label, input..)들을 수직으로 담을 엘리먼트에 지정, 입력 요소간 margin -->
+		<div class="form-group">
+			<label for="email">Email : </label>
+			<!-- .form-control : 입력요소가 width 100%가 되도록 지정 -->
+			<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" />
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password : </label>
+			<input type="password" class="form-control" id="pwd" placeholder="Enter pwd" name="pwd" />
+		</div>
+		<!-- form-check : input checkbox를 포함한 박스에 지정 -->
+		<div class="form-group form-check">
+			<!-- form-check-label : input checkbox를 포함한 label에 지정 -->
+			<label for="" class="form-check-label">
+				<!-- form-check-input : 실제 input checkbox에 지정 -->
+				<input type="checkbox" class="form-check-input" name="remember" />Remember me
+			</label>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+<div class="container">
+	<h3>수평배치 form</h3>
+	<form action="#" method="post" class="form-inline" >
+		<!-- .form-inline : form 요소(label, input..)들을 수평으로 담을 엘리먼트에 지정, 입력요소간 margin은 따로 지정해야함 -->
+		<div class="form-inline">
+			<label for="email" >Email :</label>
+			<input type="email" class="form-control ml-sm-2" id="email" placeholder="Enter email" name="email" />
+		</div>
+		<div class="form-inline ml-sm-2">
+			<label for="pwd">Password :</label>
+			<input type="password" class="form-control ml-sm-2" id="pwd" placeholder="Enter pwd" name="pwd" />
+		</div>
+		<div class="form-group form-check ml-sm-4">
+			<label for="" class="form-check-label">
+				<input type="checkbox" class="form-check-input" name="remember" />Remember me
+			</label>
+		</div>
+		<button type="submit" class="btn btn-primary ml-sm-2">Submit</button>
+	</form>
+</div>
+
+<div class="container">
+	<h3>ROW / GRID 사용 form</h3>
+	<form action="#" method="post" >
+		<!-- .row : 한 줄로 표시할 박스에 지정, 12개의 칸을 가짐 -->
+		<div class="row">
+			<!-- .col-개수 : .row 안에 칸으로 쓰일 박스에 지정, 개수를 따로 정하지 않으면 형제 요소 개수에 따라 균등하게 분배 -->
+			<div class="col">
+				<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" />
+			</div>
+			<div class="col">
+				<input type="password" class="form-control" id="pwd" placeholder="Enter pwd" name="pwd" />
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary mt-3">Submit</button>
+	</form>
+</div>
+</body>
+</html>

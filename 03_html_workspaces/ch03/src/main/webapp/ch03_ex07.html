@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>input과 datalist의 결합</title>
+</head>
+
+<body>
+	
+	<h3>가보고 싶은 곳</h3>
+	<hr />
+	<form action="#" >
+		나라 : <input type="text" name="in_country" list="countries" /><br />
+			<datalist id="countries">
+				<option value="한국"></option>
+				<option value="미국"></option>
+				<option value="영국"></option>
+				<option value="프랑스"></option>
+				<option value="호주"></option>
+			</datalist>
+		<br />
+		보고 싶은 것 : <input type="text" name="in_want" list="wanna" /><br />
+			<datalist id="wanna">
+				<option value="산"></option>
+				<option value="바다"></option>
+				<option value="도시"></option>
+			</datalist>
+		<br />
+		<input type="submit" value="제출" />
+	</form>
+	
+</body>
+</html>

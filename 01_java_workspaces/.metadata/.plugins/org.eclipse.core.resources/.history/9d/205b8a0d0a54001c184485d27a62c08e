@@ -1,0 +1,10 @@
+import java.util.function.*;
+import java.util.*;
+
+public class LamdaEx06 {
+
+	public static void main(String[] args) {
+
+	}
+
+}

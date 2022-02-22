@@ -1,0 +1,5 @@
+package com.wvwv.jspMVC.command;
+
+public interface BCommand {
+
+}

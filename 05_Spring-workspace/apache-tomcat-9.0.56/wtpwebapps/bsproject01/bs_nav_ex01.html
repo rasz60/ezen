@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>BS nav 메뉴</title>
+<style>
+.container {
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid grey;
+	background-color: #FBF9F4;
+	border-radius: 1.5%;
+}
+
+.tab-content {
+	margin: 20px;
+}
+</style>
+</head>
+
+<body class="bg-light">
+
+<div class="container">
+	<h3>nav</h3>
+	<!-- .nav : 댠순 수평형태 메뉴(nav) 생성-->
+	<ul class="nav"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>nav justify-content-end</h3>
+	<!-- .justify-content-"방향" : 메뉴 항목을 지정한 방향([default]start / center / end)으로 정렬 -->
+	<ul class="nav justify-content-end"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>nav flex-column</h3>
+	<!-- .flex-column : 수직형태로 배치되는 메뉴 생성 -->
+	<ul class="nav flex-column"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>nav nav-tabs</h3>
+	<!-- .nav-tabs : 다른 링크로 이동하지 않고 탭 메뉴 형식으로 사용할 때 적용, hover/click시 테두리 생성 -->
+	<ul class="nav nav-tabs"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>nav nav-pills</h3>
+	<!-- .nav-pills : 탭 메뉴 형식에 둥근 모서리를 가짐, 선택 시 배경색 변경 -->
+	<ul class="nav nav-pills"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link active">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>nav nav-justified</h3>
+	<!-- .nav-justified : 부모 width를 기준으로 탭 메뉴 항목 width를 균등하게 나누어 표시 -->
+	<ul class="nav nav-pills nav-justified"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link active">Link1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link2</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>dropdown 메뉴를 가진 nav-pills</h3>
+	<ul class="nav nav-pills"> 
+		<li class="nav-item">
+			<a href="#" class="nav-link active">Link1</a>
+		</li>
+
+		<!-- dropdown메뉴를 포함한 li에 .dropdown 추가 -->
+		<li class="nav-item dropdown">
+			<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+			<div class="dropdown-menu">
+				<a href="#" class="dropdown-item active">Link1</a>
+				<a href="#" class="dropdown-item">Link2</a>
+				<a href="#" class="dropdown-item">Link3</a>
+				<a href="#" class="dropdown-item disabled">Link4</a>
+			</div>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link">Link3</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link disabled">Link4</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container">
+	<h3>Toggleable Pills</h3>
+
+	<!-- role="tablist" : 페이지내에서 toggle방식으로 내용 보여지게 함 -->
+	<ul class="nav nav-pills" role="tablist"> 
+		<li class="nav-item">
+			<!-- data-toggle="pill" : 토글 방식의 메뉴 속성값으로 주고, href값에 .tab-pane 특정 엘리먼트로 지정 -->
+			<a href="#home" class="nav-link" data-toggle="pill">Home</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#menu1" class="nav-link" data-toggle="pill">Menu1</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#menu2" class="nav-link" data-toggle="pill">Menu2</a>
+		</li>
+	</ul>
+
+	<!-- .tab-content : 메뉴를 선택하면 보여질 메뉴 박스 -->
+	<div class="tab-content">
+		<!-- .tab-pane : 각 nav-link에 상응하는 메뉴 요소에 지정 -->
+		<!-- .fade / active : fade는 숨김상태, active는 보여지는 상태로 설정 -->
+		<div id="home" class="container tab-pane fade">
+			<br />
+			<h3>HOME</h3>
+			<hr />
+			<p> H O M E </p>
+		</div>
+
+		<div id="menu1" class="container tab-pane fade">
+			<br />
+			<h3>MENU1</h3>
+			<hr />
+			<p> M E N U 1 </p>
+		</div>
+
+		<div id="menu2" class="container tab-pane fade">
+			<br />
+			<h3>MENU2</h3>
+			<hr />
+			<p> M E N U 2 </p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

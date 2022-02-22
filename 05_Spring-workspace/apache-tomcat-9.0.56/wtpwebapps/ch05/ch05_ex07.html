@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>visibility속성</title>
+<style>
+span {
+	border: 1px dotted orange;
+	background: orange;
+	color: ghostwhite;
+	visibility: hidden;
+}
+
+ul {
+	width: 100% ;
+}
+
+ul > li {
+	width: 20% ;
+}
+
+ul > li:active6 >span {
+	visibility: visible;
+}
+
+</style>
+</head>
+
+<body>
+	
+	<h3>다음 빈 곳에 숨은 단어?</h3>
+	<hr />
+	<ul>
+		<li>I (<span>love</span>) you.</li>
+		<li>CSS is Cascading (<span>Style</span>) Sheet.</li>
+		<li>응답하라 (<span>1988</span>).</li>
+	</ul>
+</body>
+</html>

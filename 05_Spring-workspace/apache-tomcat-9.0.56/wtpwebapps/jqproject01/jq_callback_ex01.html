@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<title>callback 함수</title>
+</head>
+
+<body>
+
+<button class="btn btn-danger button1">Hide</button>
+<button class="btn btn-outline-danger button2">Hide without callback</button>
+<p class="bg-warning text-primary my-3 py-4">This is a paragraph with little content.</p>
+
+<script>
+$(document).ready(function() {
+	// callback 함수는 이전 메소드 수행이 다 끝나고 나서 실행된다.
+	$(".button1").click(function() {
+		$("p").hide(2000, function() {
+			alert("The paragraph is now hidden.");
+		});
+	});
+
+	// callback 함수로 지정하지 않으면 애니메이션보다 먼저 실행된다.
+	$(".button2").click(function() {
+		$("p").hide(2000);
+		alert("The paragraph is now hidden.");
+	});
+	
+});
+</script>
+</body>
+</html>

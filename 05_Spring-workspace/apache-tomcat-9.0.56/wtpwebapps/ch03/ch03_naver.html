@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<link href="searchpage.css" rel="stylesheet" type="text/css">
+<title>form으로 외부 사이트 요청</title>
+</head>
+
+<body>
+	
+	<h3>NAVER로 검색하기</h3>
+	<hr />
+	
+	<form action="https://search.naver.com/search.naver" name="sform" method="get" target="_blank" autocomplete="off">
+		검색어 : <input type="text" name="query" placeholder="검색할 단어를 입력하세요" />
+		<input type="submit" value="검색" />
+	</form>
+	
+	<h3>GOOGLE로 검색하기</h3>
+	<hr />
+	
+	<form action="https://www.google.com/search" name="sform" method="get" target="_blank" autocomplete="off">
+		검색어 : <input type="text" name="query" placeholder="검색할 단어를 입력하세요" />
+		<input type="submit" value="검색" />
+	</form>
+</body>
+</html>

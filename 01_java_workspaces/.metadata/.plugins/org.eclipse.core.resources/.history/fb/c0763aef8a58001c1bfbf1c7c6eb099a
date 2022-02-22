@@ -1,0 +1,15 @@
+import java.io.FileInputStream;
+
+public class FileViewer {
+	public static void main(String[] args) {
+		FileInputStream fis = new FileInputStream(args[0]);
+		int data = fis.read();
+		
+		while( data != -1 ) {
+			char c = (char)data;
+			System.out.print(c);
+		}
+		
+		
+	}
+}

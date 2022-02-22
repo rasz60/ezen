@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="bmiCalculator" class="com.wvwv.ch04ex01.BMICalculator" >
+		<property name="LowWeight" >
+			<value>18.5</value>
+		</property>
+		
+		<property name="normal">
+			<value>23</value>
+		</property>
+		
+		<property name="overWeight">
+			<value>25</value>
+		</property>
+		
+		<property name="obesity">
+			<value>30</value>
+		</property>
+	</bean>
+	
+	<bean id="info" class="com.wvwv.ch04ex01.MyInfo" >
+	<property name="name">
+		<value>홍길동</value>
+	</property>
+	<property name="height">
+		<value>187</value>
+	</property>
+	<property name="weight">
+		<value>84</value>
+	</property>
+	<property name="hobbys">
+		<list>
+			<value>수영</value>
+			<value>요리</value>
+			<value>독서</value>
+		</list>
+	</property>
+	<property name="bmiCalc">
+		<ref bean="bmiCalculator" />
+	</property>
+	
+	</bean>	
+	
+</beans>

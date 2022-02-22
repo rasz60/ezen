@@ -1,0 +1,21 @@
+
+import java.io.*;
+import java.util.Arrays;
+
+public class DataOutputStreamEx02 {
+
+	public static void main(String[] args) {
+		ByteArrayOutputStream bos = null;
+		DataOutputStream dos = null;
+		
+		byte[] result = null;
+		
+		try {
+			bos = new ByteArrayOutputStream();
+			dos = new DataOutputStream(bos);
+			bos = new ByteArrayOutputStream();
+			bos = new ByteArrayOutputStream();
+		}
+	}
+
+}

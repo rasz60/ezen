@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>querySelectorAll 메서드 사용</title>
+</head>
+
+<body>
+
+<h3>querySelectorAll() 메서드</h3>
+<hr />
+
+<p>This is a p element.</p>
+<p>This is also a p element.</p>
+<p>Click the button to add a background color to the first p element (index 0) in the document.</p>
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+	var x = document.querySelectorAll("p");
+	// querySelectorAll("css selector") 배열 형태로 반환
+	// querySelector("css selector")는 제일 처음 DOM 1개만 선택
+	x[0].style.backgroundColor = "red";
+	x[0].style.color = "white";
+}
+</script>
+</body>
+</html>
