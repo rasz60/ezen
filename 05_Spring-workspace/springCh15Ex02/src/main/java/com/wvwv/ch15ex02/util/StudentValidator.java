@@ -18,9 +18,7 @@ public class StudentValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		System.out.println("validation()");
-		
-		Student student = (Student)target;
-		
+
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "trouble");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "id", "trouble");
 	}

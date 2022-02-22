@@ -18,7 +18,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<title>Home</title>
+<html>
+<head>
+	<title>Home</title>
 </head>
 <body>
 <h1>
@@ -26,7 +28,5 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-
-
 </body>
 </html>
