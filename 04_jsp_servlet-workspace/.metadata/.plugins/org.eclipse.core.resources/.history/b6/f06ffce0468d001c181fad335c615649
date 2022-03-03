@@ -1,6 +1,0 @@
-package com.wvwv.ch25_ex01.command;
-
-public interface MyCommand {
-	//MyCommand를 implements할 class로 넘겨 줄 abstract method 생성
-	public void execute();
-}
