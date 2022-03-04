@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -46,18 +47,16 @@ public class HomeController {
 	public String ajaxGet(HttpServletRequest request, HttpServletResponse response) {
 		return "get method 성공";
 	}
-		
+
 	@RequestMapping(value = "ajaxPost", produces = "application/text; charset=UTF-8")
 	@ResponseBody // jsp 파일 경로가 아닌 일반 문자열을 반환
-	public String ajaxPost(HttpServletRequest request, HttpServletResponse response) {
+	public String ajaxPost( @RequestParam("name") String name, @RequestParam("city") String city ) {
+		logger.info(name + " / " + city);
 		
-		String name = request.getParameter("name");
-		String city = request.getParameter("name");		
-		String msg = "";
-		if ( name.equals("Donald") && city.equals("Donaldburg") ) {
+		String msg = "wrong parameters";
+		
+		if ( name.equals("Donald Duck") && city.equals("Duckburg") ) {
 			msg = "post method success.";
-		} else {
-			msg = "wrong parameters";
 		}
 		
 		return msg;

@@ -1,0 +1,31 @@
+JSON TYPE DATA
+* 문자열로된 데이터로 구성되어 있으며, 거의 모든 언어의 객체 형태로 변환할 수 있음 *
+* 기본적인 기능은 서버에서 가져온 데이터를 view 페이지에 출력하기 위한 데이터 *
+
+Json 규칙
+- name : value 한 쌍의 데이터로 구성(숫자, boolean, null을 제외한 값은 ""안에 작성)
+- 데이터 간 구분자로 , 사용
+- 객체를 나타낼 때는 { }, 배열은 [] 사용
+ex1. data> 
+	"firstName" : "John"
+
+ex2. object>
+	{"firstName" : "John", "lastName" : "Doe"}
+
+ex3. array>
+	"employees" : [
+		{"firstName" : "John", "lastName" : "Doe"},
+		{"firstName" : "Anna", "lastName" : "Smith"},
+		{"firstName" : "Peter", "lastName" : "Jones"}
+	]
+	
+* Json 문자열을 js객체로 변환
+ 1) Json 구문을 포함하는 문자열을 생성하여 객체에 대입
+  ex> let text = '{"employees" : [' + 
+					'{"firstName" : "John", "lastName" : "Doe"},' + 
+					'{"firstName" : "Anna", "lastName" : "Smith"},' +
+					'{"firstName" : "Peter", "lastName" : "Jones"}' +
+					']}';
+ 2) JSON.parse(Json 문자열 객체) 메서드를 이용하여 js객체로 변환  ex> JSON.parse(text);
+ 3) Json의 값은 string, number, jsonObject, array, Boolean, null 사용 가능 (function, date, undefined는 사용 불가)
+ 4) 반대로 js객체를 Json text로 변환할 때는 JSON.stringify(obj); 사용
