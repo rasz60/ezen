@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wvwv.mybatis01.dao.IDao">
+
+<insert id="writeDao" parameterType="com.wvwv.mybatis01.dto.ContentDTO">
+	INSERT INTO batis(mid, mwriter, mcontent) VALUES (batis_seq.nextVAL, #{mWriter}, #{mContent})
+</insert>
+
+<select id="listDao" resultType="com.wvwv.mybatis01.dto.ContentDTO">
+	SELECT * FROM batis ORDER BY MID DESC
+</select>
+
+<delete id="deleteDao" parameterType="int">
+	DELETE FROM batis WHERE mId=#{mId}
+</delete>
+
+<select id="viewDao" parameterType="int" resultType="com.wvwv.mybatis01.dto.ContentDTO">
+	SELECT * FROM batis WHERE mid = #{mId}
+</select>
+
+<insert id="writeCard" parameterType="com.wvwv.mybatis01.dto.TicketDTO">
+	INSERT INTO card(consumerId, amount) VALUES (#{consumerId}, #{amount})
+</insert>
+
+<insert id="writeTicket" parameterType="com.wvwv.mybatis01.dto.TicketDTO">
+	INSERT INTO ticket(consumerId, countnum) VALUES (#{consumerId}, #{amount})	
+</insert>
+
+</mapper>
