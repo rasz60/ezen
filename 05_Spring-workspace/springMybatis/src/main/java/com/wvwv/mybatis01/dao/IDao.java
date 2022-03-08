@@ -15,6 +15,9 @@ public interface IDao {
 	
 	public ArrayList<ContentDTO> viewDao(String mId);
 	
+	//Test
+	public ArrayList<ContentDTO> selectTest(ArrayList<Integer> mId);
+	
 	public void writeCard(TicketDTO dto);
 
 	public void writeTicket(TicketDTO dto);

@@ -11,11 +11,13 @@ import com.wvwv.mybatis01.dto.TicketDTO;
 
 @Component
 public class ContentDao implements IDao {
-
-	@Autowired
-	private SqlSession sqlSession;
 	
-	public ContentDao() {}
+	private final SqlSession sqlSession;
+		
+	@Autowired
+	public ContentDao(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
 
 	@Override
 	public void writeDao(String mWriter, String mContent) {
@@ -44,7 +46,7 @@ public class ContentDao implements IDao {
 		
 		return dtos;
 	}
-
+	
 	@Override
 	public void writeCard(TicketDTO dto) {
 		sqlSession.insert("writeCard", dto);
@@ -54,5 +56,18 @@ public class ContentDao implements IDao {
 	public void writeTicket(TicketDTO dto) {
 		sqlSession.insert("writeTicket", dto);		
 	}
+
+	public SqlSession getSqlSession() {
+		return sqlSession;
+	}
+
+	@Override
+	public ArrayList<ContentDTO> selectTest(ArrayList<Integer> mId) {
+		ArrayList<ContentDTO> result = (ArrayList)sqlSession.selectList("list", mId);
+		
+		return result;
+	}
+
+	
 	
 }

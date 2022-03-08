@@ -29,4 +29,15 @@
 	INSERT INTO ticket(consumerId, countnum) VALUES (#{consumerId}, #{amount})	
 </insert>
 
+
+
+
+<select id="selectTest" resultType="com.wvwv.mybatis01.dto.ContentDTO">
+	SELECT * FROM batis WHERE mId in <!-- (item, item, item) -->
+	<foreach collection="list" item="item" open="(" separator="," close=")" >
+		#{item}
+	</foreach>
+</select>
+
+
 </mapper>

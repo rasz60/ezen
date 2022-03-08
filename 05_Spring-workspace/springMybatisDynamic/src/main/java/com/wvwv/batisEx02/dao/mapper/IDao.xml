@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- namespace : mapper xml을 호출하는 곳(인터페이스)의 full-path -->
+<mapper namespace="com.wvwv.batisEx02.dao.IDao">
+
+	<!-- id : 해당 sql문을 호출하는 메서드명 / resultType : 반환 자료형 타입 -->
+	<select id="selectTest" resultType="sample.mybatis.TestTable">
+		SELECT * FROM test_table WHERE string_value = 'hoge'
+		
+		<!-- jstl 형식의 명령어도 사용할 수 있다. -->
+		<if test="number_value != null">
+			AND number_value = #{numberValue}
+		</if>
+	</select>
+	
+	<select id="selectTest2" resultType="sample.mybatis.TestTable">
+		SELECT * FROM test_table
+		<choose>
+			<when test="value == null">
+				WHERE value is null
+			</when>
+			
+			<otherwise>
+				WHERE value = #{value}
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectTest3" resultType="sample.mybatis.TestTable">
+		SELECT * FROM test_table
+		<where>
+			<!-- WHERE 조건문 처음에 AND나 OR가 오면, 그 내용은 실행되지 않는다. -->
+			<if test="string != null">
+				AND string = #{string}
+			</if>
+			
+			<if test="number != null">
+				AND number = #{number}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectTest4" resultType="sample.mybatis.TestTable">
+		SELECT * FROM test_table
+		
+		<!-- prefix : 접두어로 사용 / prefiexOverrides : 접두어 바로 다음에 지정한 값이 오면 제거한다. -->
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="string != null">
+				AND string = #{string}
+			</if>
+			
+			<if test="number != null">
+				AND number = #{number}
+			</if>
+		</trim>
+	</select>
+	
+	<update id="updateTest1">
+		UPDATE test_table
+		<set>
+			<if test="string != null">
+				string = #{string},
+			</if>
+			
+			<if test="number != null">
+				number = #{number},
+			</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateTest2">
+		UPDATE test_table
+
+		<!-- suffixOverrides : 마지막으로 오는 값이 지정한 값일 때 제거한다. -->
+		<trim prefix="SET" suffixOverrides="," >
+			<if test="string != null">
+				string = #{string},
+			</if>
+			
+			<if test="number != null">
+				number = #{number},
+			</if>
+		</trim>
+		WHERE id = #{id}
+	</update>
+	
+	<select id="selectTest5" resultType="sample.mybatis.TestTable">
+		SELECT * FROM test_table WHERE id in <!-- (item, item, item) -->
+		<foreach collection="list" item="item" open="(" separator="," close=")" >
+			#{item}
+		</foreach>
+	</select>
+	
+	<select id="selectTest6" resultType="sample.mybatis.TestTable">
+		<bind name="parameter" value="'@@@' + _parameter + '@@@'"/>
+		SELECT * FROM test_table 
+		WHERE value = #{parameter}
+	</select>
+	
+</mapper>
