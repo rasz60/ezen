@@ -31,6 +31,26 @@ textarea {
 <body>
 
 <div id="main" class="container mt-2 py-5 border rounded">
+	<!-- modal button -->
+	<input type="hidden" id="modalBtn" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" value="modal" />
+	
+	<!-- modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm text-center">
+			<div class="modal-content">
+				<div class="modal-header bg-light">
+					<h4 class="modal-title">회원가입</h4>
+				</div>
+				<div class="modal-body bg-light">
+					회원 가입을 축하합니다.
+				</div>
+				<div class="modal-footer bg-light">
+					<button id="closeBtn" class="btn btn-default btn-secondary" type="button" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<h3 class="text-center text-danger">회원가입</h3>
 	<hr />
 	
@@ -42,7 +62,7 @@ textarea {
 		</div>
 		
 		<div class="form-group">
-			<label for="user_pwd">아이디</label>
+			<label for="user_pwd">비밀번호</label>
 			<input type="password" class="form-control" name="ppw" id="user_pwd" placeholder="비밀번호 입력" required/>
 		</div>
 		
@@ -80,7 +100,7 @@ $(document).ready(function() {
 			data : frm.serialize() ,
 									//search('str') : 문자열로된 객체에서 str이 있는지 찾고, boolean으로 반환
 			success : function(data) {
-				if ( data.search("join-success") > -1 ) {
+				if ( data.search("join_success") > -1 ) {
 					$('.modal-body').text('회원가입을 축하합니다.');
 					
 					// trigger(event) : 자동으로 이벤트가 일어나도록 한다.
@@ -93,7 +113,6 @@ $(document).ready(function() {
 					$('.modal-body').text('동일한 아이디가 존재합니다.');
 					$('#modalBtn').trigger('click');
 				}
-				
 			},
 			error : function(data) {
 				$('.modal-body').text('동일한 아이디가 존재합니다.');
@@ -101,9 +120,9 @@ $(document).ready(function() {
 			}
 		})
 	})
+
 })
 </script>
-
 
 </body>
 </html>

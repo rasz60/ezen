@@ -74,7 +74,7 @@
 	
 	
 	<!-- [MyBatis] -->
-	<!-- 
+
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="mapperLocations" value="classpath:com/wvwv/sslex01/dao/mapper/*.xml" />
@@ -83,9 +83,8 @@
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
-	 -->
+
 	<!-- 암호화 bean : password를 암호화시켜주는 encoder -->
 	<beans:bean name="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-	
 	
 </beans:beans>

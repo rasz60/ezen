@@ -37,7 +37,7 @@
 		<intercept-url pattern="/" access="permitAll" />
 		<intercept-url pattern="/images/**" access="permitAll" />
 		<intercept-url pattern="/processLogin" access="permitAll" />
-		<intercept-url pattern="/home" access="permitAll" />
+		<intercept-url pattern="/main" access="permitAll" />
 		
 		<!-- isAnonymous() : 로그인하지 않은 user -->
 		<intercept-url pattern="/login_view" access="isAnonymous()" />
@@ -59,9 +59,9 @@
 		 -->
 		<form-login login-page="/login_view" 
 					login-processing-url="/login"
-					username-parameter="uid"
-					password-parameter="upw"
-					default-target-url="/mainFrame"
+					username-parameter="pid"
+					password-parameter="ppw"
+					default-target-url="/main"
 					authentication-failure-url="/processLogin?error=1"
 					always-use-default-target="true" />
 		
@@ -71,7 +71,7 @@
 			 logout-success-url = 로그아웃 성공 시 이동 페이지
 		 -->			
 		<logout invalidate-session="true"
-				logout-url="/login"
+				logout-url="/logout"
 				logout-success-url="/processLogin?logout=1" />
 		
 		<!-- 위조 사이트에서 원 사이트로 접근하는 것을 방지하는 기능 / default가 false이며, 외부 서버 ajax 사용 시 별도 설정 필요  -->
