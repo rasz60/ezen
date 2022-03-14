@@ -72,7 +72,12 @@
 		 -->			
 		<logout invalidate-session="true"
 				logout-url="/logout"
-				logout-success-url="/processLogin?logout=1" />
+				logout-success-url="/processLogin?logout=1"
+				delete-cookies="JSESSIONID, remember-me" />
+		
+		
+		<!-- 명시적으로 로그아웃하지 않았을 때 다시 사이트 입장하면 로그인 상태 유지 -->
+		<remember-me remember-me-parameter="remember-me" remember-me-cookie="remember-me" key="wvwvkey" token-validity-seconds="3600" />
 		
 		<!-- 위조 사이트에서 원 사이트로 접근하는 것을 방지하는 기능 / default가 false이며, 외부 서버 ajax 사용 시 별도 설정 필요  -->
 		<csrf disabled="false" />

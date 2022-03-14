@@ -51,11 +51,13 @@
 			<label for="user_pwd">비밀번호</label>
 			<input type="password" class="form-control" name="ppw" id="user_pwd" placeholder="비밀번호 입력" required />
 		</div>
+		
 		<div class="form-group form-check">
-			<input type="checkbox" class="form-check-input" id="rememberMe" name="remebber-me" checked />
+			<input type="checkbox" class="form-check-input" id="rememberMe" name="remember-me" checked />
 			<!-- aria-describedby : 스크린리더(맹인용 웹)에 쓰일 안내말 -->
 			<label for="rememberMe" class="form-check-label" aria-describedby="rememberMeHelp">Remember Me?</label>
 		</div>
+		
 		<div class="d-flex justify-content-end">
 			<input type="submit" value="로그인" class="btn btn-sm btn-secondary"/>&nbsp;&nbsp;
 			<a href="join_view"><button type="button" class="btn btn-sm btn-secondary">가입하기</button></a>
