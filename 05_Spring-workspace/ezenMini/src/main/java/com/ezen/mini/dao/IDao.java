@@ -1,5 +1,9 @@
 package com.ezen.mini.dao;
 
-public interface IDao {
+import com.ezen.mini.dto.JoinDto;
 
+public interface IDao {
+	
+	public String join(JoinDto dto);
+	
 }

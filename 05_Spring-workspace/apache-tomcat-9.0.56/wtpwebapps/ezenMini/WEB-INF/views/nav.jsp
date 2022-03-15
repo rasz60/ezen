@@ -40,7 +40,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top font-weight-bold">
 	<a href="/mini" class="navbar-brand">
-		<i class="fa-solid fa-crow"></i>
+		<i class="fa-solid fa-c fa-bounce"></i>
 	</a>
 	
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -58,7 +58,7 @@
 			</li>
 			
 			<li class="nav-item">
-				<a href="deals" class="nav-link">Deals</a>
+				<a href="util" class="nav-link">Utils</a>
 			</li>
 			
 			<li class="nav-item">
@@ -108,8 +108,7 @@
 		</button>
 		<input type="text" id="searchInput" class="form-control mr-sm-2" placeholder="Search"/>
 	</form>
-	
-	
+
 </nav>
 </body>
 </html>

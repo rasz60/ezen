@@ -35,6 +35,7 @@
 		
 		<!-- permitAll : 모두에게 허용 -->
 		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/home" access="permitAll" />
 		<intercept-url pattern="/images/**" access="permitAll" />
 		<intercept-url pattern="/processLogin" access="permitAll" />
 		<intercept-url pattern="/main" access="permitAll" />

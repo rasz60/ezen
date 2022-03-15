@@ -10,9 +10,9 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping("/")
+	@RequestMapping(value= {"/", "/home"})
 	public String home() {
-		logger.info(">>>> index");
+		logger.info("index >>>>> ");
 		
 		return "index";
 	}

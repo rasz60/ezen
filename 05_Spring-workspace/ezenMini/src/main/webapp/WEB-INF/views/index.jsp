@@ -33,7 +33,6 @@ html, body {
 	text-shadow: 1px 1px 2px grey;
 }
 
-
 </style>
 </head>
 
@@ -42,41 +41,49 @@ html, body {
 
 <%@ include file="nav.jsp" %>
 <%@ include file="carousel.jsp" %>
- 
+
 <div id="main" class="container mt-5">
 	<div class="row">
 		<div class="col-sm-4">
-			<p class="h4">NEW ARRIVALS</p>
-			<div class="card" style="width: 300px">
+			<p class="h4 mb-5 d-flex justify-content-around">
+				NEW ARRIVALS
+				<a href="#" class="btn btn-sm btn-default text-secondary">See Details&gt;&gt;</a>
+			</p>
+			<div class="card" style="width: 300px; border: none;">
 				<img src="images/deals1.jpg" class="card-img-top" style="height: 220px"/>
-				<div class="card-body">
-					<p class="h5 card-title">신상품</p>
-					<p class="card-text">Buy 50 mobiles and get a gift card</p>
-					<a href="#" class="btn btn-secondary">See Details</a>
+				<div class="card-body text-center">
+					<p class="h5 card-title">MADISON JACKET</p>
+					<p class="card-text text-secondary">TAWNY/TAWNY RINSED</p>
 				</div>
 			</div>
 		</div>
 		
 		<div class="col-sm-4">
-			<p class="h4">BLACK FRIDAY DEAL</p>
-			<div class="card" style="width: 300px">
+			<p class="h4 mb-5 d-flex justify-content-around">
+				BLACK FRIDAY DEAL
+				<a href="#" class="btn btn-sm btn-default text-secondary">See Details&gt;&gt;</a>
+			</p>
+			
+			<div class="card" style="width: 300px; border: none;">
 				<img src="images/deals2.jpg" class="card-img-top" style="height: 220px"/>
-				<div class="card-body">
-					<p class="h5 card-title">블랙 프라이데이 특가</p>
-					<p class="card-text">Buy 50 mobiles and get a gift card</p>
-					<a href="#" class="btn btn-secondary">See Details</a>
+				<div class="card-body text-center">
+					<p class="h5 card-title">HOODED SWEATSHIRT</p>
+					<p class="card-text text-secondary">ASTRO</p>
 				</div>
 			</div>
 		</div>
 		
 		<div class="col-sm-4">
-			<p class="h4">MD PICK</p>
-			<div class="card" style="width: 300px">
+			<p class="h4 mb-5 d-flex justify-content-around">
+				MD PICK
+				<a href="#" class="btn btn-sm btn-default text-secondary">See Details&gt;&gt;</a>
+			</p>
+
+			<div class="card" style="width: 300px; border: none;">
 				<img src="images/deals3.jpg" class="card-img-top" style="height: 220px"/>
-				<div class="card-body">
-					<p class="h5 card-title">2022-03-14</p>
-					<p class="card-text">Buy 50 mobiles and get a gift card</p>
-					<a href="#" class="btn btn-secondary">See Details</a>
+				<div class="card-body text-center">
+					<p class="h5 card-title">DENNIS CAP</p>
+					<p class="card-text text-secondary">HELIOS/BLACK</p>
 				</div>
 			</div>
 		</div>
