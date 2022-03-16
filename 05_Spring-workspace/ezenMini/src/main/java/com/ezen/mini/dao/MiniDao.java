@@ -12,7 +12,7 @@ import com.ezen.mini.dto.JoinDto;
 @Component
 public class MiniDao implements IDao {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MiniDao.class);
 
 	@Autowired
 	private SqlSession sqlSession;
@@ -34,6 +34,15 @@ public class MiniDao implements IDao {
 		logger.info("join() out >>>>");
 		
 		return result;
+	}
+
+	@Override
+	public JoinDto login(String username) {
+		logger.info("MiniDao >>> login(" + username + ") in >>>>");
+		JoinDto dto = sqlSession.selectOne("login", username);
+		
+		logger.info("MiniDao >>> login(" + dto.getPid() + ") out >>>>");
+		return dto;
 	}
 
 }

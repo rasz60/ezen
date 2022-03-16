@@ -6,4 +6,6 @@ public interface IDao {
 	
 	public String join(JoinDto dto);
 	
+	public JoinDto login(String username);
+	
 }

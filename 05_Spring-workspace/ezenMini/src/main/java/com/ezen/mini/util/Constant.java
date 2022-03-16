@@ -8,4 +8,5 @@ public class Constant {
 
 	public static MiniDao mdao;
 	public static BCryptPasswordEncoder passwordEncoder;
+	public static String username;
 }

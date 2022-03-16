@@ -5,10 +5,14 @@
 
 <mapper namespace="com.ezen.mini.dao.IDao">
 
-	<!-- JoinDao_join(JoinDto dto) -->
+	<!--MiniDao_join(JoinDto dto) -->
 	<insert id="join" parameterType="com.ezen.mini.dto.JoinDto">
 		INSERT INTO userdb(pid, ppw, paddress, phobby, pprofile) 
 		VALUES(#{pid}, #{ppw}, #{paddress}, #{phobby}, #{pprofile})
 	</insert>
 
+	<!-- MiniDao_login(String username) -->
+	<select id="login" parameterType="String" resultType="com.ezen.mini.dto.JoinDto">
+		SELECT * FROM userdb WHERE pid = #{username}
+	</select>
 </mapper>

@@ -35,9 +35,11 @@
 		
 		<!-- permitAll : 모두에게 허용 -->
 		<intercept-url pattern="/" access="permitAll" />
-		<intercept-url pattern="/home" access="permitAll" />
+		<intercept-url pattern="/Login" access="permitAll" />		
+		<intercept-url pattern="/contact" access="permitAll" />
 		<intercept-url pattern="/images/**" access="permitAll" />
 		<intercept-url pattern="/processLogin" access="permitAll" />
+		<intercept-url pattern="/home" access="permitAll" />
 		<intercept-url pattern="/main" access="permitAll" />
 		
 		<!-- isAnonymous() : 로그인하지 않은 user -->
@@ -62,7 +64,7 @@
 					login-processing-url="/login"
 					username-parameter="pid"
 					password-parameter="ppw"
-					default-target-url="/main"
+					default-target-url="/product"
 					authentication-failure-url="/processLogin?error=1"
 					always-use-default-target="true" />
 		
