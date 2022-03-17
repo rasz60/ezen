@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.mini.command.BoardListCommand;
+import com.ezen.mini.command.BoardWriteCommand;
 import com.ezen.mini.command.JoinCommand;
 import com.ezen.mini.command.MiniCommand;
 import com.ezen.mini.dao.MiniDao;
@@ -63,10 +65,10 @@ public class EzenMiniController {
 		logger.info(result);
 		
 		if( result.equals("success") ) {
-			logger.info("join out - success >>>>");
+			logger.info("join result : success >>>>");
 			return "join-success";
 		} else {
-			logger.info("join out - failed >>>>");
+			logger.info("join result : failed >>>>");
 			return "join-failed";
 		}
 	}
@@ -76,20 +78,52 @@ public class EzenMiniController {
 		logger.info("login_view >>>>");
 		return "login_view";
 	}
-	
 
+	@RequestMapping("/logout_view")
+	public String logout_view() {
+		logger.info("logout_view >>>>");
+		return "logout_view";
+	}
+
+	@RequestMapping("/board")
+	public String board(HttpServletRequest request, HttpServletResponse response, Model model, Authentication authentication) {
+		logger.info("borad in >>>>");
+		mcom = new BoardListCommand();
+		mcom.execute(request, model);
+		
+		return "board";
+	}
+	
+	@RequestMapping("/write_view")
+	public String write_view(Model model) {
+		logger.info("write_view in >>>>");
+		model.addAttribute("bName", Constant.username);
+		logger.info("write_view result : bName ? " + Constant.username);
+		return "write_view";
+	}
+	
+	@RequestMapping("/write")
+	public String write(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("write in >>>>");
+		mcom = new BoardWriteCommand();
+		mcom.execute(request, model);
+		
+		return "redirect:board";
+	}
+	
 	@RequestMapping("/product")																	// 로그인이 완료된 user의 정보를 가지고 있음
 	public String product(HttpServletRequest request, HttpServletResponse response, Model model, Authentication authentication) {
 		logger.info("Mapping product >>>>");
 		
 		// Authentication 객체의 principal 속성을 이용하여 UserDetails 객체로 생성
 		UserDetails userDetails = (UserDetails)authentication.getPrincipal();
+		Constant.username = userDetails.getUsername();
 		logger.info("userId : " + userDetails.getUsername());
 		
 		// 권한을 모두 가져와서 컬렉션으로 표시 (GrantedAuthority 클래스를 상속받은 클래스의 값만 들어갈 수 있음)
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		String auth = authorities.toString();
-		logger.info("userRole : " + auth);		
+		logger.info("userRole : " + auth);	
 		
 		logger.info("product view >>>>");		
 		return "product_view";
@@ -108,20 +142,21 @@ public class EzenMiniController {
 		// security form이 아닌 곳에서 로그인창 요청시 반환
 		if(log != null && log != "") {
 			model.addObject("log", "before login!");
+			logger.info("processLogin result : log");
 
 		// 로그인 에러시 security에서 반환 (value = 1)
 		} else if(error != null && error != "") {
 			model.addObject("error", "Invalid username or password!");
+			logger.info("processLogin result : error");
 			
 		// 로그아웃 성공시 security에서 반환 (value = 1)
 		} else if(logout != null && logout != "") {
 			model.addObject("logout", "logout seccess!");
+			logger.info("processLogin result : logout");
 		}
-		
+
 		model.setViewName("login_view");
-		
-		logger.info("processLogin out >>>>");
-		
+
 		return model;
 	}
 	

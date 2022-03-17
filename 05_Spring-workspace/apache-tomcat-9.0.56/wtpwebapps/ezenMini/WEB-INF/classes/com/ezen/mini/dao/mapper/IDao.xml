@@ -15,4 +15,21 @@
 	<select id="login" parameterType="String" resultType="com.ezen.mini.dto.JoinDto">
 		SELECT * FROM userdb WHERE pid = #{username}
 	</select>
+	
+	
+	<!-- MiniDao_list() -->
+	<!--  -->
+	<select id="list" resultType="com.ezen.mini.dto.BoardDto">
+		<![CDATA[
+			SELECT * 
+			FROM (SELECT A.*, rownum rnum 
+				  FROM(SELECT * FROM mvc_board ORDER BY bgroup DESC, bstep ASC) A) 
+			WHERE rnum < 11
+		]]>
+	</select>
+	
+	<insert id="write" parameterType="com.ezen.mini.dto.BoardDto">
+		INSERT INTO mvc_board(bId, bName, bTitle, bContent, bGroup, bStep, bIndent) 
+		VALUES(mvc_board_seq.nextVal, #{bName}, #{bTitle}, #{bContent}, mvc_board_seq.currVal, 0, 0)
+	</insert>
 </mapper>

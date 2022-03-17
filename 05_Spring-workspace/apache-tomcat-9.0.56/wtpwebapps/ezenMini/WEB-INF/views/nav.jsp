@@ -41,6 +41,14 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top font-weight-bold">
 	<a href="/mini" class="navbar-brand">
 		<i class="fa-solid fa-c fa-bounce"></i>
+		<i class="fa-solid fa-a fa-bounce"></i>
+		<i class="fa-solid fa-r fa-bounce"></i>
+		<i class="fa-solid fa-l fa-bounce"></i>
+		<i class="fa-solid fa-h fa-bounce"></i>
+		<i class="fa-solid fa-a fa-bounce"></i>
+		<i class="fa-solid fa-r fa-bounce"></i>
+		<i class="fa-solid fa-r fa-bounce"></i>
+		<i class="fa-solid fa-t fa-bounce"></i>
 	</a>
 	
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

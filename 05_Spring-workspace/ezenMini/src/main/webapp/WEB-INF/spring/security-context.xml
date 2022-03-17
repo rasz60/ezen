@@ -68,11 +68,12 @@
 					authentication-failure-url="/processLogin?error=1"
 					always-use-default-target="true" />
 		
-		<!-- logout 설정 
+		<!-- logout 설정 * 꼭 form에서 submit한 데이터만 security logout 페이지로 연결될 수 있다.
 			 invalidate-session = 로그아웃시 session을 초기화할지 여부
 			 logout-url = 로그아웃 처리 페이지
 			 logout-success-url = 로그아웃 성공 시 이동 페이지
-		 -->			
+			 delete-cookies = 로그아웃시 삭제할 쿠키 이름
+		 -->
 		<logout invalidate-session="true"
 				logout-url="/logout"
 				logout-success-url="/processLogin?logout=1"

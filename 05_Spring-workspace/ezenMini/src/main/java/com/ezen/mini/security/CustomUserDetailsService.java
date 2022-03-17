@@ -29,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		logger.info("mdao.login(" + username + ") in >>>");
 		JoinDto dto = mdao.login(username);
 		
-		logger.info("mdao.login(" + username + ") out >>> " + dto.toString());
+		logger.info("mdao.login(" + username + ") out >>> result : " + dto.toString());
 		
 		if ( dto == null ) {
 			throw new UsernameNotFoundException("No user found with username");
@@ -42,9 +42,9 @@ public class CustomUserDetailsService implements UserDetailsService{
 		
 		// User(id, pw, roles) 객체 생성
 		UserDetails user = new User(username, pw, roles);
-		Constant.username = user.getUsername();
 		
-		logger.info("loadUserByUsername() out >>>");
+		logger.info("loadUserByUsername(" + username + ") out >>> result : " + user);
+
 		return user;
 	}
 
