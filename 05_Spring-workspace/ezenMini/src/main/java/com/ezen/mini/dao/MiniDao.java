@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ezen.mini.dto.BoardDto;
 import com.ezen.mini.dto.JoinDto;
+import com.ezen.mini.dto.ProductDto;
 
 @Repository
 public class MiniDao implements IDao {
@@ -19,6 +20,8 @@ public class MiniDao implements IDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
+	// join & login
 	@Override
 	public String join(JoinDto dto) {
 		logger.info("join(" + dto + ") in >>>>");
@@ -47,6 +50,9 @@ public class MiniDao implements IDao {
 		return dto;
 	}
 
+	
+	
+	// board
 	@Override
 	public ArrayList<BoardDto> list() {
 		logger.info("list() in >>>>");
@@ -68,6 +74,30 @@ public class MiniDao implements IDao {
 		int res = sqlSession.insert("write", dto);
 		
 		logger.info("write() result : " + (res == 1 ? "success" : "failed"));
+	}
+
+	@Override
+	public BoardDto contentView(String bid) {
+		logger.info("contentView() in >>>>");
+		
+		BoardDto dto = sqlSession.selectOne("contentView", Integer.parseInt(bid));
+		
+		logger.info("contentView() result : bId = " + dto.getbId());
+		return dto;
+	}
+
+	
+	
+	
+	// product
+	@Override
+	public ArrayList<ProductDto> productList() {
+		logger.info("productList() in >>>>");
+		
+		ArrayList<ProductDto> dtos = (ArrayList)sqlSession.selectList("productList");
+		
+		logger.info("productList() result : dtos.isEmpty() ? " + dtos.isEmpty());
+		return dtos;
 	}
 
 }

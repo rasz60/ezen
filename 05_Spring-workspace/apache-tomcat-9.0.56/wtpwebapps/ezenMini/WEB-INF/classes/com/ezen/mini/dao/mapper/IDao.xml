@@ -28,8 +28,22 @@
 		]]>
 	</select>
 	
+	<!-- MiniDao_write() -->
 	<insert id="write" parameterType="com.ezen.mini.dto.BoardDto">
 		INSERT INTO mvc_board(bId, bName, bTitle, bContent, bGroup, bStep, bIndent) 
 		VALUES(mvc_board_seq.nextVal, #{bName}, #{bTitle}, #{bContent}, mvc_board_seq.currVal, 0, 0)
 	</insert>
+	
+	
+	<!-- MiniDao_contentView(String bId) -->
+	<select id="contentView" parameterType="int" resultType="com.ezen.mini.dto.BoardDto">
+			SELECT * FROM mvc_board WHERE bid = #{bid}
+	</select>
+	
+	
+	<!-- MiniDao_productList() -->
+	<select id="productList" resultType="com.ezen.mini.dto.ProductDto">
+			SELECT * FROM cuisine
+	</select>
+	
 </mapper>

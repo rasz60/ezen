@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.mini.command.BoardContentCommand;
 import com.ezen.mini.command.BoardListCommand;
 import com.ezen.mini.command.BoardWriteCommand;
 import com.ezen.mini.command.JoinCommand;
 import com.ezen.mini.command.MiniCommand;
+import com.ezen.mini.command.ProductListCommand;
 import com.ezen.mini.dao.MiniDao;
 import com.ezen.mini.util.Constant;
 
@@ -76,6 +78,9 @@ public class EzenMiniController {
 	@RequestMapping("login_view")
 	public String login_view(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
 		logger.info("login_view >>>>");
+		
+		session.setAttribute("username", Constant.username);
+		
 		return "login_view";
 	}
 
@@ -111,9 +116,41 @@ public class EzenMiniController {
 		return "redirect:board";
 	}
 	
+	
+	@RequestMapping("/content_view")
+	public String content_view(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("content_view in >>>>");
+		String result = "failed";
+		
+		mcom = new BoardContentCommand();
+		mcom.execute(request, model);
+		
+		if ( model.containsAttribute("content_view") ) {
+			result = "success";
+		}
+		
+		model.addAttribute("username", Constant.username);
+		
+		logger.info("content_view result : " + result);
+		return "content_view";
+	}
+	
+	@RequestMapping("/reply_view")
+	public String reply_view(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("reply_view in >>>>");
+		
+		
+		logger.info("reply_view result : ");
+		return "reply_view";
+	}
+	
+	
 	@RequestMapping("/product")																	// 로그인이 완료된 user의 정보를 가지고 있음
 	public String product(HttpServletRequest request, HttpServletResponse response, Model model, Authentication authentication) {
-		logger.info("Mapping product >>>>");
+		logger.info("product in >>>>");
+
+		mcom = new ProductListCommand();
+		mcom.execute(request, model);
 		
 		// Authentication 객체의 principal 속성을 이용하여 UserDetails 객체로 생성
 		UserDetails userDetails = (UserDetails)authentication.getPrincipal();
@@ -123,9 +160,10 @@ public class EzenMiniController {
 		// 권한을 모두 가져와서 컬렉션으로 표시 (GrantedAuthority 클래스를 상속받은 클래스의 값만 들어갈 수 있음)
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		String auth = authorities.toString();
-		logger.info("userRole : " + auth);	
 		
-		logger.info("product view >>>>");		
+		logger.info("userRole : " + auth);
+		
+		logger.info("product result : userRole = " + auth);		
 		return "product_view";
 	}
 	

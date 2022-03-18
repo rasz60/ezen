@@ -32,7 +32,7 @@ html, body {
 }
 
 thead tr {
-	background-color: #A2A9B2;
+	background-color: #F9F9F9;
 }
 
 #write {
@@ -47,14 +47,16 @@ thead tr {
 <%@ include file="carousel.jsp" %>
 
 <div id="main" class="container mt-5">
-	<h3 class="display-4 font-italic">Board</h3>
 
+	<div class="d-flex justify-content-between">
+		<h3 class="display-4 font-italic">Board</h3>
+		<a href="write_view" id="write" class="btn btn-sm btn-dark float-right mt-4">글작성</a>
+	</div>
 	<hr />
-
-	<a href="write_view" id="write" class="btn btn-sm btn-dark float-right mb-3">글작성</a>	
+	
 	<table id="searchTable" class="table table-hover text-center">
 		<thead>
-			<tr class="row mx-0 text-white">
+			<tr class="row mx-0">
 				<th class="col-1">번호</th>
 				<th class="col-2">작성자</th>
 				<th class="col-4">제목</th>
@@ -113,6 +115,25 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('.content_view').click(function(e) {
+		$('#searchForm').css("visibility", "hidden");		
+
+		e.preventDefault();
+		
+		$.ajax({
+			url : $(this).attr('href'),
+			type : "get",
+			success : function(data) {
+				$('#main').html(data);
+				$('#boardOnly').css('display','none');
+			},
+			error : function(data) {
+				console.log(data);
+			}
+		});
+	});
+
 });
 
 </script>
