@@ -23,10 +23,14 @@
 #content {
 	resize: none;
 }
+#frm input, #content {
+	background-color: #F6FAFF;
+}
 
 #frm input[readonly], #content[readonly] {
-	background-color: #F9F9F9 ;
+	background-color: transparent;
 }
+
 </style>
 
 </head>
@@ -34,10 +38,10 @@
 <body>
 
 <div class="container">
-	<h3 class="display-4 font-italic">Board Write</h3>
+	<h3 class="display-4 font-italic">Content View</h3>
 	<hr />
 	
-	<form action="write" method="post" class="mb-4" id="frm">
+	<form action="modify" method="post" class="mb-4" id="frm">
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 		
 		<div class="form-group">
@@ -56,30 +60,57 @@
 		</div>
 		<div class="form-group">
 			<label for="title">Title</label>
-			<input type="text" class="form-control" id="title" name="bTitle" value="${content_view.bTitle }" readonly/>
+			<input type="text" class="form-control" id="title" name="bTitle" value="${content_view.bTitle }"/>
 		</div>
 		<div class="form-group">
 			<label for="content">Content</label>
-			<textarea class="form-control" id="content" name="bContent" rows="10" readonly>${content_view.bContent }</textarea>
+			<textarea class="form-control" id="content" name="bContent" rows="10">${content_view.bContent }</textarea>
 		</div>
 		<a href="board" id="goback" class="btn btn-sm btn-secondary float-right">목록</a>	
-		<a href="delete?bId=${content.view.bId}" id="delBtn" class="btn btn-sm btn-danger float-right mr-2">삭제</a>
-		<button type="button" id="modBtn" class="btn btn-sm btn-success float-right mr-2">수정</button>
-		<a href="reply_view?bId=${content.view.bId}" id="rv" class="btn btn-sm btn-primary float-right mr-2">댓글</a>
+		<a href="delete?bId=${content_view.bId}" id="delBtn" class="btn btn-sm btn-danger float-right mr-2">삭제</a>
+		<button type="submit" id="modBtn" class="btn btn-sm btn-success float-right mr-2">수정</button>
+		<a href="reply_view?bId=${content_view.bId}" id="rv" class="btn btn-sm btn-primary float-right mr-2">댓글</a>
 	</form>
 </div>
 
 <script>
 $(document).ready(function() {
 	 
-	let username = '<c:out value="${username}"/>';
+	let username = "<c:out value='${username}'/>";
 	let bName = $('#uname').val();
 	
-	if ( bName != username ) {
-		$('#modBtn').css('display', 'none');
-		$('#delBtn').css('display', 'none');
-	};
 	
+	if ( username == "" || username != bName ) {
+		$('#title').attr('readonly',true);
+		$('#content').attr('readonly',true);
+		
+		$('#modBtn').css('display','none');
+		$('#delBtn').css('display','none');
+	}
+	
+	
+	$('#modBtn').click(function(e) {
+		e.preventDefault();
+		
+		if ( confirm('게시글을 수정할까요?') == true ) {
+			$('#frm').submit();
+		} else {
+			return false;
+		}
+	});
+
+	$('#delBtn').click(function(e) {
+		e.preventDefault();
+		
+		if ( confirm('게시글을 삭제할까요?') == true ) {
+			location.href = $(this).attr('href');			
+			
+		} else {
+			return false;
+		}
+	});
+	
+
 	$('#rv').click(function(e) {
 		e.preventDefault();
 		
@@ -95,15 +126,6 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
-	$('#modBtn').click(function(e) {
-		e.preventDefault();
-		
-		$('#title').removeAttr('readonly');
-		$('#content').removeAttr('readonly');
-	})
-	
-	
 	
 	
 });

@@ -22,7 +22,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.mini.command.BoardContentCommand;
+import com.ezen.mini.command.BoardDeleteCommand;
 import com.ezen.mini.command.BoardListCommand;
+import com.ezen.mini.command.BoardModifyCommand;
+import com.ezen.mini.command.BoardPageCommand;
+import com.ezen.mini.command.BoardReplyCommand;
+import com.ezen.mini.command.BoardReplyViewCommand;
 import com.ezen.mini.command.BoardWriteCommand;
 import com.ezen.mini.command.JoinCommand;
 import com.ezen.mini.command.MiniCommand;
@@ -79,8 +84,6 @@ public class EzenMiniController {
 	public String login_view(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
 		logger.info("login_view >>>>");
 		
-		session.setAttribute("username", Constant.username);
-		
 		return "login_view";
 	}
 
@@ -95,7 +98,8 @@ public class EzenMiniController {
 		logger.info("borad in >>>>");
 		mcom = new BoardListCommand();
 		mcom.execute(request, model);
-		
+		model.addAttribute("username", Constant.username);
+		logger.info("borad result : username ? " + Constant.username);
 		return "board";
 	}
 	
@@ -128,20 +132,58 @@ public class EzenMiniController {
 		if ( model.containsAttribute("content_view") ) {
 			result = "success";
 		}
-		
 		model.addAttribute("username", Constant.username);
-		
-		logger.info("content_view result : " + result);
+		logger.info("content_view result 1 : " + result);
+		logger.info("content_view result 2 : username ? " + Constant.username);
 		return "content_view";
 	}
 	
+	@RequestMapping("/modify")
+	public String modify(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("modify in >>>>");
+		mcom = new BoardModifyCommand();
+		mcom.execute(request, model);
+		
+		return "redirect:board";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("delete in >>>> " + request.getParameter("bId"));
+		mcom = new BoardDeleteCommand();
+		mcom.execute(request, model);
+		
+		return "redirect:board";
+	}
+
 	@RequestMapping("/reply_view")
 	public String reply_view(HttpServletRequest request, HttpServletResponse response, Model model) {
 		logger.info("reply_view in >>>>");
-		
-		
-		logger.info("reply_view result : ");
+		mcom = new BoardReplyViewCommand();
+		mcom.execute(request, model);
+		model.addAttribute("username", Constant.username);
+		logger.info("reply_view result : username ? " + Constant.username);
 		return "reply_view";
+	}
+	
+	@RequestMapping("/reply")
+	public String reply(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("reply in >>>>");
+		mcom = new BoardReplyCommand();
+		mcom.execute(request, model);
+		
+		logger.info("reply result : ");
+		return "redirect:board";
+	}
+	
+	@RequestMapping("/plist")
+	public String plist(HttpServletRequest request, HttpServletResponse response, Model model) {
+		logger.info("plist (" + request.getParameter("pageNo") + ") in >>>>");
+		
+		mcom = new BoardPageCommand();
+		mcom.execute(request, model);
+		
+		return "plist";
 	}
 	
 	

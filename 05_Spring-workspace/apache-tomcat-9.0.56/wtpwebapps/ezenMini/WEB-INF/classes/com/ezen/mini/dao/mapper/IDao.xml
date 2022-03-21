@@ -40,10 +40,64 @@
 			SELECT * FROM mvc_board WHERE bid = #{bid}
 	</select>
 	
+	<!-- MiniDao_modify(bId, bName, bTitle, bContent) -->
+	<update id="modify" parameterType="com.ezen.mini.dto.BoardDto">
+		UPDATE mvc_board 
+		SET bTitle = #{bTitle}, bContent = #{bContent} 
+		WHERE bId = #{bId}
+	</update>
 	
-	<!-- MiniDao_productList() -->
-	<select id="productList" resultType="com.ezen.mini.dto.ProductDto">
-			SELECT * FROM cuisine
+	
+	<!-- MiniDao_delete(bId) -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM mvc_board WHERE bId = #{bid}
+	</delete>
+	
+	<!-- MiniDao_replyView(String bId) -->
+	<select id="reply_view" parameterType="int" resultType="com.ezen.mini.dto.BoardDto">
+			SELECT * FROM mvc_board WHERE bid = #{bid}
 	</select>
 	
+	<!-- MiniDao_reply(BoardDto dto) -->
+	<insert id="reply" parameterType="com.ezen.mini.dto.BoardDto">
+		INSERT INTO mvc_board(bId, bName, bTitle, bContent, bGroup, bStep, bIndent) 
+		VALUES(mvc_board_seq.nextVal, #{bName}, #{bTitle}, #{bContent}, #{bGroup}, #{bStep}+1, #{bIndent}+1)
+	</insert>
+	
+	<!-- MiniDao_upHit(bId) -->	
+	<update id="upHit" parameterType="int">
+		UPDATE mvc_board SET bHit = bHit + 1 WHERE bId = #{bId}
+	</update>
+	
+	
+	<!-- MiniDao_replyShape(bGroup, bStep) -->	
+	<update id="replyShape" parameterType="com.ezen.mini.dto.BoardDto">
+		<![CDATA[
+			UPDATE mvc_board 
+			SET bStep = bStep + 1 
+			WHERE bGroup = #{bGroup}
+			AND bStep > #{bStep}
+		]]>
+	</update>
+	
+	<!-- MiniDao_pageList(startNo) -->
+	<select id="pageList" parameterType="int" resultType="com.ezen.mini.dto.BoardDto">
+		<![CDATA[
+			SELECT * 
+			FROM (SELECT A.*, rownum rnum 
+				  FROM(SELECT * FROM mvc_board ORDER BY bgroup DESC, bstep ASC) A) 
+			WHERE rnum >= #{startNo}
+			AND rnum <= #{startNo} + 9
+		]]>
+	</select>
+	
+	
+	
+	
+	
+		
+	<!-- MiniDao_productList() -->
+	<select id="productList" resultType="com.ezen.mini.dto.ProductDto">
+			SELECT * FROM cuisine ORDER BY rphoto DESC
+	</select>
 </mapper>

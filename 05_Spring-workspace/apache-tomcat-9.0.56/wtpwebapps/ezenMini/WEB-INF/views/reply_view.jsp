@@ -31,78 +31,43 @@
 <body>
 
 <div class="container">
-	<h3 class="display-4 font-italic">Board Write</h3>
+	<h3 class="display-4 font-italic">Reply</h3>
 	<hr />
-	
-	<form action="write" method="post" class="mb-4">
-		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
-		
+	<form action="reply" method="post">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }"/>
+		<input type="hidden" name="bGroup" value="${reply_view.bGroup }"/>
+		<input type="hidden" name="bStep" value="${reply_view.bStep }" />
+		<input type="hidden" name="bIndent" value="${reply_view.bIndent }" />
+
 		<div class="form-group">
-			<label for="uId">content#</label>
-			<input type="text" class="form-control" id="uId" name="bId" value="${content_view.bId}" readonly/>
+			<label for="uId">번호</label>
+			<input type="text" class="form-control" id="uId" name="bId" value="${reply_view.bId }" readonly/>
 		</div>
 		
 		<div class="form-group">
-			<label for="hit">hits</label>
-			<input type="text" class="form-control" id="hit" name="bHit" value="${content_view.bHit}" readonly/>
+			<label for="hit">조회수</label>
+			<input type="text" class="form-control" id="hit" name="bHit" value="${reply_view.bHit }" readonly/>
 		</div>
 		
 		<div class="form-group">
-			<label for="uname">User ID</label>
-			<input type="text" class="form-control" id="uname" name="bName" value="${content_view.bName}" readonly/>
+			<label for="uName">이름</label>
+			<input type="text" class="form-control" id="uName" name="bName" value="${username }" readonly/>
 		</div>
+		
 		<div class="form-group">
-			<label for="title">Title</label>
-			<input type="text" class="form-control" id="title" name="bTitle" value="${content_view.bTitle }" readonly/>
+			<label for="title">제목</label>
+			<input type="text" class="form-control" id="title" name="bTitle" placeholder="댓글 제목" required/>
 		</div>
+		
 		<div class="form-group">
-			<label for="content">Content</label>
-			<textarea class="form-control" id="content" name="bContent" rows="10" readonly>${content_view.bContent }</textarea>
+			<label for="content">내용</label>
+			<textarea class="form-control" id="content" name="bContent" rows="10" placeholder="댓글 내용" required></textarea>
 		</div>
-		<a href="board" id="goback" class="btn btn-sm btn-secondary float-right">목록</a>	
-		<a href="delete?bId=${content.view.bId}" id="delBtn" class="btn btn-sm btn-danger float-right mr-2">삭제</a>
-		<button type="button" id="modBtn" class="btn btn-sm btn-success float-right mr-2">수정</button>
-		<a href="reply_view?bId=${content.view.bId}" id="rv" class="btn btn-sm btn-primary float-right mr-2">댓글</a>
+		
+		<button type="submit" class="btn btn-success">댓글 작성</button>
+		<a href="board" class="btn btn-primary">목록 보기</a>			
 	</form>
 </div>
-
-<script>
-$(document).ready(function() {
-	 
-	let username = '<c:out value="${username}"/>';
-	let bName = $('#uname').val();
-	
-	if ( bName != username ) {
-		$('#modBtn').css('display', 'none');
-		$('#delBtn').css('display', 'none');
-	};
-	
-	$('#rv').click(function(e) {
-		e.preventDefault();
-		
-		$.ajax({
-			url: $(this).attr('href'),
-			type: 'get',
-			success: function(data) {
-				$('#main').html(data);
-				
-			},
-			error: function(data) {
-				console.log(data);
-			}
-		});
-	});
-	
-	$('#modBtn').click(function() {
-		e.preventDefault();
-		
-	})
-	
-	
-	
-	
-});
-</script>
 
 </body>
 </html>

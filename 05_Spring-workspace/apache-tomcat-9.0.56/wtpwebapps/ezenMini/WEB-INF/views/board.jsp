@@ -18,7 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/jquery.twbsPagination.js"></script>
+<script src="js/jquery.twbsPagination.js"></script>
 <title>Board</title>
 <style>
 html, body {
@@ -85,11 +85,8 @@ thead tr {
 <div class="container" id="boardOnly">
 	<nav aria-label="page navigation">
 		<ul class="pagination justify-content-center" id="pagination" style="margin: 20px 0;">
-		
 		</ul>
-		
 	</nav>
-
 </div>
 
 <%@ include file="footer.jsp" %>
@@ -133,10 +130,55 @@ $(document).ready(function() {
 			}
 		});
 	});
-
+	
+	$('#searchInput').on('keyup', function() {
+		var value = $(this).val().toLowerCase();
+		console.log(value);
+		$('#searchTable tbody tr').filter(function() {
+			// 게시글 정보에 value 값을 가지고 있는 것만 남기고 toggle
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+		});
+	});
+	
 });
-
 </script>
 
+
+<script>
+$(document).ready(function() {
+	window.pagObj = $('#pagination').twbsPagination({
+		totalPages: 35,
+		visiblePages: 10,
+		onPageClick: function(event, page) {
+			console.log(page + ' (from options)');
+			$('.page-link').on('click', function(e) {
+				e.preventDefault();
+				var pageNo = $(this).text();
+				var purl;
+				if ( pageNo != 'First' && pageNo != 'Previous' && pageNo != 'Next' && pageNo != 'Last') {
+					purl = 'plist?pageNo=' + pageNo;
+				} else {
+					return;
+				}
+				
+				$.ajax({
+					url: purl,
+					type: "get",
+					success: function(data) {
+						$('#main').html(data);
+					},
+					error: function(data) {
+						alert('plist 에러 발생');
+					}
+				}); //ajax close
+			}); //.page-link click event close
+		} //page click function close
+	}) //window.pagObj close
+	
+	.on('page', function(event, page) {
+		console.log(page + ' (from event listening)');
+	}); //on method close
+});
+</script>
 </body>
 </html>
