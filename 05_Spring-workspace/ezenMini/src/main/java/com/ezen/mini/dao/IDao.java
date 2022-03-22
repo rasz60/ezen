@@ -2,6 +2,8 @@ package com.ezen.mini.dao;
 
 import java.util.ArrayList;
 
+import org.springframework.ui.Model;
+
 import com.ezen.mini.dto.BoardDto;
 import com.ezen.mini.dto.JoinDto;
 import com.ezen.mini.dto.ProductDto;
@@ -25,4 +27,6 @@ public interface IDao {
 	
 	// product
 	public ArrayList<ProductDto> productList();
+	public String productWrite(ProductDto dto, Model model);
+	public ProductDto productDetailView(String rPhoto);
 }

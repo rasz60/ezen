@@ -17,8 +17,9 @@
 	</select>
 	
 	
+	
+	
 	<!-- MiniDao_list() -->
-	<!--  -->
 	<select id="list" resultType="com.ezen.mini.dto.BoardDto">
 		<![CDATA[
 			SELECT * 
@@ -46,7 +47,6 @@
 		SET bTitle = #{bTitle}, bContent = #{bContent} 
 		WHERE bId = #{bId}
 	</update>
-	
 	
 	<!-- MiniDao_delete(bId) -->
 	<delete id="delete" parameterType="int">
@@ -91,13 +91,21 @@
 		]]>
 	</select>
 	
-	
-	
-	
-	
-		
+
+
 	<!-- MiniDao_productList() -->
 	<select id="productList" resultType="com.ezen.mini.dto.ProductDto">
-			SELECT * FROM cuisine ORDER BY rphoto DESC
+		SELECT * FROM cuisine ORDER BY rphoto DESC
+	</select>
+	
+	<!-- MiniDao_productWrite() -->
+	<insert id="productWrite" parameterType="com.ezen.mini.dto.ProductDto">
+		INSERT INTO cuisine
+		VALUES (#{rPhoto}, #{rCuisine}, #{rName}, #{rTitle}, #{rContent})
+	</insert>
+	
+	<!-- MiniDao_productDetailView() -->
+	<select id="productDetailView" parameterType="string" resultType="com.ezen.mini.dto.ProductDto">
+		SELECT * FROM cuisine WHERE rphoto = #{rPhoto}
 	</select>
 </mapper>

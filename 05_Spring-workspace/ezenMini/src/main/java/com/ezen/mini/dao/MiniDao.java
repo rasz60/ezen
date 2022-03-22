@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.ezen.mini.dto.BoardDto;
 import com.ezen.mini.dto.JoinDto;
@@ -175,6 +176,28 @@ public class MiniDao implements IDao {
 		
 		logger.info("productList() result : dtos.isEmpty() ? " + dtos.isEmpty());
 		return dtos;
+	}
+
+	public String productWrite(ProductDto dto, Model model) {
+		logger.info("productWrite(" + dto.getrName() + ") in >>>>");
+		
+		int res = sqlSession.insert("productWrite", dto);
+		
+		String result = res > 0 ? "success" : "false";
+		
+		logger.info("productWrite(" + dto.getrName() + ") result : " + result);
+		
+		return result;
+	}
+
+	public ProductDto productDetailView(String rPhoto) {
+		logger.info("productDetailView(" + rPhoto + ") in >>>>");
+		
+		ProductDto dto = sqlSession.selectOne("productDetailView", rPhoto);
+		
+		logger.info("productDetailView result : " + (dto != null ? "success" : "failed"));
+		
+		return dto;
 	}
 	
 }

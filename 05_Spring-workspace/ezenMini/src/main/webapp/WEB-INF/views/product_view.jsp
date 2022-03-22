@@ -33,6 +33,12 @@ html, body {
 #pwrite_view {
 	height: 40%;
 }
+
+img.card-img-top {
+	margin: 0px auto;
+}
+
+
 </style>
 </head>
 
@@ -43,21 +49,22 @@ html, body {
 <div id="main" class="container mt-5">
 	<div class="d-flex justify-content-between" id="title-box">
 		<h3 class="display-4 font-italic">Cuisine</h3>
-		<a href="pwrite_view" id="pwrite_view" class="btn btn-secondary mt-4">등록</a>
+		<a href="pwrite_view" id="pwrite_view" class="btn btn-secondary mt-4">Register</a>
 	</div>
 	<hr />
 	
 	<div class="row mb-3">
 		<c:forEach items="${productList }" var="dto">
 			<div class="card" style="width:300px;">
-				<h5>${dto.rCuisine }</h5>
+				<div class="d-flex justify-content-between my-2">
+					<h5>&nbsp;${dto.rCuisine }</h5>
+					<a href="productDetails?rPhoto=${dto.rPhoto}" class="pd btn btn-sm btn-outline-secondary mr-2 border-light">details...</a>
+				</div>
 				<img class="card-img-top" src="images/${dto.rPhoto }" alt="Card image" style="max-width:280px; height:280px;" />
 				
 				<div class="card-body">
 					<p class="card-title h5 font-italic">${dto.rName}</p>
 					<p class="card-title">${dto.rTitle}</p>
-					
-					<a href="productDetails?rPhoto=${dto.rPhoto}" class="pd btn btn-sm btn-default stretched-link">details...</a>
 				</div>
 			</div>
 		</c:forEach>
