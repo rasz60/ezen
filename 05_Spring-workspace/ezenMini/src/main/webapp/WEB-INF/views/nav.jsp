@@ -78,7 +78,7 @@
 			</li>
 			
 			<li class="nav-item">
-				<a href="portfolio" class="nav-link">Portfolio</a>
+				<a href="folio" class="nav-link">Portfolio</a>
 			</li>
 			
 			<!-- Dropdown -->

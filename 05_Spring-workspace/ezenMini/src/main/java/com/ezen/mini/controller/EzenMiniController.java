@@ -131,7 +131,11 @@ public class EzenMiniController {
 		return model;
 	}
 	
-	
+	@RequestMapping("/Login")
+	public String Login(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
+		logger.info("Login in >>>");
+		return "login_view";
+	}
 	
 	
 	@RequestMapping("/board")
@@ -231,7 +235,7 @@ public class EzenMiniController {
 	}
 	
 	
-	
+	// product
 	@RequestMapping("/product")																	// 로그인이 완료된 user의 정보를 가지고 있음
 	public String product(HttpServletRequest request, HttpServletResponse response, Model model, Authentication authentication) {
 		logger.info("product in >>>>");
@@ -328,5 +332,12 @@ public class EzenMiniController {
 		return "productDetailView";
 	}
 	
+	
+	@RequestMapping("/folio")
+	public String folio() {
+		logger.info("folio in >>> ");
+		
+		return "folio";
+	}
 	
 }
