@@ -14,21 +14,27 @@
 </head>
 
 <body>
-	
-<h3 class="dispaly-4 font-italic">3개의 캔버스 만들기</h3>
+<h3 class="dispaly-4 font-italic">사각형 그리기</h3>
 <hr />
 
-<canvas id="canvas1" width="150" height="100" style="background-color: light-blue;">
-지원하지 않는 브라우저입니다.
+<canvas id="myCanvas" width="200" height="150" style="background-color: aliceblue;">
+	지원하지 않는 브라우저입니다.
 </canvas>
 
-<canvas id="canvas2" width="150" height="100" style="background-color: violet;">
-지원하지 않는 브라우저입니다.
-</canvas>
-<br/>
+<script>
+let canvas = document.getElementById('myCanvas');
+let context = canvas.getContext('2d');
 
-<canvas id="canvas3" width="300" height="100" style="background-color: yellow;">
-지원하지 않는 브라우저입니다.
-</canvas>
+context.beginPath();
+
+for (let i = 0; i < 5; i++ ) {
+	// rect([중심점 좌표] x, y , [길이] 가로, 세로)
+	context.rect(10+i*30,10+i*10, 50,50);
+};
+
+context.strokeStyle='magenta';
+context.stroke();
+
+</script>
 </body>
 </html>

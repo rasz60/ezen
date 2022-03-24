@@ -14,21 +14,39 @@
 </head>
 
 <body>
-	
-<h3 class="dispaly-4 font-italic">3개의 캔버스 만들기</h3>
+<h3 class="dispaly-4 font-italic">선의 색과 굵기</h3>
 <hr />
 
-<canvas id="canvas1" width="150" height="100" style="background-color: light-blue;">
-지원하지 않는 브라우저입니다.
+<canvas id="myCanvas" width="180" height="300" style="background-color: aliceblue;">
+	지원하지 않는 브라우저입니다.
 </canvas>
 
-<canvas id="canvas2" width="150" height="100" style="background-color: violet;">
-지원하지 않는 브라우저입니다.
-</canvas>
-<br/>
+<script>
+let canvas = document.getElementById('myCanvas');
+let context = canvas.getContext('2d');
 
-<canvas id="canvas3" width="300" height="100" style="background-color: yellow;">
-지원하지 않는 브라우저입니다.
-</canvas>
+context.beginPath();
+context.moveTo(20, 20);
+context.lineTo(150, 50);
+//기본 선 굵기 : 1px
+context.strokeStyle = 'blue';
+context.stroke();
+
+context.beginPath();
+context.rect(20, 80, 120, 50);
+
+// 선 굵기 지정 (단위 px)
+context.lineWidth = 10;
+context.strokeStyle = 'yellowgreen';
+context.stroke();
+
+
+context.beginPath();
+context.arc(80, 220, 50, 0, 1.5*Math.PI, false);
+context.lineWidth = 20;
+context.strokeStyle = 'violet';
+context.stroke();
+
+</script>
 </body>
 </html>

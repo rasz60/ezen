@@ -14,21 +14,32 @@
 </head>
 
 <body>
-	
-<h3 class="dispaly-4 font-italic">3개의 캔버스 만들기</h3>
+
+<h3 class="dispaly-4 font-italic">선으로 원호 그리기</h3>
 <hr />
 
-<canvas id="canvas1" width="150" height="100" style="background-color: light-blue;">
-지원하지 않는 브라우저입니다.
+<canvas id="myCanvas" width="200" height="150" style="background-color: aliceblue;">
+	지원하지 않는 브라우저입니다.
 </canvas>
 
-<canvas id="canvas2" width="150" height="100" style="background-color: violet;">
-지원하지 않는 브라우저입니다.
-</canvas>
-<br/>
-
-<canvas id="canvas3" width="300" height="100" style="background-color: yellow;">
-지원하지 않는 브라우저입니다.
-</canvas>
+<script>
+	let canvas = document.getElementById('myCanvas');
+	let context = canvas.getContext('2d');
+	
+	context.beginPath();
+	context.strokeStyle = 'magenta';
+	
+	//arc([중심점] x , y, 반지름, [각도(Math.PI == 180)] 시작, 종료, [방향] false=시계방향(default), true=반시계)
+	context.arc(100, 70, 30, 0, 1.5*Math.PI, false);
+	context.stroke();
+	
+	
+	context.beginPath();
+	context.strokeStyle = 'blue';
+	
+	context.arc(100, 70, 50, Math.PI/2, Math.PI, true);
+	context.stroke();
+</script>
+	
 </body>
 </html>
