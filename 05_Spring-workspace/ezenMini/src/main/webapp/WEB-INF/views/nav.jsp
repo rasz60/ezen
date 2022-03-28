@@ -81,6 +81,10 @@
 				<a href="folio" class="nav-link">Portfolio</a>
 			</li>
 			
+			<li class="nav-item">
+				<a href="dash" class="nav-link">Dash</a>
+			</li>
+			
 			<!-- Dropdown -->
 			<li class="nav-item dropdown">
 				<a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">알림</a>

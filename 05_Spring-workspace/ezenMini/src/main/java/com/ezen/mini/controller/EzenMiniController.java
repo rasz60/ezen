@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -340,4 +342,85 @@ public class EzenMiniController {
 		return "folio";
 	}
 	
+	
+	//dash
+	@RequestMapping("/dash")
+	public String dash() {
+		return "dashBoard";
+	}
+	
+	@RequestMapping("/bar")
+	public String bar() {
+		return "bar";
+	}
+	
+	@RequestMapping("/pie")
+	public String pie() {
+		return "pie";
+	}
+	
+	@RequestMapping("/line")
+	public String line() {
+		return "line";
+	}
+	
+	 //===== DashBoard : dashView =====
+	@RequestMapping(value = "/dashView", produces = "application/json; charset=UTF8")
+	//json은 return타입
+	@ResponseBody //jsp형태가 아닌 다른 문자열이나 객체형시
+	public JSONObject dashView(HttpServletRequest request, HttpServletResponse response) {
+		String subcmd = request.getParameter("subcmd");
+		logger.info("dashView(" + subcmd + ") in");
+		
+		
+		JSONObject jobj_data = null; //JSONObject는 Map 지원
+		if(subcmd.equals("line")) {
+			jobj_data = getAddData(request, response);
+		}
+		return jobj_data;
+	}
+	   
+	   private JSONObject getAddData(HttpServletRequest request, HttpServletResponse response) {
+		   JSONArray datas = new JSONArray();
+		   JSONObject data1 = new JSONObject();
+		   //JSONObject는 map을 지원한다(즉 map형임)
+		   //DB이용시는 dao의 리턴값이 db매핑 dto를 갖는 AllayList이므로 여기서 for문으로 반복 처리 
+		   data1.put("month", "1월");
+		   data1.put("pc", 100);
+		   data1.put("monitor", 80);
+		   datas.add(data1);
+		   
+		   JSONObject data2 = new JSONObject();
+		   //JSONObject는 map을 지원한다
+		   data2.put("month", "2월");
+		   data2.put("pc", 80);
+		   data2.put("monitor", 70);
+		   datas.add(data2);
+		   
+		   JSONObject data3 = new JSONObject();
+		   //JSONObject는 map을 지원한다
+		   data3.put("month", "3월");
+		   data3.put("pc", 70);
+		   data3.put("monitor", 60);
+		   datas.add(data3);
+		   
+		   JSONObject data4 = new JSONObject();
+		   //JSONObject는 map을 지원한다
+		   data4.put("month", "4월");
+		   data4.put("pc", 85);
+		   data4.put("monitor", 50);
+		   datas.add(data4);
+		   
+		   JSONObject data5 = new JSONObject();
+		   //JSONObject는 map을 지원한다
+		   data5.put("month", "5월");
+		   data5.put("pc", 90);
+		   data5.put("monitor", 105);
+		   datas.add(data5);
+		   
+		   JSONObject result = new JSONObject(); //마지막으로 보낼 땐 JSONObject 형으로
+	 	   result.put("datas", datas);
+		   
+		   return result;
+	   }
 }
