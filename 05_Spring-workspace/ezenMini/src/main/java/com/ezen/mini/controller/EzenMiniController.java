@@ -423,4 +423,10 @@ public class EzenMiniController {
 		   
 		   return result;
 	   }
+	   
+		@RequestMapping("/contact")
+		public String contact() {
+			return "contact";
+		}
+	   
 }

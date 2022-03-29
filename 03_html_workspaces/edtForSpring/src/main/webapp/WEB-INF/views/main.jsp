@@ -12,7 +12,7 @@
 
 <body>
     <%@include file="header.jsp"%>
-
+	<%-- --%>
     <section class="box">
         <div id="container">
             <ul id="img_slide" onmouseover="stopSlide()" onmouseout="autoSlide()">
