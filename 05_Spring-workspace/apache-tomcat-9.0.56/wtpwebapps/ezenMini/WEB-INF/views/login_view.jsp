@@ -61,7 +61,14 @@ html, body {
 				<label for="rememberMe" class="form-check-label font-italic" aria-describedby="rememberMeHelp">Remember me?</label>
 			</div>
 			<div class="loginBtnbox">
+				<%-- social login START --%>
+				<a href="${google_url}" id="nlog" class="btn btn-light mr-2">
+					<i class="fa-solid fa-g"></i>
+				</a>
+				<%-- social login END --%>
+			
 				<input type="submit" value="로그인" class="btn btn-sm btn-primary mr-2" />
+
 				<a href="join_view" class="btn btn-sm btn-dark " >회원가입</a>
 			</div>
 		</div>

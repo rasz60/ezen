@@ -1,7 +1,13 @@
 package com.ezen.mini.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +24,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.social.google.connect.GoogleConnectionFactory;
+import org.springframework.social.oauth2.AccessGrant;
+import org.springframework.social.oauth2.GrantType;
+import org.springframework.social.oauth2.OAuth2Operations;
+import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +63,10 @@ public class EzenMiniController {
 	private MiniDao mdao;
 	private BCryptPasswordEncoder passwordEncoder;
 	private MiniCommand mcom;
+	@Autowired
+	private GoogleConnectionFactory googleConnectionFactory;
+	@Autowired
+	private OAuth2Parameters googleOAuth2Parameters;
 	
 	@Autowired
 	public void setMiniDao(MiniDao mdao) {
@@ -91,11 +107,83 @@ public class EzenMiniController {
 	
 	@RequestMapping("login_view")
 	public String login_view(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
-		logger.info("login_view >>>>");
+		logger.info("login_view in >>>>");
 		
+		// google Code
+		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
+		
+		// login url
+		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
+		model.addAttribute("google_url", url);
+		
+		logger.info("login_view google_url : " + url);
 		return "login_view";
 	}
 	
+	@RequestMapping(value="/redirect", produces="application/json; charset=UTF-8")
+	public String googleCallBack(Model model, @RequestParam String code, HttpServletResponse response) throws IOException {
+		logger.info("googleCallBack in >>>>");
+
+		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
+		
+		AccessGrant accessGrant = oauthOperations.exchangeForAccess(code, googleOAuth2Parameters.getRedirectUri(), null);
+		String accessToken = accessGrant.getAccessToken();
+		
+		logger.info(accessToken);
+		
+		
+		getGoogleUserInfo(accessToken, response);
+		
+		return "glogin";
+	}
+	
+	
+	private void getGoogleUserInfo(String access_Token, HttpServletResponse response) {
+		logger.info("getGoogleUserInfo in >>>>");
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		HashMap<String, Object> googleUserInfo = new HashMap<String, Object>();
+		
+		String reqURL = "https://www.googleapis.com/userinfo/v2/me?access_token=" + access_Token;
+		try {
+			URL url = new URL(reqURL);
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+			conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+			
+			int responseCode = conn.getResponseCode();
+			
+			if (responseCode == 200 ) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+				
+				String line = "";
+				String result = "";
+				
+				while ( (line = br.readLine()) != null ) {
+					result += line;
+				}
+				
+				JSONParser parser = new JSONParser();
+				Object obj = parser.parse(result);
+				JSONObject jsonObj = (JSONObject) obj;
+				
+				String name_obj = (String)jsonObj.get("name");
+				String email_obj = (String)jsonObj.get("email");
+				String id_obj = "GOOGLE_" + (String)jsonObj.get("id");
+				
+				logger.info("getGoogleUserInfo result : name_obj - " + name_obj + " email_obj - " + email_obj + " id_obj - " + id_obj);
+				
+				googleUserInfo.put("name", name_obj);
+				googleUserInfo.put("email", email_obj);
+				googleUserInfo.put("id", id_obj);
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	@RequestMapping("/logout_view")
 	public String logout_view() {
 		logger.info("logout_view >>>>");
@@ -265,6 +353,13 @@ public class EzenMiniController {
 		logger.info("pwrite_view in >>>>");		
 		
 		return "pwrite_reg_view";
+	}
+	
+	@RequestMapping("/test")
+	public String test() {
+		logger.info("test in >>>>");		
+		
+		return "test";
 	}
 	
 	

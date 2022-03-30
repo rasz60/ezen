@@ -85,7 +85,9 @@
 			<textarea class="form-control" id="content" placeholder="요리 설명" name="rContent" rows=10 required ></textarea>
 		</div>
 		
+		<a href="product" class="btn btn-sm btn-dark border-white float-right">목록</a>
 		<button type="submit" class="btn btn-sm btn-secondary float-right">등록</button>
+		
 		<br />
 	</form>
 </div>

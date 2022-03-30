@@ -46,7 +46,7 @@
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
 
-	<!-- [Transaction] -->
+		<!-- [Transaction] -->
 
 	<!-- TrasactionManager Bean Setting -->
 	<beans:bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -60,7 +60,7 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>	
 
-	<!-- [fileIO] -->
+		<!-- [fileIO] -->
 	
 	<!-- Commons-FileIO Bean Setting -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -74,13 +74,15 @@
 	</beans:bean>
 	
 	
-	<!-- [MyBatis] -->
-
+		<!-- [MyBatis] -->
+		
+	<!-- sqlSessionFactory -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="mapperLocations" value="classpath:com/ezen/mini/dao/mapper/*.xml" />
 	</beans:bean>	
 	
+	<!-- sqlSession -->
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
@@ -88,4 +90,27 @@
 	<!-- 암호화 bean : password를 암호화시켜주는 encoder -->
 	<beans:bean name="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 	
+	
+		<!-- [socialLogin] -->
+		
+	<!-- google -->
+	<beans:bean id="googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<!-- ClientID --> 
+		<beans:constructor-arg value="246345015457-2rp5lls9nuv7pum2qo90v6jvi70j9jqg.apps.googleusercontent.com" />
+		
+		<!-- Password -->
+		<beans:constructor-arg value="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" />
+	</beans:bean>
+	
+	<!-- googleOAuth2Parameter -->
+	<beans:bean id="googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
+
+		<!-- Javascript src -->
+		<!-- scope = google 제공 데이터 범위, value = plus.login - 로그인 정보 / userinfo.email - 이메일(ID) 가져오기 -->
+		<beans:property name="scope" value="https://www.googleapis.com/auth/plus.login 
+											https://www.googleapis.com/auth/userinfo.email" />
+		
+		<!-- RedirectiURI -->
+		<beans:property name="redirectUri" value="https://localhost:8443/ezenpj/redirect" />
+	</beans:bean>
 </beans:beans>
