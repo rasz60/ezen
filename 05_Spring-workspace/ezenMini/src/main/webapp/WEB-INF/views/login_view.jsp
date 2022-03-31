@@ -62,8 +62,16 @@ html, body {
 			</div>
 			<div class="loginBtnbox">
 				<%-- social login START --%>
-				<a href="${google_url}" id="nlog" class="btn btn-light mr-2">
-					<i class="fa-solid fa-g"></i>
+				<a href="${google_url}" id="glog" class="btn btn-default">
+					<img src="images/btn_google_signin.png" width="130"/>
+				</a>
+				
+				<a href="${naver_url}" id="nlog" class="btn btn-default">
+					<img src="images/naverid_login_button_short.png" width="90"/>
+				</a>
+				
+				<a href="${kakao_url}" id="klog" class="btn btn-default">
+					<img src="images/kakao_login_large_narrow.png" width="90"/>
 				</a>
 				<%-- social login END --%>
 			

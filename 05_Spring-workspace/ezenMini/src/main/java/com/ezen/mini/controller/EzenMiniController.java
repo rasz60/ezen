@@ -63,6 +63,8 @@ public class EzenMiniController {
 	private MiniDao mdao;
 	private BCryptPasswordEncoder passwordEncoder;
 	private MiniCommand mcom;
+	
+	// google social-login bean(2ea)
 	@Autowired
 	private GoogleConnectionFactory googleConnectionFactory;
 	@Autowired
@@ -109,18 +111,27 @@ public class EzenMiniController {
 	public String login_view(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
 		logger.info("login_view in >>>>");
 		
+		socialUrl(model);
+		
+		return "login_view";
+	}
+	
+	public void socialUrl(Model model) {
+		logger.info("socialUrl() in >>>>");
+		
 		// google Code
 		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
-		
+			
 		// login url
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 		model.addAttribute("google_url", url);
 		
 		logger.info("login_view google_url : " + url);
-		return "login_view";
 	}
+
 	
-	@RequestMapping(value="/redirect", produces="application/json; charset=UTF-8")
+	//https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=sonmit002&logNo=221344583488
+	@RequestMapping(value="/redirect", produces="application/text; charset=UTF-8")
 	public String googleCallBack(Model model, @RequestParam String code, HttpServletResponse response) throws IOException {
 		logger.info("googleCallBack in >>>>");
 
@@ -130,13 +141,11 @@ public class EzenMiniController {
 		String accessToken = accessGrant.getAccessToken();
 		
 		logger.info(accessToken);
-		
-		
+	
 		getGoogleUserInfo(accessToken, response);
 		
-		return "glogin";
+		return "socialLogin";
 	}
-	
 	
 	private void getGoogleUserInfo(String access_Token, HttpServletResponse response) {
 		logger.info("getGoogleUserInfo in >>>>");
@@ -194,12 +203,12 @@ public class EzenMiniController {
 	public ModelAndView processLogin(@RequestParam(value = "log", required = false) String log,
 									 @RequestParam(value = "error", required = false) String error,
 									 @RequestParam(value = "logout", required = false) String logout,
-									 HttpSession session) {
+									 HttpSession session, Model pmodel) {
 		
 		logger.info("processLogin in >>>>");
 		
 		ModelAndView model = new ModelAndView();
-		
+
 		// security form이 아닌 곳에서 로그인창 요청시 반환
 		if(log != null && log != "") {
 			model.addObject("log", "before login!");
@@ -215,7 +224,9 @@ public class EzenMiniController {
 			model.addObject("logout", "logout seccess!");
 			logger.info("processLogin result : logout");
 		}
-
+		
+		socialUrl(pmodel);
+		
 		model.setViewName("login_view");
 
 		return model;
@@ -224,6 +235,7 @@ public class EzenMiniController {
 	@RequestMapping("/Login")
 	public String Login(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
 		logger.info("Login in >>>");
+		socialUrl(model);
 		return "login_view";
 	}
 	
