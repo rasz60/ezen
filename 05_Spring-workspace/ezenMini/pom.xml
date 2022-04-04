@@ -231,9 +231,7 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.4.2</version>
 		 </dependency>
-		
-		
-		
+
 		<!-- JSON SIMPLE -->
         <dependency>
         	<groupId>com.googlecode.json-simple</groupId>
@@ -265,6 +263,13 @@
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpcore</artifactId>
 		    <version>4.4.6</version>
+		</dependency>
+
+		<!-- for naver social login -->
+		<dependency>
+		    <groupId>com.github.scribejava</groupId>
+		    <artifactId>scribejava-core</artifactId>
+		    <version>2.8.1</version>
 		</dependency>
 		
 		

@@ -46,6 +46,8 @@
 		<intercept-url pattern="/login_view" access="isAnonymous()" />
 		<intercept-url pattern="/join_view" access="isAnonymous()" />
 		<intercept-url pattern="/redirect" access="isAnonymous()" />
+		<intercept-url pattern="/kredirect" access="isAnonymous()" />
+		<intercept-url pattern="/nredirect" access="isAnonymous()" />
 		<intercept-url pattern="/login" access="isAnonymous()" />
 		<intercept-url pattern="/join" access="isAnonymous()" />
 	

@@ -1,9 +1,11 @@
 package com.ezen.mini.controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collection;
@@ -54,7 +56,9 @@ import com.ezen.mini.command.ProductListCommand;
 import com.ezen.mini.command.ProductWriteCommand;
 import com.ezen.mini.dao.MiniDao;
 import com.ezen.mini.dto.ProductDto;
+import com.ezen.mini.naver.NaverLoginBo;
 import com.ezen.mini.util.Constant;
+import com.github.scribejava.core.model.OAuth2AccessToken;
 
 @Controller
 public class EzenMiniController {
@@ -67,9 +71,17 @@ public class EzenMiniController {
 	// google social-login bean(2ea)
 	@Autowired
 	private GoogleConnectionFactory googleConnectionFactory;
+	
 	@Autowired
 	private OAuth2Parameters googleOAuth2Parameters;
 	
+	// naver social-login bean
+	private NaverLoginBo naverLoginBo;
+	@Autowired
+	private void setNaverLoginBo(NaverLoginBo naverLoginBo) {
+		this.naverLoginBo = naverLoginBo;
+	}
+		
 	@Autowired
 	public void setMiniDao(MiniDao mdao) {
 		this.mdao = mdao;		
@@ -111,12 +123,12 @@ public class EzenMiniController {
 	public String login_view(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
 		logger.info("login_view in >>>>");
 		
-		socialUrl(model);
+		socialUrl(model, session);
 		
 		return "login_view";
 	}
 	
-	public void socialUrl(Model model) {
+	public void socialUrl(Model model, HttpSession session) {
 		logger.info("socialUrl() in >>>>");
 		
 		// google Code
@@ -125,8 +137,21 @@ public class EzenMiniController {
 		// login url
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
 		model.addAttribute("google_url", url);
-		
 		logger.info("login_view google_url : " + url);
+		// kakao Code
+		String kakao_url = "https://kauth.kakao.com/oauth/authorize"
+						 + "?client_id=4b27bea0673ec02040a9741b089495fb"
+						 + "&redirect_uri=https://localhost:8443/ezenpj/kredirect"
+						 + "&response_type=code";
+		model.addAttribute("kakao_url", kakao_url);
+		logger.info("login_view kakao_url : " + kakao_url);
+		
+		
+		// naver social login 경로
+		// 네이버 아이디 인증 url을 생성하기 위해 NaverLoginBo 클래스의 getAuthorizationUrl() 호출
+		String naverAuthUrl = naverLoginBo.getAuthorizationUrl(session);
+		model.addAttribute("naver_url", naverAuthUrl);
+		logger.info("login_view naver_url : " + naverAuthUrl);
 	}
 
 	
@@ -146,6 +171,48 @@ public class EzenMiniController {
 		
 		return "socialLogin";
 	}
+	
+	
+	@RequestMapping(value="/kredirect", produces="application/text; charset=UTF-8")
+	public String kakaoCallBack(Model model, @RequestParam String code, HttpServletResponse response) throws Exception {
+		logger.info("kakaoCallBack in >>>> ");
+		
+		String access_Token = getKakaoAccessToken(code, response);
+		
+		logger.info("kakaoCallBack access_Token : " + access_Token);
+		
+		HashMap<String, Object> userInfo = getKakaoUserInfo(access_Token);
+		
+		logger.info("getKakaoUserInfo [accessToken : " + userInfo.get("access_Token") + "]");
+		logger.info("getKakaoUserInfo [nickname : " + userInfo.get("nickname") + "]");
+		logger.info("getKakaoUserInfo [email : " + userInfo.get("email") + "]");
+		
+		return "socialLogin";
+	}
+	
+	@RequestMapping("/nredirect")
+	public ModelAndView naverCallBack(@RequestParam String code, @RequestParam String state, HttpSession session) throws Exception {
+		logger.info("naverCallBack in >>>> ");
+		
+		OAuth2AccessToken oauthToken = naverLoginBo.getAccessToken(session, code, state);
+		String apiResult = naverLoginBo.getUserProfile(oauthToken);
+			
+		logger.info("naverCallBack access_Token : " + oauthToken);
+		
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(apiResult);
+		JSONObject jsonObj = (JSONObject)obj;
+		JSONObject response_obj = (JSONObject)jsonObj.get("response");
+		
+		logger.info("naverCallBack userinfo : " + response_obj);
+		
+		String name = (String)response_obj.get("name");
+		
+		logger.info("naverCallBack name : " + name);
+		// modelAndView 생성자 : (1. viewName , 2. attributeName, 3. object)
+		return new ModelAndView("socialLogin", "result", apiResult);
+	}
+	
 	
 	private void getGoogleUserInfo(String access_Token, HttpServletResponse response) {
 		logger.info("getGoogleUserInfo in >>>>");
@@ -185,7 +252,6 @@ public class EzenMiniController {
 				googleUserInfo.put("name", name_obj);
 				googleUserInfo.put("email", email_obj);
 				googleUserInfo.put("id", id_obj);
-
 			}
 			
 		} catch (Exception e) {
@@ -193,6 +259,130 @@ public class EzenMiniController {
 		}
 	}
 
+	public String getKakaoAccessToken(String code, HttpServletResponse response) {
+		logger.info("getKakaoAccessToken in >>>>");
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		String access_Token = "";
+		String refresh_Token = "";
+		String reqUrl = "https://kauth.kakao.com/oauth/token";
+		
+		try {
+			URL url = new URL(reqUrl);
+			
+			//URL 연결은 입출력에 사용되고, Post 혹은 Put 요청을 하려면 setDoOutput을 true로 설정
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+			
+			conn.setRequestMethod("POST");
+			conn.setDoOutput(true);
+			
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+			StringBuilder sb = new StringBuilder();
+			
+			sb.append("grant_type=authorization_code");
+			sb.append("&client_id=4b27bea0673ec02040a9741b089495fb");
+			sb.append("&redirect_uri=https://localhost:8443/ezenpj/kredirect");
+			sb.append("&code=" + code);
+			
+			// bufferedWriter에 저장함
+			bw.write(sb.toString());
+			// bufferdWriter에 있는 stringBuilder String을 메모리로 보내고 비워냄
+			bw.flush();
+			
+			int responseCode = conn.getResponseCode();
+			
+			logger.info("getKakaoAccessToken responseCode : " + responseCode);
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+			
+			String line = "";
+			String result = "";
+			
+			while( (line = br.readLine()) != null ) {
+				result += line;
+			}
+			
+			logger.info("getKakaoAccessToken responseBody : " + result);
+			
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(result);
+			JSONObject jsonObj = (JSONObject) obj;
+			
+			access_Token = (String)jsonObj.get("access_token");
+			refresh_Token = (String)jsonObj.get("refresh_Token");
+			
+			logger.info("getKakaoAccessToken access_Token : " + access_Token);
+			logger.info("getKakaoAccessToken refresh_Token : " + refresh_Token);
+			
+			// io객체 close
+			br.close();
+			bw.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return access_Token;
+	}
+	
+	public HashMap<String, Object> getKakaoUserInfo(String access_Token) {
+		logger.info("getKakaoUserInfo in >>> ");
+		
+		HashMap<String, Object> userInfo = new HashMap<String, Object>();
+		String reqUrl = "https://kapi.kakao.com/v2/user/me";
+		
+		try {
+			URL url = new URL(reqUrl);
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+			conn.setRequestMethod("GET");
+			
+			// 요청시 header에 포함되어야 하는 내용
+			conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+			
+			int responseCode = conn.getResponseCode();
+			logger.info("getKakaoUserInfo responseCode : " + responseCode);
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+			
+			String line = "";
+			String result = "";
+			
+			while( (line = br.readLine()) != null ) {
+				result += line;
+			}
+			
+			logger.info("getKakaoUserInfo responseBody : " + result);
+			
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(result);
+			JSONObject jsonObj = (JSONObject)obj;
+			
+			String id = jsonObj.get("id").toString(); //형변환 String방식은 에러?
+			
+			JSONObject properties = (JSONObject)jsonObj.get("properties");
+			JSONObject kakao_account = (JSONObject)jsonObj.get("kakao_account");
+			
+			logger.info("getKakaoUserInfo responseBody : " + kakao_account);
+			String accessToken = (String)properties.get("accessToken");
+			String nickname = (String)properties.get("nickname");
+			String email = (String)kakao_account.get("email");
+			
+			userInfo.put("accessToken" ,accessToken);
+			userInfo.put("nickname", nickname);
+			userInfo.put("email", email);
+			
+		} catch(Exception e) {
+			e.getMessage();
+		}
+		
+		return userInfo;
+	}
+	
+	
+	
+	
 	@RequestMapping("/logout_view")
 	public String logout_view() {
 		logger.info("logout_view >>>>");
@@ -225,7 +415,7 @@ public class EzenMiniController {
 			logger.info("processLogin result : logout");
 		}
 		
-		socialUrl(pmodel);
+		socialUrl(pmodel, session);
 		
 		model.setViewName("login_view");
 
@@ -235,7 +425,7 @@ public class EzenMiniController {
 	@RequestMapping("/Login")
 	public String Login(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
 		logger.info("Login in >>>");
-		socialUrl(model);
+		socialUrl(model, session);
 		return "login_view";
 	}
 	
