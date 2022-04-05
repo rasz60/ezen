@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collection;
@@ -326,7 +327,7 @@ public class EzenMiniController {
 
 		return access_Token;
 	}
-	
+
 	public HashMap<String, Object> getKakaoUserInfo(String access_Token) {
 		logger.info("getKakaoUserInfo in >>> ");
 		
@@ -381,8 +382,6 @@ public class EzenMiniController {
 	}
 	
 	
-	
-	
 	@RequestMapping("/logout_view")
 	public String logout_view() {
 		logger.info("logout_view >>>>");
@@ -421,6 +420,7 @@ public class EzenMiniController {
 
 		return model;
 	}
+	
 	
 	@RequestMapping("/Login")
 	public String Login(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
@@ -725,5 +725,72 @@ public class EzenMiniController {
 		public String contact() {
 			return "contact";
 		}
-	   
+
+		@RequestMapping("/util")
+		public String util() {
+			return "util";
+		}
+		
+		@RequestMapping("/sse")
+		public String sse() {
+			return "sseView";
+		}
+		
+		@RequestMapping("/seventEx")
+		public void seventEx(HttpServletRequest request, HttpServletResponse response) throws Exception {
+			response.setContentType("text/event-stream");
+			response.setCharacterEncoding("UTF-8");
+			
+			PrintWriter writer = response.getWriter();
+			
+			for( int i = 0; i < 20; i++ ) {
+				writer.write("data: " + System.currentTimeMillis() + "\n\n");
+				writer.flush();
+				
+				try {
+					// for문을 반복 수행하면서 1초씩 쉬었다가 다시 수행함
+					Thread.sleep(1000);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			writer.close();
+
+		}
+
+		@RequestMapping("/meventEx")
+		public void meventEx(HttpServletRequest request, HttpServletResponse response) throws Exception {
+			response.setContentType("text/event-stream");
+			response.setCharacterEncoding("UTF-8");
+			
+			PrintWriter writer = response.getWriter();
+			
+			int upVote = 0;
+			int downVote = 0;
+			
+			for( int i = 0; i < 20; i++ ) {
+				upVote += (int)(Math.random() * 10);
+				downVote += (int)(Math.random() * 10);
+				
+				writer.write("event: up_vote\n");
+				writer.write("data: " + upVote + "\n\n");
+				
+				writer.write("event: down_vote\n");
+				writer.write("data: " + downVote + "\n\n");
+				
+				writer.flush();
+				
+				try {
+					// for문을 반복 수행하면서 1초씩 쉬었다가 다시 수행함
+					Thread.sleep(1000);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			writer.close();
+
+		}
+
 }
