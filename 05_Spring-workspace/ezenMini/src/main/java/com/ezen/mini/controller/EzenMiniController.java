@@ -793,4 +793,9 @@ public class EzenMiniController {
 
 		}
 
+		@RequestMapping("/wstorage")
+		public String wstorage() {
+			return "wstorage_view";
+		}
+		
 }

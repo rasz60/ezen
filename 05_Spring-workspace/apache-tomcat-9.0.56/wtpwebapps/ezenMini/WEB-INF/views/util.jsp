@@ -27,8 +27,18 @@ html, body {
 }
 
 #main {
-	height: 0;
+	height: auto;
 }
+
+.tabs {
+	width: 100%;
+	text-align: center;
+}
+
+.tabs a {
+	width: 48%;
+}
+
 </style>
 </head>
 
@@ -37,7 +47,11 @@ html, body {
 <%@ include file="carousel.jsp" %>
 
 <div class="container mt-5 mb-5">
-	<a href="sse" id="sse" class="btn btn-primary">서버이벤트</a>
+	<div class="tabs">
+		<a href="sse" id="sse" class="btn btn-outline-primary">서버이벤트</a>
+		<a href="wstorage" id="wstorage" class="btn btn-outline-danger">웹 스토리지</a>
+	</div>
+	<hr />
 </div>
 
 <div id="main" class="container mb-5">
@@ -59,9 +73,24 @@ $('#sse').click(function(e) {
 			alert('서버이벤트 에러 발생');
 		}
 	})
-
-
 });
+
+
+$('#wstorage').click(function(e) {
+	e.preventDefault();
+	
+	$.ajax({
+		url: 'wstorage',
+		type: 'get',
+		success: function(data) {
+			$('#main').html(data);
+		},
+		error: function() {
+			alert('서버이벤트 에러 발생');
+		}
+	})
+});
+
 
 </script>
 

@@ -12,7 +12,7 @@
 	
 	<!-- security 인증에 대한 process를 정의해 둔 custom-class bean 설정 -->
 	<!-- id / password를 인증 처리하는 클래스 객체 -->
-	<beans:bean id="customUserDetailService" class="com.ezen.mini.security.CustomUserDetailsService" />
+	<beans:bean id="customUserDetailsService" class="com.ezen.mini.security.CustomUserDetailsService" />
 	
 	<!-- password를 암호화하는 클래스 객체 -->
 	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
@@ -103,7 +103,7 @@
 	
 	<!-- 외부 DB를 사용하는 인증 방식 -->
 	<authentication-manager>
-		<authentication-provider user-service-ref="customUserDetailService">
+		<authentication-provider user-service-ref="customUserDetailsService">
 			<password-encoder ref="passwordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
