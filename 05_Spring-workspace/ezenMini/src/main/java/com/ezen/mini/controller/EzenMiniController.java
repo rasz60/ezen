@@ -798,4 +798,8 @@ public class EzenMiniController {
 			return "wstorage_view";
 		}
 		
+		@RequestMapping("/wworker")
+		public String wworker() {
+			return "wworker_view";
+		}
 }

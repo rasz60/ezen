@@ -36,7 +36,7 @@ html, body {
 }
 
 .tabs a {
-	width: 48%;
+	width: 30%;
 }
 
 </style>
@@ -50,6 +50,7 @@ html, body {
 	<div class="tabs">
 		<a href="sse" id="sse" class="btn btn-outline-primary">서버이벤트</a>
 		<a href="wstorage" id="wstorage" class="btn btn-outline-danger">웹 스토리지</a>
+		<a href="wworker" id="wworker" class="btn btn-outline-info">워커 태스크</a>
 	</div>
 	<hr />
 </div>
@@ -86,7 +87,22 @@ $('#wstorage').click(function(e) {
 			$('#main').html(data);
 		},
 		error: function() {
-			alert('서버이벤트 에러 발생');
+			alert('스토리지 에러 발생');
+		}
+	})
+});
+
+$('#wworker').click(function(e) {
+	e.preventDefault();
+	
+	$.ajax({
+		url: 'wworker',
+		type: 'get',
+		success: function(data) {
+			$('#main').html(data);
+		},
+		error: function() {
+			alert('워커 태스크 에러 발생');
 		}
 	})
 });
