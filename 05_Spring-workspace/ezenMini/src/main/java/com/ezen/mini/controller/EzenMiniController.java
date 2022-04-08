@@ -802,4 +802,10 @@ public class EzenMiniController {
 		public String wworker() {
 			return "wworker_view";
 		}
+		
+		@RequestMapping("/fconvert")
+		public String fconvert() {
+			return "fconvert_view";
+		}
+		
 }

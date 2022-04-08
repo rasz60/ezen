@@ -36,7 +36,7 @@ html, body {
 }
 
 .tabs a {
-	width: 30%;
+	width: 24%;
 }
 
 </style>
@@ -51,6 +51,7 @@ html, body {
 		<a href="sse" id="sse" class="btn btn-outline-primary">서버이벤트</a>
 		<a href="wstorage" id="wstorage" class="btn btn-outline-danger">웹 스토리지</a>
 		<a href="wworker" id="wworker" class="btn btn-outline-info">워커 태스크</a>
+		<a href="fconvert" id="fconvert" class="btn btn-outline-success">파일 컨버터</a>
 	</div>
 	<hr />
 </div>
@@ -103,6 +104,21 @@ $('#wworker').click(function(e) {
 		},
 		error: function() {
 			alert('워커 태스크 에러 발생');
+		}
+	})
+});
+
+$('#fconvert').click(function(e) {
+	e.preventDefault();
+	
+	$.ajax({
+		url: 'fconvert',
+		type: 'get',
+		success: function(data) {
+			$('#main').html(data);
+		},
+		error: function() {
+			alert('파일 변환 에러 발생');
 		}
 	})
 });
